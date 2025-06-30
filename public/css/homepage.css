@@ -1,48 +1,78 @@
-
-/*navigation*/
-nav{
-    position: fixed;
-    width: 94%;
-    background-color: rgb(243, 241, 241);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-right: 100px;
-    box-shadow: 2px 2px 10px rgb(243, 241, 241);
-    z-index: 999;
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f8f9fb;
+  color: #222;
+  line-height: 1.6;
+}
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-nav img{
-    height: 15%;
-    width: 15%;
-    cursor: pointer;
+/* Navbar */
+.navbar {
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-    
-nav .navigation ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    padding-top: 20px;
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
 }
-
-nav .navigation ul li{
-    list-style: none;
-    margin-left: 30px;
-    
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2b6cb0;
 }
-
-nav .navigation ul li a{
-    text-decoration: none;
-    font-size: 25px;
-    color: rgb(0, 0, 0);
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
 }
-
-nav .navigation ul li a:hover{
-    color: rgb(20, 160, 20);
-
+.nav-links li a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: color 0.2s;
 }
-
+.nav-links li a:hover {
+  color: #2b6cb0;
+}
+.login-btn a {
+  background: #2b6cb0;
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.login-btn a:hover {
+  background: #225080;
+}
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #2b6cb0;
+  border-radius: 2px;
+}
 
 
 /*HOME*/

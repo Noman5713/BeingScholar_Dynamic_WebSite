@@ -69,9 +69,9 @@
       <input type="text" class="batch-search" placeholder="Course batch search..">
       <div class="batches-grid">
         <div class="batch-card">
-          <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&w=400" alt="SQA Batch">
+          <img src="{{ asset('images\Course_Banner\Java.png') }}" alt="Java Spring Boot">
           <div class="batch-info">
-            <h3>Certified Software Quality Assurance and Testing for Freshers</h3>
+            <h3>Professional Certification in Java Spring Boot and Web App Development</h3>
             <div class="batch-meta">
               <span class="batch-number">Batch 03</span>
               <span class="batch-date">Start <b>2025-07-12</b></span>
@@ -80,9 +80,9 @@
           </div>
         </div>
         <div class="batch-card">
-          <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&w=400" alt="NLP Batch">
+          <img src="{{ asset('images\Course_Banner\Data.png') }}" alt="Data Analytics">
           <div class="batch-info">
-            <h3>Machine Learning for Natural Language Processing</h3>
+            <h3> Applied Data Analytics Masterclass</h3>
             <div class="batch-meta">
               <span class="batch-number">Batch 08</span>
               <span class="batch-date">Start <b>2025-07-13</b></span>
@@ -91,22 +91,22 @@
           </div>
         </div>
         <div class="batch-card">
-          <img src="https://images.pexels.com/photos/256401/pexels-photo-256401.jpeg?auto=compress&w=400" alt="Python Batch">
+          <img src="{{ asset('images/Course_Banner/Mern.png') }}" alt="Mern Stack">
           <div class="batch-info">
-            <h3>AI Based Software Development With Python</h3>
+            <h3>Academia2Industry Mern Stack Launchpad</h3>
             <div class="batch-meta">
-              <span class="batch-number">Batch 05</span>
+              <span class="batch-number">Batch 02</span>
               <span class="batch-date">Start <b>2025-08-01</b></span>
             </div>
             <a href="#" class="enroll-btn"><span>&#128722;</span> Enroll Now</a>
           </div>
         </div>
         <div class="batch-card">
-          <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&w=400" alt="Web Dev Batch">
+          <img src="{{ asset('images\Course_Banner\ARVR.png') }}" alt="AR/VR and Gaming">
           <div class="batch-info">
-            <h3>Full Stack Web Development Bootcamp</h3>
+            <h3>Audio Engineering for AR/VR and Gaming</h3>
             <div class="batch-meta">
-              <span class="batch-number">Batch 10</span>
+              <span class="batch-number">Batch 1</span>
               <span class="batch-date">Start <b>2025-08-15</b></span>
             </div>
             <a href="#" class="enroll-btn"><span>&#128722;</span> Enroll Now</a>

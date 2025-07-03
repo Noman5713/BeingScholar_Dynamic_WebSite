@@ -249,8 +249,8 @@ body {
   border-color: #1976d2;
 }
 .batch-card img {
-  width: 140px;
-  height: 90px;
+  width: 220px;
+  height: 200px;
   object-fit: cover;
   border-radius: 10px;
   background: #e3eaf2;

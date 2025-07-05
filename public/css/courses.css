@@ -1,0 +1,334 @@
+/* Courses Page Specific Styles */
+
+/* Active navigation link */
+.nav-links li a.active {
+    color: #2b6cb0;
+    font-weight: 600;
+}
+
+/* Courses Header Section */
+.courses-header {
+    background: linear-gradient(135deg, #072b53 0%, #1976d2 100%);
+    color: #fff;
+    padding: 4rem 0 3rem 0;
+    text-align: center;
+}
+
+.courses-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.courses-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #e3eaf7;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+.courses-search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.course-search-input {
+    flex: 1;
+    padding: 12px 18px;
+    border: 2px solid #4fc3f7;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.course-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.course-search-input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
+}
+
+.search-btn {
+    background: #4fc3f7;
+    color: #072b53;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-btn:hover {
+    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Courses Section */
+.courses-section {
+    background: #f8f9fb;
+    padding: 4rem 0;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Course Card Styles */
+.course-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid #e3eaf2;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(25, 118, 210, 0.15);
+    border-color: #1976d2;
+}
+
+.course-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.course-card:hover .course-image img {
+    transform: scale(1.05);
+}
+
+.course-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #ff4757;
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.course-badge:contains("New") {
+    background: #2ed573;
+}
+
+.course-meta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: 20px 16px 12px 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.batch-info, .seats-info, .days-info {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.course-info {
+    padding: 1.5rem;
+}
+
+.course-info h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #14213d;
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+    min-height: 3.4rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.course-description {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    min-height: 2.8rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.course-price {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.old-price {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 0.9rem;
+}
+
+.new-price {
+    color: #1976d2;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.course-btn {
+    display: inline-block;
+    background: #1976d2;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    text-align: center;
+    width: 100%;
+}
+
+.course-btn:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .courses-title {
+        font-size: 2.5rem;
+    }
+    
+    .courses-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .courses-search {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .course-search-input,
+    .search-btn {
+        width: 100%;
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .course-card {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .courses-header {
+        padding: 3rem 0 2rem 0;
+    }
+    
+    .courses-title {
+        font-size: 2rem;
+    }
+    
+    .courses-subtitle {
+        font-size: 1rem;
+    }
+    
+    .courses-section {
+        padding: 2rem 0;
+    }
+    
+    .course-info {
+        padding: 1rem;
+    }
+    
+    .course-info h3 {
+        font-size: 1.1rem;
+        min-height: auto;
+    }
+    
+    .course-description {
+        font-size: 0.9rem;
+        min-height: auto;
+    }
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: #fff;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 2rem;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        margin: 1rem 0;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+} 

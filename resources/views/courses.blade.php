@@ -49,7 +49,7 @@
                 <!-- Course 1 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/256401/pexels-photo-256401.jpeg?auto=compress&w=400" alt="AI Python Course">
+                        <img src="{{ asset('images/Course_Card_Banner/a.png') }}" alt="AI Python Course">
                         <div class="course-badge">32% OFF</div>
                     </div>
                     <div class="course-info">
@@ -73,7 +73,7 @@
                 <!-- Course 2 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&w=400" alt="Deep Learning Course">
+                        <img src="{{ asset('images/Course_Card_Banner/b.png') }}" alt="Deep Learning Course">
                         <div class="course-badge">33% OFF</div>
                     </div>
                     <div class="course-info">
@@ -97,7 +97,7 @@
                 <!-- Course 3 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&w=400" alt="Data Structures Course">
+                        <img src="{{ asset('images/Course_Card_Banner/c.png') }}" alt="Data Structures Course">
                         <div class="course-badge">New</div>
                     </div>
                     <div class="course-info">
@@ -119,7 +119,7 @@
                 <!-- Course 4 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&w=400" alt="NLP Course">
+                        <img src="{{ asset('images/Course_Card_Banner/d.png') }}" alt="NLP Course">
                         <div class="course-badge">33% OFF</div>
                     </div>
                     <div class="course-info">
@@ -143,7 +143,7 @@
                 <!-- Course 5 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181678/pexels-photo-1181678.jpeg?auto=compress&w=400" alt="ML Theory Course">
+                        <img src="{{ asset('images/Course_Card_Banner/e.png') }}" alt="ML Theory Course">
                         <div class="course-badge">80% OFF</div>
                     </div>
                     <div class="course-info">
@@ -166,7 +166,7 @@
                 <!-- Course 6 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&w=400" alt="Reinforcement Learning Course">
+                        <img src="{{ asset('images/Course_Card_Banner/f.png') }}" alt="Reinforcement Learning Course">
                         <div class="course-badge">40% OFF</div>
                     </div>
                     <div class="course-info">
@@ -190,7 +190,7 @@
                 <!-- Course 7 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181680/pexels-photo-1181680.jpeg?auto=compress&w=400" alt="Pandas Course">
+                        <img src="{{ asset('images/Course_Card_Banner/g.png') }}" alt="Pandas Course">
                         <div class="course-badge">50% OFF</div>
                     </div>
                     <div class="course-info">
@@ -213,7 +213,7 @@
                 <!-- Course 8 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&w=400" alt="Python OOP Course">
+                        <img src="{{ asset('images/Course_Card_Banner/h.png') }}" alt="Python OOP Course">
                         <div class="course-badge">New</div>
                     </div>
                     <div class="course-info">
@@ -235,7 +235,7 @@
                 <!-- Course 9 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181682/pexels-photo-1181682.jpeg?auto=compress&w=400" alt="JavaScript Course">
+                        <img src="{{ asset('images/Course_Card_Banner/i.png') }}" alt="JavaScript Course">
                         <div class="course-badge">New</div>
                     </div>
                     <div class="course-info">
@@ -257,7 +257,7 @@
                 <!-- Course 10 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181684/pexels-photo-1181684.jpeg?auto=compress&w=400" alt="System Design Course">
+                        <img src="{{ asset('images/Course_Card_Banner/j.png') }}" alt="System Design Course">
                         <div class="course-badge">50% OFF</div>
                     </div>
                     <div class="course-info">
@@ -274,14 +274,14 @@
                             <span class="old-price">৳7000</span>
                             <span class="new-price">৳3500</span>
                         </div>
-                        <button class="course-btn toggle-details" data-course="11">View Details</button>
+                        <button class="course-btn toggle-details" data-course="10">View Details</button>
                     </div>
                 </div>
 
                 <!-- Course 11 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181685/pexels-photo-1181685.jpeg?auto=compress&w=400" alt="AI Product Course">
+                        <img src="{{ asset('images/Course_Card_Banner/k.png') }}" alt="AI Product Course">
                         <div class="course-badge">New</div>
                     </div>
                     <div class="course-info">
@@ -297,14 +297,14 @@
                         <div class="course-price">
                             <span class="new-price">৳7500</span>
                         </div>
-                        <button class="course-btn toggle-details" data-course="12">View Details</button>
+                        <button class="course-btn toggle-details" data-course="11">View Details</button>
                     </div>
                 </div>
 
                 <!-- Course 12 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&w=400" alt="Data Analytics Course">
+                        <img src="{{ asset('images/Course_Card_Banner/l.png') }}" alt="Data Analytics Course">
                         <div class="course-badge">40% OFF</div>
                     </div>
                     <div class="course-info">
@@ -321,79 +321,7 @@
                             <span class="old-price">৳7500</span>
                             <span class="new-price">৳4500</span>
                         </div>
-                        <button class="course-btn toggle-details" data-course="13">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Course 13 -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181687/pexels-photo-1181687.jpeg?auto=compress&w=400" alt="Scholarship Course">
-                        <div class="course-badge">40% OFF</div>
-                    </div>
-                    <div class="course-info">
-                        <h3>How to Get Full Fund Scholarship for Higher Study</h3>
-                        <div class="course-tags">
-                            <span class="tag batch-tag">Batch 1</span>
-                            <span class="tag seats-tag">100 seats remaining</span>
-                            <span class="tag days-tag">110 days remaining</span>
-                        </div>
-                        <div class="course-details">
-                            <p class="course-description">Complete guide to securing full-funded scholarships for international higher education opportunities.</p>
-                        </div>
-                        <div class="course-price">
-                            <span class="old-price">৳900</span>
-                            <span class="new-price">৳540</span>
-                        </div>
-                        <button class="course-btn toggle-details" data-course="14">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Course 14 -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181688/pexels-photo-1181688.jpeg?auto=compress&w=400" alt="Chatbot Course">
-                        <div class="course-badge">40% OFF</div>
-                    </div>
-                    <div class="course-info">
-                        <h3>Build your AI agent Chatbot with Langchain Framework</h3>
-                        <div class="course-tags">
-                            <span class="tag batch-tag">Batch 1</span>
-                            <span class="tag seats-tag">100 seats remaining</span>
-                            <span class="tag days-tag">110 days remaining</span>
-                        </div>
-                        <div class="course-details">
-                            <p class="course-description">Create intelligent chatbots using Langchain framework and modern AI technologies.</p>
-                        </div>
-                        <div class="course-price">
-                            <span class="old-price">৳1200</span>
-                            <span class="new-price">৳720</span>
-                        </div>
-                        <button class="course-btn toggle-details" data-course="15">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Course 15 -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181689/pexels-photo-1181689.jpeg?auto=compress&w=400" alt="Kids Programming Course">
-                        <div class="course-badge">16% OFF</div>
-                    </div>
-                    <div class="course-info">
-                        <h3>Programming for kids (Level-1) - One to One mentorship</h3>
-                        <div class="course-tags">
-                            <span class="tag batch-tag">Batch 1</span>
-                            <span class="tag seats-tag">15 seats remaining</span>
-                            <span class="tag days-tag">57 days remaining</span>
-                        </div>
-                        <div class="course-details">
-                            <p class="course-description">Personalized programming education for children with one-on-one mentorship and guidance.</p>
-                        </div>
-                        <div class="course-price">
-                            <span class="old-price">৳42000</span>
-                            <span class="new-price">৳35280</span>
-                        </div>
-                        <button class="course-btn toggle-details" data-course="16">View Details</button>
+                        <button class="course-btn toggle-details" data-course="12">View Details</button>
                     </div>
                 </div>
             </div>

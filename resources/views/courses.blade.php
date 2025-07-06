@@ -51,20 +51,22 @@
                     <div class="course-image">
                         <img src="https://images.pexels.com/photos/256401/pexels-photo-256401.jpeg?auto=compress&w=400" alt="AI Python Course">
                         <div class="course-badge">32% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 9</span>
-                            <span class="seats-info">100 seats remaining</span>
-                            <span class="days-info">56 days remaining</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>AI Based Software Development With Python</h3>
-                        <p class="course-description">Master AI development with Python. Learn machine learning, deep learning, and build intelligent applications.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 9</span>
+                            <span class="tag seats-tag">100 seats remaining</span>
+                            <span class="tag days-tag">56 days remaining</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Master AI development with Python. Learn machine learning, deep learning, and build intelligent applications.</p>
+                        </div>
                         <div class="course-price">
                             <span class="old-price">৳7500</span>
                             <span class="new-price">৳5100</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="1">View Details</button>
                     </div>
                 </div>
 
@@ -73,20 +75,22 @@
                     <div class="course-image">
                         <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&w=400" alt="Deep Learning Course">
                         <div class="course-badge">33% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 7</span>
-                            <span class="seats-info">100 seats remaining</span>
-                            <span class="days-info">65 days remaining</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>Deep Learning with Computer Vision</h3>
-                        <p class="course-description">Explore computer vision with deep learning. Build image recognition and object detection systems.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 7</span>
+                            <span class="tag seats-tag">100 seats remaining</span>
+                            <span class="tag days-tag">65 days remaining</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Explore computer vision with deep learning. Build image recognition and object detection systems.</p>
+                        </div>
                         <div class="course-price">
                             <span class="old-price">৳6000</span>
                             <span class="new-price">৳4020</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="2">View Details</button>
                     </div>
                 </div>
 
@@ -95,18 +99,20 @@
                     <div class="course-image">
                         <img src="https://images.pexels.com/photos/1181676/pexels-photo-1181676.jpeg?auto=compress&w=400" alt="Data Structures Course">
                         <div class="course-badge">New</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">Pre-recorded</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>Data Structure and Algorithm with Leetcode Exercise</h3>
-                        <p class="course-description">Master data structures and algorithms with hands-on Leetcode practice for interview preparation.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag type-tag">Pre-recorded</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Master data structures and algorithms with hands-on Leetcode practice for interview preparation.</p>
+                        </div>
                         <div class="course-price">
                             <span class="new-price">৳1100</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="3">View Details</button>
                     </div>
                 </div>
 
@@ -115,20 +121,22 @@
                     <div class="course-image">
                         <img src="https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&w=400" alt="NLP Course">
                         <div class="course-badge">33% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 8</span>
-                            <span class="seats-info">100 seats remaining</span>
-                            <span class="days-info">8 days remaining</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>Machine Learning for Natural Language Processing</h3>
-                        <p class="course-description">Learn NLP techniques and build intelligent text processing and language understanding systems.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 8</span>
+                            <span class="tag seats-tag">100 seats remaining</span>
+                            <span class="tag days-tag">8 days remaining</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Learn NLP techniques and build intelligent text processing and language understanding systems.</p>
+                        </div>
                         <div class="course-price">
                             <span class="old-price">৳6000</span>
                             <span class="new-price">৳4020</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="4">View Details</button>
                     </div>
                 </div>
 
@@ -137,19 +145,21 @@
                     <div class="course-image">
                         <img src="https://images.pexels.com/photos/1181678/pexels-photo-1181678.jpeg?auto=compress&w=400" alt="ML Theory Course">
                         <div class="course-badge">80% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">Pre-recorded</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>Theory of Machine Learning (A-Z in Bangla)</h3>
-                        <p class="course-description">Complete machine learning theory explained in Bangla. Perfect for beginners and intermediate learners.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag type-tag">Pre-recorded</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Complete machine learning theory explained in Bangla. Perfect for beginners and intermediate learners.</p>
+                        </div>
                         <div class="course-price">
                             <span class="old-price">৳3000</span>
                             <span class="new-price">৳600</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="5">View Details</button>
                     </div>
                 </div>
 
@@ -158,20 +168,22 @@
                     <div class="course-image">
                         <img src="https://images.pexels.com/photos/1181679/pexels-photo-1181679.jpeg?auto=compress&w=400" alt="Reinforcement Learning Course">
                         <div class="course-badge">40% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">75 seats remaining</span>
-                            <span class="days-info">246 days remaining</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>Deep Reinforcement Learning For Research</h3>
-                        <p class="course-description">Advanced reinforcement learning techniques for research and development in AI systems.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag seats-tag">75 seats remaining</span>
+                            <span class="tag days-tag">246 days remaining</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Advanced reinforcement learning techniques for research and development in AI systems.</p>
+                        </div>
                         <div class="course-price">
                             <span class="old-price">৳3000</span>
                             <span class="new-price">৳1800</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="6">View Details</button>
                     </div>
                 </div>
 
@@ -180,19 +192,21 @@
                     <div class="course-image">
                         <img src="https://images.pexels.com/photos/1181680/pexels-photo-1181680.jpeg?auto=compress&w=400" alt="Pandas Course">
                         <div class="course-badge">50% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">Pre-recorded</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>Pandas in Python (A-Z in Bangla)</h3>
-                        <p class="course-description">Complete Pandas library tutorial in Bangla. Master data manipulation and analysis with Python.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag type-tag">Pre-recorded</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Complete Pandas library tutorial in Bangla. Master data manipulation and analysis with Python.</p>
+                        </div>
                         <div class="course-price">
                             <span class="old-price">৳2000</span>
                             <span class="new-price">৳1000</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="7">View Details</button>
                     </div>
                 </div>
 
@@ -201,18 +215,20 @@
                     <div class="course-image">
                         <img src="https://images.pexels.com/photos/1181681/pexels-photo-1181681.jpeg?auto=compress&w=400" alt="Python OOP Course">
                         <div class="course-badge">New</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">Pre-recorded</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>Python Fundamentals with Object Oriented Programming</h3>
-                        <p class="course-description">Learn Python from basics to advanced OOP concepts. Perfect for beginners and intermediate developers.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag type-tag">Pre-recorded</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Learn Python from basics to advanced OOP concepts. Perfect for beginners and intermediate developers.</p>
+                        </div>
                         <div class="course-price">
                             <span class="new-price">৳1000</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="8">View Details</button>
                     </div>
                 </div>
 
@@ -221,255 +237,163 @@
                     <div class="course-image">
                         <img src="https://images.pexels.com/photos/1181682/pexels-photo-1181682.jpeg?auto=compress&w=400" alt="JavaScript Course">
                         <div class="course-badge">New</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">Pre-recorded</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>JavaScript for New Developer</h3>
-                        <p class="course-description">Complete JavaScript course for beginners. Learn modern JavaScript and web development fundamentals.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag type-tag">Pre-recorded</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Complete JavaScript course for beginners. Learn modern JavaScript and web development fundamentals.</p>
+                        </div>
                         <div class="course-price">
                             <span class="new-price">৳1000</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="9">View Details</button>
                     </div>
                 </div>
 
                 <!-- Course 10 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181683/pexels-photo-1181683.jpeg?auto=compress&w=400" alt="React Course">
-                        <div class="course-badge">40% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">386 days remaining</span>
-                        </div>
+                        <img src="https://images.pexels.com/photos/1181684/pexels-photo-1181684.jpeg?auto=compress&w=400" alt="System Design Course">
+                        <div class="course-badge">50% OFF</div>
                     </div>
                     <div class="course-info">
-                        <h3>React JS (A-Z) For Backend Developer</h3>
-                        <p class="course-description">Complete React.js course designed specifically for backend developers transitioning to full-stack.</p>
-                        <div class="course-price">
-                            <span class="old-price">৳5000</span>
-                            <span class="new-price">৳3000</span>
+                        <h3>System Design Software Developer - 01</h3>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag seats-tag">49 seats remaining</span>
+                            <span class="tag days-tag">266 days remaining</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <div class="course-details">
+                            <p class="course-description">Master system design principles and architecture patterns for scalable software development.</p>
+                        </div>
+                        <div class="course-price">
+                            <span class="old-price">৳7000</span>
+                            <span class="new-price">৳3500</span>
+                        </div>
+                        <button class="course-btn toggle-details" data-course="11">View Details</button>
                     </div>
                 </div>
 
                 <!-- Course 11 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181684/pexels-photo-1181684.jpeg?auto=compress&w=400" alt="System Design Course">
-                        <div class="course-badge">50% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">49 seats remaining</span>
-                            <span class="days-info">266 days remaining</span>
-                        </div>
+                        <img src="https://images.pexels.com/photos/1181685/pexels-photo-1181685.jpeg?auto=compress&w=400" alt="AI Product Course">
+                        <div class="course-badge">New</div>
                     </div>
                     <div class="course-info">
-                        <h3>System Design Software Developer - 01</h3>
-                        <p class="course-description">Master system design principles and architecture patterns for scalable software development.</p>
-                        <div class="course-price">
-                            <span class="old-price">৳7000</span>
-                            <span class="new-price">৳3500</span>
+                        <h3>End to End AI Product Development for Fresher</h3>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag seats-tag">50 seats remaining</span>
+                            <span class="tag days-tag">132 days remaining</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <div class="course-details">
+                            <p class="course-description">Complete AI product development journey from concept to deployment for fresh graduates.</p>
+                        </div>
+                        <div class="course-price">
+                            <span class="new-price">৳7500</span>
+                        </div>
+                        <button class="course-btn toggle-details" data-course="12">View Details</button>
                     </div>
                 </div>
 
                 <!-- Course 12 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181685/pexels-photo-1181685.jpeg?auto=compress&w=400" alt="AI Product Course">
-                        <div class="course-badge">New</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">50 seats remaining</span>
-                            <span class="days-info">132 days remaining</span>
-                        </div>
+                        <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&w=400" alt="Data Analytics Course">
+                        <div class="course-badge">40% OFF</div>
                     </div>
                     <div class="course-info">
-                        <h3>End to End AI Product Development for Fresher</h3>
-                        <p class="course-description">Complete AI product development journey from concept to deployment for fresh graduates.</p>
-                        <div class="course-price">
-                            <span class="new-price">৳7500</span>
+                        <h3>Data Analytics With Machine Learning</h3>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 2</span>
+                            <span class="tag seats-tag">50 seats remaining</span>
+                            <span class="tag days-tag">5 days remaining</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <div class="course-details">
+                            <p class="course-description">Combine data analytics with machine learning to extract insights and build predictive models.</p>
+                        </div>
+                        <div class="course-price">
+                            <span class="old-price">৳7500</span>
+                            <span class="new-price">৳4500</span>
+                        </div>
+                        <button class="course-btn toggle-details" data-course="13">View Details</button>
                     </div>
                 </div>
 
                 <!-- Course 13 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&w=400" alt="Data Analytics Course">
+                        <img src="https://images.pexels.com/photos/1181687/pexels-photo-1181687.jpeg?auto=compress&w=400" alt="Scholarship Course">
                         <div class="course-badge">40% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 2</span>
-                            <span class="seats-info">50 seats remaining</span>
-                            <span class="days-info">5 days remaining</span>
-                        </div>
                     </div>
                     <div class="course-info">
-                        <h3>Data Analytics With Machine Learning</h3>
-                        <p class="course-description">Combine data analytics with machine learning to extract insights and build predictive models.</p>
-                        <div class="course-price">
-                            <span class="old-price">৳7500</span>
-                            <span class="new-price">৳4500</span>
+                        <h3>How to Get Full Fund Scholarship for Higher Study</h3>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag seats-tag">100 seats remaining</span>
+                            <span class="tag days-tag">110 days remaining</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <div class="course-details">
+                            <p class="course-description">Complete guide to securing full-funded scholarships for international higher education opportunities.</p>
+                        </div>
+                        <div class="course-price">
+                            <span class="old-price">৳900</span>
+                            <span class="new-price">৳540</span>
+                        </div>
+                        <button class="course-btn toggle-details" data-course="14">View Details</button>
                     </div>
                 </div>
 
                 <!-- Course 14 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181687/pexels-photo-1181687.jpeg?auto=compress&w=400" alt="Scholarship Course">
+                        <img src="https://images.pexels.com/photos/1181688/pexels-photo-1181688.jpeg?auto=compress&w=400" alt="Chatbot Course">
                         <div class="course-badge">40% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">100 seats remaining</span>
-                            <span class="days-info">110 days remaining</span>
-                        </div>
                     </div>
                     <div class="course-info">
-                        <h3>How to Get Full Fund Scholarship for Higher Study</h3>
-                        <p class="course-description">Complete guide to securing full-funded scholarships for international higher education opportunities.</p>
-                        <div class="course-price">
-                            <span class="old-price">৳900</span>
-                            <span class="new-price">৳540</span>
+                        <h3>Build your AI agent Chatbot with Langchain Framework</h3>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag seats-tag">100 seats remaining</span>
+                            <span class="tag days-tag">110 days remaining</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <div class="course-details">
+                            <p class="course-description">Create intelligent chatbots using Langchain framework and modern AI technologies.</p>
+                        </div>
+                        <div class="course-price">
+                            <span class="old-price">৳1200</span>
+                            <span class="new-price">৳720</span>
+                        </div>
+                        <button class="course-btn toggle-details" data-course="15">View Details</button>
                     </div>
                 </div>
 
                 <!-- Course 15 -->
                 <div class="course-card">
                     <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181688/pexels-photo-1181688.jpeg?auto=compress&w=400" alt="Chatbot Course">
-                        <div class="course-badge">40% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">100 seats remaining</span>
-                            <span class="days-info">110 days remaining</span>
-                        </div>
-                    </div>
-                    <div class="course-info">
-                        <h3>Build your AI agent Chatbot with Langchain Framework</h3>
-                        <p class="course-description">Create intelligent chatbots using Langchain framework and modern AI technologies.</p>
-                        <div class="course-price">
-                            <span class="old-price">৳1200</span>
-                            <span class="new-price">৳720</span>
-                        </div>
-                        <a href="#" class="course-btn">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Course 16 -->
-                <div class="course-card">
-                    <div class="course-image">
                         <img src="https://images.pexels.com/photos/1181689/pexels-photo-1181689.jpeg?auto=compress&w=400" alt="Kids Programming Course">
                         <div class="course-badge">16% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">15 seats remaining</span>
-                            <span class="days-info">57 days remaining</span>
-                        </div>
                     </div>
                     <div class="course-info">
                         <h3>Programming for kids (Level-1) - One to One mentorship</h3>
-                        <p class="course-description">Personalized programming education for children with one-on-one mentorship and guidance.</p>
+                        <div class="course-tags">
+                            <span class="tag batch-tag">Batch 1</span>
+                            <span class="tag seats-tag">15 seats remaining</span>
+                            <span class="tag days-tag">57 days remaining</span>
+                        </div>
+                        <div class="course-details">
+                            <p class="course-description">Personalized programming education for children with one-on-one mentorship and guidance.</p>
+                        </div>
                         <div class="course-price">
                             <span class="old-price">৳42000</span>
                             <span class="new-price">৳35280</span>
                         </div>
-                        <a href="#" class="course-btn">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Course 17 -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&w=400" alt="Problem Solving Course">
-                        <div class="course-badge">New</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">Pre-recorded</span>
-                        </div>
-                    </div>
-                    <div class="course-info">
-                        <h3>Problem Solving for Interview Preparation</h3>
-                        <p class="course-description">Master problem-solving techniques and strategies for technical interview success.</p>
-                        <div class="course-price">
-                            <span class="new-price">৳1200</span>
-                        </div>
-                        <a href="#" class="course-btn">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Course 18 -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181691/pexels-photo-1181691.jpeg?auto=compress&w=400" alt="Backend AI Course">
-                        <div class="course-badge">40% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">25 seats remaining</span>
-                            <span class="days-info">5 days remaining</span>
-                        </div>
-                    </div>
-                    <div class="course-info">
-                        <h3>Backend AI Development Bootcamp (Offline)</h3>
-                        <p class="course-description">Intensive offline bootcamp for backend AI development with hands-on projects and mentorship.</p>
-                        <div class="course-price">
-                            <span class="old-price">৳25000</span>
-                            <span class="new-price">৳15000</span>
-                        </div>
-                        <a href="#" class="course-btn">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Course 19 -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181692/pexels-photo-1181692.jpeg?auto=compress&w=400" alt="Mobile App Course">
-                        <div class="course-badge">New</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">50 seats remaining</span>
-                            <span class="days-info">30 days remaining</span>
-                        </div>
-                    </div>
-                    <div class="course-info">
-                        <h3>Mobile App Development with Flutter</h3>
-                        <p class="course-description">Build cross-platform mobile applications using Flutter framework and Dart programming language.</p>
-                        <div class="course-price">
-                            <span class="new-price">৳8000</span>
-                        </div>
-                        <a href="#" class="course-btn">View Details</a>
-                    </div>
-                </div>
-
-                <!-- Course 20 -->
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="https://images.pexels.com/photos/1181693/pexels-photo-1181693.jpeg?auto=compress&w=400" alt="Blockchain Course">
-                        <div class="course-badge">25% OFF</div>
-                        <div class="course-meta">
-                            <span class="batch-info">Batch 1</span>
-                            <span class="seats-info">40 seats remaining</span>
-                            <span class="days-info">45 days remaining</span>
-                        </div>
-                    </div>
-                    <div class="course-info">
-                        <h3>Blockchain and Smart Contract Development</h3>
-                        <p class="course-description">Learn blockchain technology and develop smart contracts for decentralized applications.</p>
-                        <div class="course-price">
-                            <span class="old-price">৳12000</span>
-                            <span class="new-price">৳9000</span>
-                        </div>
-                        <a href="#" class="course-btn">View Details</a>
+                        <button class="course-btn toggle-details" data-course="16">View Details</button>
                     </div>
                 </div>
             </div>
@@ -504,6 +428,48 @@
             if (e.key === 'Enter') {
                 document.querySelector('.search-btn').click();
             }
+        });
+
+        // Toggle course details functionality
+        document.querySelectorAll('.toggle-details').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Get the specific card that was clicked
+                const courseCard = this.closest('.course-card');
+                const courseTags = courseCard.querySelector('.course-tags');
+                const courseDetails = courseCard.querySelector('.course-details');
+                const isExpanded = courseCard.classList.contains('expanded');
+                
+                // First, collapse all other cards
+                document.querySelectorAll('.course-card').forEach(card => {
+                    if (card !== courseCard) {
+                        card.classList.remove('expanded');
+                        const otherTags = card.querySelector('.course-tags');
+                        const otherDetails = card.querySelector('.course-details');
+                        const otherButton = card.querySelector('.toggle-details');
+                        
+                        if (otherTags) otherTags.style.maxHeight = '0';
+                        if (otherDetails) otherDetails.style.maxHeight = '0';
+                        if (otherButton) otherButton.textContent = 'View Details';
+                    }
+                });
+                
+                if (isExpanded) {
+                    // Collapse this card
+                    courseCard.classList.remove('expanded');
+                    courseTags.style.maxHeight = '0';
+                    courseDetails.style.maxHeight = '0';
+                    this.textContent = 'View Details';
+                } else {
+                    // Expand this card
+                    courseCard.classList.add('expanded');
+                    courseTags.style.maxHeight = courseTags.scrollHeight + 'px';
+                    courseDetails.style.maxHeight = courseDetails.scrollHeight + 'px';
+                    this.textContent = 'Hide Details';
+                }
+            });
         });
     </script>
 </body>

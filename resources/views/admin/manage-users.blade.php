@@ -28,6 +28,48 @@
             background: #f8f9fa;
             min-height: 100vh;
         }
+        .search-filters {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .filter-group {
+            margin-bottom: 15px;
+        }
+        .search-input {
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            padding: 8px 12px;
+            transition: border-color 0.3s ease;
+        }
+        .search-input:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        }
+        .filter-select {
+            border: 2px solid #e9ecef;
+            border-radius: 6px;
+            padding: 8px 12px;
+            transition: border-color 0.3s ease;
+        }
+        .filter-select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        }
+        .clear-filters {
+            background: #6c757d;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .clear-filters:hover {
+            background: #5a6268;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -80,9 +122,48 @@
                     </div>
                 @endif
 
+                <div class="search-filters">
+                    <form method="GET" action="{{ route('admin.users') }}" class="row g-3">
+                        <div class="col-md-4">
+                            <label for="search" class="form-label">Search Users</label>
+                            <input type="text" class="form-control search-input" id="search" name="search" 
+                                   placeholder="Search by name or email..." value="{{ request('search') }}">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="role_filter" class="form-label">Filter by Role</label>
+                            <select class="form-select filter-select" id="role_filter" name="role_filter">
+                                <option value="">All Roles</option>
+                                <option value="student" {{ request('role_filter') === 'student' ? 'selected' : '' }}>Student</option>
+                                <option value="admin" {{ request('role_filter') === 'admin' ? 'selected' : '' }}>Admin</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="status_filter" class="form-label">Filter by Status</label>
+                            <select class="form-select filter-select" id="status_filter" name="status_filter">
+                                <option value="">All Status</option>
+                                <option value="active" {{ request('status_filter') === 'active' ? 'selected' : '' }}>Active</option>
+                                <option value="pending" {{ request('status_filter') === 'pending' ? 'selected' : '' }}>Pending</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <div class="d-grid gap-2 w-100">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-search me-1"></i>Search
+                                </button>
+                                @if(request('search') || request('role_filter') || request('status_filter'))
+                                    <a href="{{ route('admin.users') }}" class="btn clear-filters">
+                                        <i class="fas fa-times me-1"></i>Clear
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header d-flex justify-content-between align-items-center">
                         <h5 class="card-title mb-0">All Users</h5>
+                        <span class="badge bg-primary">{{ $users->total() }} total users</span>
                     </div>
                     <div class="card-body">
                         @if($users->count() > 0)
@@ -145,7 +226,13 @@
                             <div class="text-center py-4">
                                 <i class="fas fa-users fa-3x text-muted mb-3"></i>
                                 <h5 class="text-muted">No users found</h5>
-                                <p class="text-muted">Users will appear here once they register.</p>
+                                <p class="text-muted">
+                                    @if(request('search') || request('role_filter') || request('status_filter'))
+                                        No users match your current search criteria. Try adjusting your filters.
+                                    @else
+                                        Users will appear here once they register.
+                                    @endif
+                                </p>
                             </div>
                         @endif
                     </div>

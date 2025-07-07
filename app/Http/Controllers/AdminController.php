@@ -19,9 +19,32 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('totalUsers', 'totalCourses', 'activeCourses', 'recentUsers', 'recentCourses'));
     }
 
-    public function manageUsers()
+    public function manageUsers(Request $request)
     {
-        $users = User::latest()->paginate(10);
+        $query = User::query();
+
+        if ($request->filled('search')) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%");
+            });
+        }
+
+        if ($request->filled('role_filter')) {
+            $query->where('role', $request->role_filter);
+        }
+
+        if ($request->filled('status_filter')) {
+            if ($request->status_filter === 'active') {
+                $query->whereNotNull('email_verified_at');
+            } else {
+                $query->whereNull('email_verified_at');
+            }
+        }
+
+        $users = $query->latest()->paginate(10)->withQueryString();
+        
         return view('admin.manage-users', compact('users'));
     }
 

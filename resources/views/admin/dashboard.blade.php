@@ -38,6 +38,44 @@
         .stat-card.users { border-left-color: #e74c3c; }
         .stat-card.courses { border-left-color: #2ecc71; }
         .stat-card.active { border-left-color: #f39c12; }
+        .quick-action-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+        .quick-action-card:hover {
+            transform: translateY(-2px);
+        }
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .notification-dropdown {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .notification-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+        .notification-item.unread {
+            background: #f8f9fa;
+        }
     </style>
 </head>
 <body>
@@ -78,6 +116,44 @@
                     <div class="btn-toolbar mb-2 mb-md-0">
                         <div class="btn-group me-2">
                             <span class="btn btn-sm btn-outline-secondary">{{ date('F j, Y') }}</span>
+                        </div>
+                        <div class="dropdown me-2">
+                            <button class="btn btn-sm btn-outline-primary position-relative" type="button" data-bs-toggle="dropdown">
+                                <i class="fas fa-bell me-1"></i>Notifications
+                                <span class="notification-badge">3</span>
+                            </button>
+                            <ul class="dropdown-menu notification-dropdown" style="width: 300px;">
+                                <li><h6 class="dropdown-header">Recent Notifications</h6></li>
+                                <li><a class="dropdown-item notification-item unread" href="#">
+                                    <div class="d-flex">
+                                        <i class="fas fa-user-plus text-success me-2"></i>
+                                        <div>
+                                            <strong>New User Registered</strong>
+                                            <br><small class="text-muted">John Doe joined 2 minutes ago</small>
+                                        </div>
+                                    </div>
+                                </a></li>
+                                <li><a class="dropdown-item notification-item unread" href="#">
+                                    <div class="d-flex">
+                                        <i class="fas fa-book text-primary me-2"></i>
+                                        <div>
+                                            <strong>New Course Added</strong>
+                                            <br><small class="text-muted">AI Course created 5 minutes ago</small>
+                                        </div>
+                                    </div>
+                                </a></li>
+                                <li><a class="dropdown-item notification-item" href="#">
+                                    <div class="d-flex">
+                                        <i class="fas fa-exclamation-triangle text-warning me-2"></i>
+                                        <div>
+                                            <strong>System Update</strong>
+                                            <br><small class="text-muted">Database backup completed</small>
+                                        </div>
+                                    </div>
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-center" href="#">View All Notifications</a></li>
+                            </ul>
                         </div>
                         <form action="{{ route('logout') }}" method="POST" class="d-inline">
                             @csrf
@@ -133,6 +209,60 @@
                                 </div>
                                 <div class="align-self-center">
                                     <i class="fas fa-check-circle fa-2x text-warning"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title mb-0">Quick Actions</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 mb-3">
+                                        <div class="quick-action-card text-center">
+                                            <i class="fas fa-plus-circle fa-3x text-primary mb-3"></i>
+                                            <h6>Add New Course</h6>
+                                            <p class="text-muted small">Create a new course</p>
+                                            <a href="{{ route('admin.courses.create') }}" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-plus me-1"></i>Add Course
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="quick-action-card text-center">
+                                            <i class="fas fa-users fa-3x text-success mb-3"></i>
+                                            <h6>Manage Users</h6>
+                                            <p class="text-muted small">View and edit users</p>
+                                            <a href="{{ route('admin.users') }}" class="btn btn-success btn-sm">
+                                                <i class="fas fa-users me-1"></i>Manage Users
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="quick-action-card text-center">
+                                            <i class="fas fa-book fa-3x text-info mb-3"></i>
+                                            <h6>Manage Courses</h6>
+                                            <p class="text-muted small">Edit existing courses</p>
+                                            <a href="{{ route('admin.courses.index') }}" class="btn btn-info btn-sm">
+                                                <i class="fas fa-book me-1"></i>Manage Courses
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mb-3">
+                                        <div class="quick-action-card text-center">
+                                            <i class="fas fa-download fa-3x text-warning mb-3"></i>
+                                            <h6>Export Data</h6>
+                                            <p class="text-muted small">Download reports</p>
+                                            <button class="btn btn-warning btn-sm" onclick="exportData()">
+                                                <i class="fas fa-download me-1"></i>Export
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -225,5 +355,18 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function exportData() {
+            alert('Export functionality will be implemented in Day 4!');
+        }
+        
+        setInterval(function() {
+            const badge = document.querySelector('.notification-badge');
+            const currentCount = parseInt(badge.textContent);
+            if (currentCount > 0) {
+                badge.textContent = currentCount - 1;
+            }
+        }, 30000);
+    </script>
 </body>
 </html> 

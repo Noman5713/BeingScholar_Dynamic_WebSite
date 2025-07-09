@@ -1,112 +1,126 @@
-/* RESET + FONT */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Segoe UI', Roboto, sans-serif;
-  background-color: #f9fafb;
-  color: #1f2937;
-  line-height: 1.6;
-  padding: 40px 20px;
-}
-
-/* FAQ Container */
-.faq-section {
+.faq-container {
   max-width: 800px;
   margin: auto;
+  padding: 0 1rem;
 }
-.faq-heading {
+.faq-title {
+  font-size: 2.25rem;
   text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   color: #111827;
 }
-
-/* FAQ Items */
-.faq-item {
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 0.3s ease;
+.faq-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 2.5rem;
 }
-.faq-item:hover {
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.07);
+
+/* FAQ List */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* FAQ Item */
+.faq-item {
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+  will-change: transform;
+}
+.faq-item.open {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: scale(1.02);
 }
 
 /* Question Button */
 .faq-question {
+  width: 100%;
+  padding: 1.2rem 1rem;
+  font-size: 1.05rem;
+  font-weight: 600;
   background: none;
   border: none;
   outline: none;
-  width: 100%;
-  text-align: left;
-  padding: 1rem 1.2rem;
-  font-size: 1.1rem;
-  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1f2937;
   cursor: pointer;
-  color: #374151;
   position: relative;
-  transition: background 0.2s;
-}
-.faq-question::after {
-  content: '+';
-  position: absolute;
-  right: 1.5rem;
-  font-size: 1.2rem;
-  transition: transform 0.3s;
-}
-.faq-item.active .faq-question::after {
-  content: '-';
-  transform: rotate(180deg);
+  transition: background 0.25s ease, color 0.25s ease;
 }
 
-/* Answer Section */
+/* Hover Effects */
+.faq-question:hover {
+  background: linear-gradient(to right, #e0f2fe, #f0f9ff);
+  color: #0f172a;
+}
+.faq-question span {
+  position: relative;
+  display: inline-block;
+}
+.faq-question span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #06b6d4);
+  transition: width 0.3s ease-in-out;
+}
+.faq-question:hover span::after {
+  width: 100%;
+}
+
+/* Chevron Icon */
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  fill: #9ca3af;
+  transition: transform 0.3s ease, fill 0.3s ease;
+}
+.faq-item.open .faq-icon {
+  transform: rotate(180deg);
+  fill: #3b82f6;
+}
+
+/* Answer */
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  padding: 0 1.2rem;
-  background-color: #f3f4f6;
+  padding: 0 1rem;
+  color: #4b5563;
+  font-size: 0.95rem;
   transition: max-height 0.4s ease, padding 0.3s ease;
 }
-.faq-item.active .faq-answer {
-  max-height: 500px; /* Enough for long answers */
-  padding: 1rem 1.2rem;
+.faq-item.open .faq-answer {
+  padding: 0.8rem 1rem 1.2rem;
+  max-height: 600px;
 }
 
-/* Responsive Design */
+/* List inside answer */
+.faq-answer ul {
+  padding-left: 1.2rem;
+  margin-top: 0.5rem;
+}
+.faq-answer ul li {
+  list-style-type: disc;
+  margin-bottom: 4px;
+}
+
+/* Responsive */
 @media (max-width: 600px) {
-  .faq-heading {
-    font-size: 1.5rem;
+  .faq-title {
+    font-size: 1.75rem;
   }
   .faq-question {
     font-size: 1rem;
-  }
-}
-
-/* Auto Dark Mode */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #111827;
-    color: #f3f4f6;
-  }
-  .faq-heading {
-    color: #ffffff;
-  }
-  .faq-item {
-    background-color: #1f2937;
-    border-color: #374151;
-  }
-  .faq-question {
-    color: #f9fafb;
-  }
-  .faq-answer {
-    background-color: #374151;
-    color: #e5e7eb;
   }
 }

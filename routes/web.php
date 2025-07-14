@@ -12,6 +12,10 @@ Route::get('/courses', function () {
     return view('courses');
 });
 
+Route::get('/mycourses', function () {
+    return view('myCourses');
+});
+
 Route::get('/admin/login', [AuthController::class, 'showLogin'])->name('admin.login');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.post');
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');

@@ -67,6 +67,21 @@
                             <span class="new-price">৳5100</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="1">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -91,6 +106,21 @@
                             <span class="new-price">৳4020</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="2">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -113,6 +143,21 @@
                             <span class="new-price">৳1100</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="3">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -137,6 +182,21 @@
                             <span class="new-price">৳4020</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="4">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -160,6 +220,21 @@
                             <span class="new-price">৳600</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="5">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -184,6 +259,21 @@
                             <span class="new-price">৳1800</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="6">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -207,6 +297,21 @@
                             <span class="new-price">৳1000</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="7">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -229,6 +334,21 @@
                             <span class="new-price">৳1000</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="8">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -251,6 +371,21 @@
                             <span class="new-price">৳1000</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="9">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -275,6 +410,21 @@
                             <span class="new-price">৳3500</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="10">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -298,6 +448,21 @@
                             <span class="new-price">৳7500</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="11">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -322,6 +487,21 @@
                             <span class="new-price">৳4500</span>
                         </div>
                         <button class="course-btn toggle-details" data-course="12">View Details</button>
+                        <button class="enroll-now-btn">Enroll Now</button>
+                        <div class="enroll-form-container" style="display: none;">
+                            <form class="enroll-form">
+                                <div class="enroll-form-group">
+                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="email" class="enroll-input" placeholder="Email" required />
+                                </div>
+                                <div class="enroll-form-group">
+                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
+                                </div>
+                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -399,6 +579,71 @@
                 }
             });
         });
+
+        document.querySelectorAll('.enroll-now-btn').forEach((btn, idx) => {
+            btn.addEventListener('click', function() {
+                // Hide all other forms
+                document.querySelectorAll('.enroll-form-container').forEach(f => {
+                    f.style.display = 'none';
+                });
+                // Show this form
+                const formContainer = btn.parentElement.querySelector('.enroll-form-container');
+                formContainer.style.display = 'block';
+                // Optionally, scroll into view
+                formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
     </script>
+    <style>
+        .enroll-form-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(25, 118, 210, 0.10);
+            margin-top: 18px;
+            padding: 1.5em 1.2em 1.2em 1.2em;
+            max-width: 100%;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInEnroll 0.5s;
+        }
+        @keyframes fadeInEnroll {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .enroll-form-group {
+            margin-bottom: 1em;
+        }
+        .enroll-input {
+            width: 100%;
+            padding: 0.8em;
+            border: 1.5px solid #e3eaf7;
+            border-radius: 7px;
+            font-size: 1em;
+            background: #f8f9fb;
+            transition: border 0.2s;
+        }
+        .enroll-input:focus {
+            border-color: #1976d2;
+            outline: none;
+            background: #fff;
+        }
+        .proceed-payment-btn {
+            width: 100%;
+            padding: 0.8em 0;
+            border: none;
+            border-radius: 7px;
+            font-size: 1.05em;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
+            box-shadow: 0 2px 8px 0 rgba(37,99,235,0.10);
+            cursor: pointer;
+            letter-spacing: 0.02em;
+            transition: background 0.3s, transform 0.18s, box-shadow 0.18s;
+        }
+        .proceed-payment-btn:hover {
+            background: linear-gradient(90deg, #1e40af 0%, #0ea5e9 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+    </style>
 </body>
 </html> 

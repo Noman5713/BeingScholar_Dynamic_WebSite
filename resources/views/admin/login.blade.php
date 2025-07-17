@@ -4,123 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - BeingScholar</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .login-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 100%;
-            max-width: 400px;
-        }
-        .login-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        .login-body {
-            padding: 40px;
-        }
-        .form-control {
-            border-radius: 10px;
-            border: 2px solid #e9ecef;
-            padding: 12px 15px;
-            transition: all 0.3s ease;
-        }
-        .form-control:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
-        }
-        .btn-login {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border: none;
-            border-radius: 10px;
-            padding: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .btn-login:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-        }
-        .alert {
-            border-radius: 10px;
-            border: none;
-        }
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; font-family: Arial, sans-serif; }
+        .login-card { background: #fff; border-radius: 16px; box-shadow: 0 8px 32px rgba(44,62,80,0.12); overflow: hidden; width: 100%; max-width: 400px; }
+        .login-header { background: #3498db; color: #fff; padding: 32px 24px 16px 24px; text-align: center; }
+        .login-header .avatar { width: 56px; height: 56px; border-radius: 50%; background: #764ba2; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; margin: 0 auto 12px auto; }
+        .login-body { padding: 36px 32px; }
+        .form-label { display: block; margin-bottom: 6px; font-weight: bold; }
+        .form-control { width: 100%; border-radius: 10px; border: 2px solid #e9ecef; padding: 12px 15px; margin-bottom: 12px; font-size: 1rem; box-sizing: border-box; }
+        .form-control:focus { border-color: #3498db; outline: none; }
+        .btn-login { background: #3498db; border: none; border-radius: 10px; padding: 12px; font-weight: 600; color: #fff; width: 100%; font-size: 1rem; cursor: pointer; margin-top: 8px; }
+        .btn-login:hover { background: #217dbb; }
+        .alert { border-radius: 10px; border: none; padding: 10px 16px; margin-bottom: 12px; font-size: 0.95rem; }
+        .alert-danger { background: #f8d7da; color: #721c24; }
+        .alert-success { background: #d4edda; color: #155724; }
+        .form-check { display: flex; align-items: center; margin-bottom: 12px; }
+        .form-check-input { margin-right: 8px; }
+        .text-center { text-align: center; }
+        .text-muted { color: #888; }
+        .text-decoration-none { text-decoration: none; }
+        .mt-4 { margin-top: 1.5rem; }
     </style>
 </head>
 <body>
     <div class="login-card">
         <div class="login-header">
+            <div class="avatar">A</div>
             <h2 class="mb-0">Admin Login</h2>
             <p class="mb-0 mt-2">BeingScholar Dashboard</p>
         </div>
-        
         <div class="login-body">
             @if(session('error'))
-                <div class="alert alert-danger">
-                    {{ session('error') }}
-                </div>
+                <div class="alert alert-danger">{{ session('error') }}</div>
             @endif
-            
             @if(session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
+                <div class="alert alert-success">{{ session('success') }}</div>
             @endif
-            
             <form method="POST" action="{{ route('admin.login') }}">
                 @csrf
-                
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control @error('email') is-invalid @enderror" 
-                           id="email" name="email" value="{{ old('email') }}" required>
-                    @error('email')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required>
+                @error('email')<div class="alert alert-danger">{{ $message }}</div>@enderror
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
+                @error('password')<div class="alert alert-danger">{{ $message }}</div>@enderror
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                    <label class="form-check-label" for="remember">Remember me</label>
                 </div>
-                
-                <div class="mb-4">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control @error('password') is-invalid @enderror" 
-                           id="password" name="password" required>
-                    @error('password')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
-                </div>
-                
-                <div class="mb-3">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="remember" name="remember">
-                        <label class="form-check-label" for="remember">
-                            Remember me
-                        </label>
-                    </div>
-                </div>
-                
-                <button type="submit" class="btn btn-primary btn-login w-100">
-                    Login to Dashboard
-                </button>
+                <button type="submit" class="btn-login">Login to Dashboard</button>
             </form>
-            
             <div class="text-center mt-4">
-                <a href="{{ route('home') }}" class="text-muted text-decoration-none">
-                    ← Back to Home
-                </a>
+                <a href="#" onclick="window.history.back(); return false;" class="text-muted text-decoration-none">← Back to Dashboard</a>
             </div>
         </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html> 

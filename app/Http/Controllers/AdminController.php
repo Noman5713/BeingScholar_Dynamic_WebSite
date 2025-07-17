@@ -48,19 +48,34 @@ class AdminController extends Controller
         return view('admin.manage-users', compact('users'));
     }
 
-    public function updateUserRole(Request $request, User $user)
+    public function updateUserRole(\Illuminate\Http\Request $request, \App\Models\User $user)
     {
         $request->validate([
-            'role' => 'required|in:student,admin'
+            'role' => 'required|in:admin,student',
         ]);
-
-        $user->update(['role' => $request->role]);
-        return redirect()->back()->with('success', 'User role updated successfully');
+        $user->role = $request->role;
+        $user->save();
+        return redirect()->back()->with('success', 'User role updated successfully.');
     }
 
     public function toggleUserStatus(User $user)
     {
         $user->update(['email_verified_at' => $user->email_verified_at ? null : now()]);
         return redirect()->back()->with('success', 'User status updated successfully');
+    }
+
+    public function mycources()
+    {
+        return view('admin.mycources');
+    }
+
+    public function manageCourses()
+    {
+        return view('admin.manage-courses');
+    }
+
+    public function users() {
+        $users = \App\Models\User::paginate(10);
+        return view('admin.manage-users', compact('users'));
     }
 }

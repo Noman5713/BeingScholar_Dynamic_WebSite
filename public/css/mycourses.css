@@ -1,0 +1,121 @@
+.container {
+    margin-top: 48px;
+    padding:  16px;
+}
+
+.card {
+    background: rgb(233, 233, 233);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    width:100%;
+    
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+@media (min-width: 600px) {
+    .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+    }
+
+    .card {
+        margin-bottom: 0;
+    }
+}
+
+.img {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.img img {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+
+
+.course-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: blue;
+    color: white;
+    padding: 4px 15px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.course-badge2 {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: red;
+    color: white;
+    padding: 4px 15px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+.course-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: blue;
+    color: white;
+    padding: 4px 15px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.info {
+    padding: 20px;
+    position: relative;
+}
+
+
+
+.btn {
+    background: rgb(54, 54, 246);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    cursor: pointer;
+    letter-spacing: 1px;
+  
+}
+
+.btn:hover {
+    background: darkblue;
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 8px;
+    }
+
+    .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}

@@ -1,49 +1,59 @@
+/* Container */
 .faq-container {
   max-width: 800px;
-  margin: auto;
-  padding: 0 1rem;
+  margin: 3rem auto 4rem;
+  padding: 0 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+/* Title & subtitle */
 .faq-title {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   text-align: center;
-  font-weight: 700;
+  font-weight: 800;
   margin-bottom: 0.5rem;
   color: #111827;
+  letter-spacing: 0.02em;
 }
+
 .faq-subtitle {
+  max-width: 600px;
+  margin: 0 auto 3rem;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #6b7280;
-  margin-bottom: 2.5rem;
+  line-height: 1.5;
 }
 
 /* FAQ List */
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 /* FAQ Item */
 .faq-item {
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
-  background-color: #ffffff;
+  border-radius: 16px;
+  border: 1.5px solid #e5e7eb;
+  background-color: #fefefe;
   overflow: hidden;
-  transition: box-shadow 0.3s ease, transform 0.25s ease;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.06);
+  transition: box-shadow 0.35s ease, transform 0.3s ease;
   will-change: transform;
 }
+
 .faq-item.open {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  transform: scale(1.02);
+  box-shadow: 0 12px 25px rgb(59 130 246 / 0.3);
+  transform: scale(1.025);
 }
 
 /* Question Button */
 .faq-question {
   width: 100%;
-  padding: 1.2rem 1rem;
-  font-size: 1.05rem;
-  font-weight: 600;
+  padding: 1.3rem 1.25rem;
+  font-size: 1.125rem;
+  font-weight: 700;
   background: none;
   border: none;
   outline: none;
@@ -53,39 +63,51 @@
   color: #1f2937;
   cursor: pointer;
   position: relative;
-  transition: background 0.25s ease, color 0.25s ease;
+  transition: background 0.3s ease, color 0.3s ease;
+  border-radius: 16px;
 }
 
-/* Hover Effects */
-.faq-question:hover {
-  background: linear-gradient(to right, #e0f2fe, #f0f9ff);
-  color: #0f172a;
+.faq-question:hover,
+.faq-question:focus {
+  background: linear-gradient(90deg, #e0f2fe, #bae6fd);
+  color: #0c4a6e;
+  outline: none;
+  box-shadow: 0 0 8px #60a5faaa;
 }
+
+/* Underline effect on question text */
 .faq-question span {
   position: relative;
   display: inline-block;
+  padding-bottom: 3px;
 }
+
 .faq-question span::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -3px;
+  bottom: 0;
   width: 0%;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(90deg, #3b82f6, #06b6d4);
-  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
+  transition: width 0.35s ease;
 }
-.faq-question:hover span::after {
+
+.faq-question:hover span::after,
+.faq-question:focus span::after {
   width: 100%;
 }
 
 /* Chevron Icon */
 .faq-icon {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   fill: #9ca3af;
-  transition: transform 0.3s ease, fill 0.3s ease;
+  transition: transform 0.4s ease, fill 0.4s ease;
+  flex-shrink: 0;
 }
+
 .faq-item.open .faq-icon {
   transform: rotate(180deg);
   fill: #3b82f6;
@@ -95,32 +117,51 @@
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  padding: 0 1rem;
+  padding: 0 1.25rem;
   color: #4b5563;
-  font-size: 0.95rem;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
-.faq-item.open .faq-answer {
-  padding: 0.8rem 1rem 1.2rem;
-  max-height: 600px;
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: max-height 0.45s ease, padding 0.35s ease;
 }
 
-/* List inside answer */
-.faq-answer ul {
-  padding-left: 1.2rem;
-  margin-top: 0.5rem;
+.faq-item.open .faq-answer {
+  padding: 1rem 1.25rem 1.5rem;
+  max-height: 1000px; /* Large enough for smooth expansion */
 }
+
+/* Lists inside answers */
+.faq-answer ul {
+  padding-left: 1.5rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+
 .faq-answer ul li {
   list-style-type: disc;
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
-/* Responsive */
+/* Responsive - Mobile */
 @media (max-width: 600px) {
-  .faq-title {
-    font-size: 1.75rem;
+  .faq-container {
+    padding: 0 1rem;
   }
+
+  .faq-title {
+    font-size: 2rem;
+  }
+
+  .faq-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
   .faq-question {
     font-size: 1rem;
+    padding: 1rem 1rem;
+  }
+
+  .faq-answer {
+    font-size: 0.95rem;
   }
 }

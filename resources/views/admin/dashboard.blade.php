@@ -38,22 +38,22 @@
             </div>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('admin.dashboard') }}">🏠 Dashboard</a>
+                    <a class="nav-link active" href="/admin/dashboard">🏠 Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.manage-courses') }}">📚 Manage Courses</a>
+                    <a class="nav-link" href="/admin/manage-courses">📚 Manage Courses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.users') }}">👥 Manage Users</a>
+                    <a class="nav-link" href="/admin/users">👥 Manage Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.mycourses') }}">🗂 My Courses</a>
+                    <a class="nav-link" href="/admin/mycourses">🗂 My Courses</a>
                 </li>
             </ul>
         </nav>
         <main class="main-content">
             <div class="navbar-admin">
-                <span class="navbar-brand">Dashboard</span>
+                <span class="navbar-brand">Admin Dashboard</span>
                 <div class="gap-3">
                     <span class="fw-semibold">Admin</span>
                     <span class="admin-avatar">A</span>
@@ -63,8 +63,8 @@
                 </div>
             </div>
             <div class="welcome">
-                <h2>Welcome, Admin! <span>👋</span></h2>
-                <p class="lead mb-0">Hope you have a great day managing BeingScholar. This is your dashboard where you can see stats and quick actions.</p>
+                <h2>Welcome, Admin!</h2>
+                <p class="lead mb-0">Manage your platform efficiently. Use the sidebar to navigate between courses, users, and your own courses. All your admin tools are just a click away.</p>
             </div>
         </main>
     </div>

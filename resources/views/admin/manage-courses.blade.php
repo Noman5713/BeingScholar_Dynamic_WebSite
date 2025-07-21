@@ -64,16 +64,16 @@
             </div>
             <ul class="nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.dashboard') }}">🏠 Dashboard</a>
+                    <a class="nav-link" href="/admin/dashboard">🏠 Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('admin.manage-courses') }}">📚 Manage Courses</a>
+                    <a class="nav-link active" href="/admin/manage-courses">📚 Manage Courses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.users') }}">👥 Manage Users</a>
+                    <a class="nav-link" href="/admin/users">👥 Manage Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.mycourses') }}">🗂 My Courses</a>
+                    <a class="nav-link" href="/admin/mycourses">🗂 My Courses</a>
                 </li>
             </ul>
         </nav>

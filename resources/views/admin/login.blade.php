@@ -40,7 +40,7 @@
             @if(session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
-            <form method="POST" action="{{ route('admin.login') }}">
+            <form method="POST" action="#">
                 @csrf
                 <label for="email" class="form-label">Email Address</label>
                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" required>
@@ -55,7 +55,7 @@
                 <button type="submit" class="btn-login">Login to Dashboard</button>
             </form>
             <div class="text-center mt-4">
-                <a href="#" onclick="window.history.back(); return false;" class="text-muted text-decoration-none">← Back to Dashboard</a>
+                <a href="/admin/dashboard" class="text-muted text-decoration-none">← Back to Dashboard</a>
             </div>
         </div>
     </div>

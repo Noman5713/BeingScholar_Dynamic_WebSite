@@ -1,61 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="{{ asset('css/studentdashboard.css') }}">
     <title>Student Dashboard</title>
+    
 </head>
 
-<body class="bg-base-200 min-h-screen">
+<body>
+    <div class="container">
+        <div class="mobile-overlay" id="mobileOverlay"></div>
 
-    <div class="flex min-h-screen">
-        <aside class="w-64 bg-base-100 shadow-lg p-6 hidden md:block">
-            <h2 class="text-2xl font-bold mb-8">Student Dashboard</h2>
+        <aside class="sidebar" id="sidebar">
+            <h2>Student Dashboard</h2>
             <ul class="menu">
-                <li><a class="font-semibold" href="#overview">Overview</a></li>
+                <li><a class="active" href="#overview">Overview</a></li>
                 <li><a href="#courses">My Courses</a></li>
-
             </ul>
         </aside>
-        <main class="flex-1 p-6">
 
-            <div class="flex items-center justify-between mb-8">
-                <h1 class="text-3xl font-bold">Dashboard</h1>
-                <div class="flex items-center gap-4">
-                    <h2 class="text-2xl font-bold">Uodoy</h2>
-
+        <main class="main-content">
+            <div class="header">
+                <div class="header-left">
+                    <button class="hamburger-menu" id="hamburgerMenu">
+                       <span></span>
+                       <span></span>
+                       <span></span>
+                    </button>
+                    <h1>Dashboard</h1>
+                </div>
+                <div class="user-info">
+                    <h2>Uodoy</h2>
                     <div class="avatar">
-                        <div class="w-24 rounded-full">
-                            <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" />
-                        </div>
+                        <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" alt="User Avatar" />
                     </div>
                 </div>
             </div>
 
-
-            <section id="overview" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div class="card bg-primary text-primary-content shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">Enrolled Courses</h2>
-                        <p class="text-4xl font-bold">3</p>
-                    </div>
+            <section id="overview" class="overview-section">
+                <div class="card">
+                    <h2>Enrolled Courses</h2>
+                    <p class="number">3</p>
                 </div>
-                <div class="card bg-accent text-accent-content shadow-xl">
-                    <div class="card-body">
-                        <h2 class="card-title">Assignments Due</h2>
-                        <p class="text-4xl font-bold">2</p>
-                    </div>
+                <div class="card assignment">
+                    <h2>Assignments Due</h2>
+                    <p class="number">2</p>
                 </div>
             </section>
 
 
-            <section id="courses" class="mb-10">
-                <h2 class="text-2xl font-bold mb-4">My Courses</h2>
-                <div class="overflow-x-auto">
-                    <table class="table w-full">
+            <section id="courses" class="courses-section">
+                <h2>My Courses</h2>
+                <div class="table-container">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th>Course</th>
@@ -71,18 +70,24 @@
                                     <p>Dr. Sheak Rashed Haider Noori</p>
                                     <p>Md Rezanur Rahman</p>
                                 </td>
-                                <td><span class="badge badge-success">Active</span></td>
-                                <td><progress class="progress progress-primary w-24" value="80" max="100"></progress>
+                                <td><span class="badge success">Active</span></td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 80%"></div>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Applied Data Analytics Masterclass</td>
-                                 <td>
+                                <td>
                                     <p>Md. Zahid Hasan</p>
                                     <p>Sadat Hasan</p>
                                 </td>
-                                <td><span class="badge badge-success">Active</span></td>
-                                <td><progress class="progress progress-primary w-24" value="65" max="100"></progress>
+                                <td><span class="badge success">Active</span></td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 65%"></div>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
@@ -92,8 +97,11 @@
                                     <p>MD. Khalid Hossen</p>
                                     <p>Md. Hannan Talukder</p>
                                 </td>
-                                <td><span class="badge badge-warning">Pending</span></td>
-                                <td><progress class="progress progress-primary w-24" value="40" max="100"></progress>
+                                <td><span class="badge warning">Pending</span></td>
+                                <td>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 40%"></div>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -103,6 +111,39 @@
 
         </main>
     </div>
+
+    <script>
+        // Mobile menu functionality
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const sidebar = document.getElementById('sidebar');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        function toggleSidebar() {
+            sidebar.classList.toggle('show');
+            mobileOverlay.classList.toggle('show');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('show');
+            mobileOverlay.classList.remove('show');
+        }
+
+        hamburgerMenu.addEventListener('click', toggleSidebar);
+        mobileOverlay.addEventListener('click', closeSidebar);
+
+        // Close sidebar when clicking on menu items (optional)
+        const menuLinks = document.querySelectorAll('.menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeSidebar);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                closeSidebar();
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -62,26 +62,19 @@
                         <div class="course-details">
                             <p class="course-description">Master AI development with Python. Learn machine learning, deep learning, and build intelligent applications.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳7500</span>
-                            <span class="new-price">৳5100</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Master AI development with Python. Learn machine learning, deep learning, and build intelligent applications.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳7500</span>
+                                <span class="new-price">৳5100</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="1">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="1">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -101,26 +94,19 @@
                         <div class="course-details">
                             <p class="course-description">Explore computer vision with deep learning. Build image recognition and object detection systems.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳6000</span>
-                            <span class="new-price">৳4020</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Explore computer vision with deep learning. Build image recognition and object detection systems.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳6000</span>
+                                <span class="new-price">৳4020</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="2">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="2">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -139,25 +125,18 @@
                         <div class="course-details">
                             <p class="course-description">Master data structures and algorithms with hands-on Leetcode practice for interview preparation.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="new-price">৳1100</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Master data structures and algorithms with hands-on Leetcode practice for interview preparation.</p>
+                            <div class="course-price">
+                                <span class="new-price">৳1100</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="3">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="3">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -177,26 +156,19 @@
                         <div class="course-details">
                             <p class="course-description">Learn NLP techniques and build intelligent text processing and language understanding systems.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳6000</span>
-                            <span class="new-price">৳4020</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Learn NLP techniques and build intelligent text processing and language understanding systems.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳6000</span>
+                                <span class="new-price">৳4020</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="4">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -215,26 +187,19 @@
                         <div class="course-details">
                             <p class="course-description">Complete machine learning theory explained in Bangla. Perfect for beginners and intermediate learners.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳3000</span>
-                            <span class="new-price">৳600</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Complete machine learning theory explained in Bangla. Perfect for beginners and intermediate learners.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳3000</span>
+                                <span class="new-price">৳600</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="5">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -254,26 +219,20 @@
                         <div class="course-details">
                             <p class="course-description">Advanced reinforcement learning techniques for research and development in AI systems.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳3000</span>
-                            <span class="new-price">৳1800</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Advanced reinforcement learning techniques for research and development in AI systems.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳3000</span>
+                                <span class="new-price">৳1800</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="6">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+
                     </div>
                 </div>
 
@@ -292,26 +251,21 @@
                         <div class="course-details">
                             <p class="course-description">Complete Pandas library tutorial in Bangla. Master data manipulation and analysis with Python.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳2000</span>
-                            <span class="new-price">৳1000</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Complete Pandas library tutorial in Bangla. Master data manipulation and analysis with Python.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳2000</span>
+                                <span class="new-price">৳1000</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="7">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+
+
                     </div>
                 </div>
 
@@ -330,25 +284,20 @@
                         <div class="course-details">
                             <p class="course-description">Learn Python from basics to advanced OOP concepts. Perfect for beginners and intermediate developers.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="new-price">৳1000</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Learn Python from basics to advanced OOP concepts. Perfect for beginners and intermediate developers.</p>
+                            <div class="course-price">
+                                <span class="new-price">৳1000</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="8">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+
+
                     </div>
                 </div>
 
@@ -367,25 +316,20 @@
                         <div class="course-details">
                             <p class="course-description">Complete JavaScript course for beginners. Learn modern JavaScript and web development fundamentals.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="new-price">৳1000</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Complete JavaScript course for beginners. Learn modern JavaScript and web development fundamentals.</p>
+                            <div class="course-price">
+                                <span class="new-price">৳1000</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="9">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+
+
                     </div>
                 </div>
 
@@ -405,26 +349,21 @@
                         <div class="course-details">
                             <p class="course-description">Master system design principles and architecture patterns for scalable software development.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳7000</span>
-                            <span class="new-price">৳3500</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Master system design principles and architecture patterns for scalable software development.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳7000</span>
+                                <span class="new-price">৳3500</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="10">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+
+
                     </div>
                 </div>
 
@@ -444,25 +383,20 @@
                         <div class="course-details">
                             <p class="course-description">Complete AI product development journey from concept to deployment for fresh graduates.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="new-price">৳7500</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Complete AI product development journey from concept to deployment for fresh graduates.</p>
+                            <div class="course-price">
+                                <span class="new-price">৳7500</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="11">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+
+
                     </div>
                 </div>
 
@@ -482,26 +416,21 @@
                         <div class="course-details">
                             <p class="course-description">Combine data analytics with machine learning to extract insights and build predictive models.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳7500</span>
-                            <span class="new-price">৳4500</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Combine data analytics with machine learning to extract insights and build predictive models.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳7500</span>
+                                <span class="new-price">৳4500</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="12">View Details</button>
-                        <button class="enroll-now-btn">Enroll Now</button>
-                        <div class="enroll-form-container" style="display: none;">
-                            <form class="enroll-form">
-                                <div class="enroll-form-group">
-                                    <input type="text" class="enroll-input" placeholder="Full Name" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="email" class="enroll-input" placeholder="Email" required />
-                                </div>
-                                <div class="enroll-form-group">
-                                    <input type="tel" class="enroll-input" placeholder="Phone Number" required />
-                                </div>
-                                <button type="button" class="proceed-payment-btn">Proceed to Payment</button>
-                            </form>
-                        </div>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
+
+
                     </div>
                 </div>
             </div>
@@ -538,111 +467,103 @@
             }
         });
 
-        // Toggle course details functionality
-        document.querySelectorAll('.toggle-details').forEach(button => {
+        // Course details navigation functionality
+        document.querySelectorAll('.course-details-btn').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                // Get the specific card that was clicked
-                const courseCard = this.closest('.course-card');
-                const courseTags = courseCard.querySelector('.course-tags');
-                const courseDetails = courseCard.querySelector('.course-details');
-                const isExpanded = courseCard.classList.contains('expanded');
+                // Get course ID from button
+                const courseId = this.getAttribute('data-course-id');
                 
-                // First, collapse all other cards
-                document.querySelectorAll('.course-card').forEach(card => {
-                    if (card !== courseCard) {
-                        card.classList.remove('expanded');
-                        const otherTags = card.querySelector('.course-tags');
-                        const otherDetails = card.querySelector('.course-details');
-                        const otherButton = card.querySelector('.toggle-details');
-                        
-                        if (otherTags) otherTags.style.maxHeight = '0';
-                        if (otherDetails) otherDetails.style.maxHeight = '0';
-                        if (otherButton) otherButton.textContent = 'View Details';
-                    }
-                });
-                
-                if (isExpanded) {
-                    // Collapse this card
-                    courseCard.classList.remove('expanded');
-                    courseTags.style.maxHeight = '0';
-                    courseDetails.style.maxHeight = '0';
-                    this.textContent = 'View Details';
+                // Navigate to course detail page
+                if (courseId && courseId <= 3) {
+                    window.location.href = `/course/${courseId}`;
                 } else {
-                    // Expand this card
-                    courseCard.classList.add('expanded');
-                    courseTags.style.maxHeight = courseTags.scrollHeight + 'px';
-                    courseDetails.style.maxHeight = courseDetails.scrollHeight + 'px';
-                    this.textContent = 'Hide Details';
+                    // For courses without detail pages yet, show a message
+                    alert('Course detail page is coming soon!');
                 }
             });
         });
 
-        document.querySelectorAll('.enroll-now-btn').forEach((btn, idx) => {
-            btn.addEventListener('click', function() {
-                // Hide all other forms
-                document.querySelectorAll('.enroll-form-container').forEach(f => {
-                    f.style.display = 'none';
-                });
-                // Show this form
-                const formContainer = btn.parentElement.querySelector('.enroll-form-container');
-                formContainer.style.display = 'block';
-                // Optionally, scroll into view
-                formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            });
-        });
+
     </script>
     <style>
-        .enroll-form-container {
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 24px rgba(25, 118, 210, 0.10);
-            margin-top: 18px;
-            padding: 1.5em 1.2em 1.2em 1.2em;
-            max-width: 100%;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeInEnroll 0.5s;
-        }
-        @keyframes fadeInEnroll {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .enroll-form-group {
-            margin-bottom: 1em;
-        }
-        .enroll-input {
-            width: 100%;
-            padding: 0.8em;
-            border: 1.5px solid #e3eaf7;
-            border-radius: 7px;
-            font-size: 1em;
+        /* Course Short Details - Always Visible */
+        .course-short-details {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
             background: #f8f9fb;
-            transition: border 0.2s;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
         }
-        .enroll-input:focus {
-            border-color: #1976d2;
-            outline: none;
-            background: #fff;
+        
+        .short-description {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 0.6rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        .proceed-payment-btn {
-            width: 100%;
-            padding: 0.8em 0;
-            border: none;
-            border-radius: 7px;
-            font-size: 1.05em;
-            font-weight: 600;
+        
+        /* New Details Button with Arrow */
+        .course-details-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
             color: #fff;
-            background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
-            box-shadow: 0 2px 8px 0 rgba(37,99,235,0.10);
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            width: 100%;
+            border: none;
             cursor: pointer;
-            letter-spacing: 0.02em;
-            transition: background 0.3s, transform 0.18s, box-shadow 0.18s;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.25);
+            position: relative;
+            overflow: hidden;
         }
-        .proceed-payment-btn:hover {
-            background: linear-gradient(90deg, #1e40af 0%, #0ea5e9 100%);
-            transform: translateY(-2px) scale(1.03);
+        
+        .arrow-icon {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .course-details-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .course-details-btn:hover::before {
+            left: 100%;
+        }
+        
+        .course-details-btn:hover {
+            background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+        }
+        
+        .course-details-btn:hover .arrow-icon {
+            transform: translateX(3px);
+        }
+        
+        .course-details-btn:active {
+            transform: translateY(0);
         }
     </style>
 </body>

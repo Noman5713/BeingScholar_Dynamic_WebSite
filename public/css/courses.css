@@ -91,7 +91,7 @@
     gap: 1.5rem;
     max-width: 1400px;
     margin: 0 auto;
-    align-items: start;
+    align-items: stretch;
 }
 
 /* Course Card Styles */
@@ -103,7 +103,9 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: 1px solid #f1f5f9;
     position: relative;
-    height: fit-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .course-card:hover {
@@ -157,6 +159,9 @@
 .course-info {
     padding: 1.2rem;
     position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .course-info h3 {
@@ -247,6 +252,11 @@
     margin-bottom: 1rem;
 }
 
+/* For cards layout - push buttons to bottom */
+.course-info > *:last-child {
+    margin-top: auto;
+}
+
 .old-price {
     color: #94a3b8;
     text-decoration: line-through;
@@ -306,43 +316,7 @@
     transform: translateY(0);
 }
 
-.enroll-now-btn {
-  width: 50%;
-  margin-top: 14px;
-  padding: 0.85em 0;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.08rem;
-  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-  font-weight: 600;
-  color: #fff;
-  background: linear-gradient(90deg, #2563eb 0%, #38bdf8 100%);
-  box-shadow: 0 4px 16px 0 rgba(37,99,235,0.10), 0 1.5px 4px 0 rgba(56,189,248,0.10);
-  cursor: pointer;
-  letter-spacing: 0.03em;
-  transition: background 0.3s, transform 0.18s, box-shadow 0.18s;
-  outline: none;
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-}
-.enroll-now-btn::after {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; right: 0; bottom: 0;
-  background: linear-gradient(90deg, #1e40af 0%, #0ea5e9 100%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: -1;
-  border-radius: 8px;
-}
-.enroll-now-btn:hover, .enroll-now-btn:focus {
-  transform: translateY(-2px) scale(1.035);
-  box-shadow: 0 8px 24px 0 rgba(37,99,235,0.16), 0 2px 8px 0 rgba(56,189,248,0.13);
-}
-.enroll-now-btn:hover::after, .enroll-now-btn:focus::after {
-  opacity: 1;
-}
+
 
 /* Expanded state - only for the specific card */
 .course-card.expanded .course-tags {

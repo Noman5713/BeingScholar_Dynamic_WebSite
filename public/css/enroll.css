@@ -1,0 +1,475 @@
+/* Course Enrollment Page Styles */
+
+/* Page Header */
+.page-header {
+    background: linear-gradient(135deg, #e9ecef 0%, #f8f9fa 100%);
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+/* Main Layout */
+.enrollment-section {
+    background: #f8f9fb;
+    padding: 3rem 0;
+    min-height: 70vh;
+}
+
+.enrollment-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+/* Payment Section */
+.payment-section {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+}
+
+.payment-methods-card {
+    padding: 2rem;
+}
+
+.payment-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 2rem;
+}
+
+/* Payment Options */
+.payment-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.payment-option {
+    position: relative;
+}
+
+.payment-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.payment-option-label {
+    display: block;
+    padding: 1.5rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #fff;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-option input[type="radio"]:checked + .payment-option-label {
+    border-color: #1976d2;
+    background: #f0f7ff;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+}
+
+.payment-logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.payment-logo {
+    height: 40px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.bkash-logo {
+    background: #e2136e;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.nagad-logo {
+    background: #ec1c24;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.bank-logo {
+    height: 50px;
+    padding: 5px;
+}
+
+/* Payment Details */
+.payment-details {
+    background: #f8f9fb;
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid #e2e8f0;
+}
+
+.payment-method-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+}
+
+.payment-info {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #1976d2;
+}
+
+.payment-info p {
+    margin: 0.5rem 0;
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+.payment-info .amount {
+    color: #1976d2;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: #374151;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #fff;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #1976d2;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 16px rgba(25, 118, 210, 0.3);
+    margin-top: 1rem;
+}
+
+.submit-btn:hover {
+    background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
+}
+
+/* Course Summary Sidebar */
+.course-summary-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.course-info-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.course-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.course-image-small {
+    width: 80px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.course-image-small img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.course-basic-info {
+    flex: 1;
+}
+
+.course-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.course-start {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.course-start span {
+    color: #1e293b;
+    font-weight: 500;
+}
+
+/* Payment Details Card */
+.payment-details-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.payment-details-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1.5rem;
+}
+
+.payment-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.payment-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.payment-item:not(.total) {
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.payment-label {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.payment-value {
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.payment-item.total {
+    background: #f8f9fb;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    border: 1px solid #e2e8f0;
+}
+
+.payment-item.total .payment-label {
+    color: #1e293b;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.payment-item.total .total-amount {
+    color: #1976d2;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Promo Code Section */
+.promo-code-section {
+    margin: 1rem 0;
+}
+
+.promo-code-btn {
+    background: none;
+    border: none;
+    color: #1976d2;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.promo-code-btn:hover {
+    color: #1565c0;
+}
+
+.promo-code-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.promo-code-input input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.apply-promo-btn {
+    background: #22c55e;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.apply-promo-btn:hover {
+    background: #16a34a;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .enrollment-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .course-summary-sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .enrollment-section {
+        padding: 2rem 0;
+    }
+    
+    .enrollment-container {
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .payment-methods-card {
+        padding: 1.5rem;
+    }
+    
+    .payment-options {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .payment-details {
+        padding: 1.5rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .page-header {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .payment-methods-card {
+        padding: 1rem;
+    }
+    
+    .payment-details {
+        padding: 1rem;
+    }
+    
+    .course-info-card,
+    .payment-details-card {
+        padding: 1rem;
+    }
+    
+    .course-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.8rem;
+    }
+    
+    .course-image-small {
+        width: 100%;
+        height: 120px;
+        align-self: center;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.payment-details {
+    animation: fadeIn 0.3s ease;
+}
+
+.promo-code-input {
+    animation: fadeIn 0.3s ease;
+}

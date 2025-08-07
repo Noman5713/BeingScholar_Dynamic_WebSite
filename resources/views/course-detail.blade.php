@@ -62,7 +62,7 @@
                                 <span class="days">{{ $course['days'] }} days remaining</span>
                             @endif
                         </div>
-                        <button class="enroll-btn">Enroll Now</button>
+                        <button class="enroll-btn" onclick="window.location.href='/enroll/{{ $course['id'] }}'">Enroll Now</button>
                     </div>
 
                     <!-- Course Navigation Tabs -->
@@ -215,7 +215,7 @@
                             </div>
                         </div>
 
-                        <button class="enroll-btn-sidebar">Enroll Now</button>
+                        <button class="enroll-btn-sidebar" onclick="window.location.href='/enroll/{{ $course['id'] }}'">Enroll Now</button>
                     </div>
 
 
@@ -245,12 +245,7 @@
             });
         });
 
-        // Enroll button functionality
-        document.querySelectorAll('.enroll-btn, .enroll-btn-sidebar').forEach(btn => {
-            btn.addEventListener('click', function() {
-                alert('Enrollment functionality will be implemented here');
-            });
-        });
+        // Enroll button functionality (navigation handled by onclick attribute)
 
 
     </script>

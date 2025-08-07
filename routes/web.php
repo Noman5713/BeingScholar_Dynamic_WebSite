@@ -176,6 +176,177 @@ You will develop problem-solving skills that are essential for technical intervi
     return view('course-detail', compact('course'));
 });
 
+Route::get('/enroll/{id}', function ($id) {
+    // Course enrollment data mapping
+    $enrollmentData = [
+        1 => [
+            'id' => 1,
+            'title' => 'AI Based Software Development With Python',
+            'badge' => '32% OFF',
+            'batch' => 'Batch 9',
+            'duration' => '6-8 Months',
+            'class_type' => 'Live Classes',
+            'seats' => '100 seats remaining',
+            'days' => '56 days remaining',
+            'image' => asset('images/Course_Card_Banner/a.png'),
+            'old_price' => '7500',
+            'new_price' => '5100',
+            'category' => 'Artificial Intelligence & Machine Learning',
+            'experience_label' => 'Programming Experience Level',
+            'experience_options' => [
+                'beginner' => 'Beginner (No programming experience)',
+                'basic' => 'Basic (Some Python knowledge)',
+                'intermediate' => 'Intermediate (1-2 years experience)',
+                'advanced' => 'Advanced (3+ years experience)'
+            ],
+            'motivation_placeholder' => 'e.g., I want to transition into AI development, build intelligent applications, or enhance my career prospects...',
+            'highlights' => [
+                'Lifetime access to course materials',
+                'Live interactive sessions with expert instructors',
+                'Real-world AI projects and portfolio building',
+                'Industry-recognized certification',
+                'Job placement assistance',
+                'Access to exclusive AI development community',
+                'Regular assignments and code reviews',
+                'Coverage of TensorFlow, PyTorch, and scikit-learn'
+            ]
+        ],
+        2 => [
+            'id' => 2,
+            'title' => 'Deep Learning with Computer Vision',
+            'badge' => '33% OFF',
+            'batch' => 'Batch 7',
+            'duration' => '40-45 Classes',
+            'class_type' => 'Live Classes',
+            'seats' => '100 seats remaining',
+            'days' => '65 days remaining',
+            'image' => asset('images/Course_Card_Banner/b.png'),
+            'old_price' => '6000',
+            'new_price' => '4020',
+            'category' => 'Computer Vision & Deep Learning',
+            'experience_label' => 'Computer Vision Experience',
+            'experience_options' => [
+                'beginner' => 'Beginner (No CV experience)',
+                'basic' => 'Basic (Familiar with image processing)',
+                'intermediate' => 'Intermediate (Some deep learning knowledge)',
+                'advanced' => 'Advanced (Working with CNNs)'
+            ],
+            'motivation_placeholder' => 'e.g., I want to build image recognition systems, work on autonomous vehicles, or develop computer vision applications...',
+            'highlights' => [
+                'Hands-on experience with OpenCV and deep learning',
+                'Build real-time object detection systems',
+                'Face recognition and image segmentation projects',
+                'Industry-standard CNN architectures (ResNet, YOLO)',
+                'Transfer learning and model optimization',
+                'Portfolio of computer vision applications',
+                'Expert guidance on research papers',
+                'GPU-accelerated training techniques'
+            ]
+        ],
+        3 => [
+            'id' => 3,
+            'title' => 'Data Structure and Algorithm with Leetcode Exercise',
+            'badge' => 'New',
+            'batch' => 'Batch 1',
+            'duration' => '24 Classes',
+            'class_type' => 'Pre-recorded',
+            'seats' => null,
+            'days' => null,
+            'image' => asset('images/Course_Card_Banner/c.png'),
+            'old_price' => null,
+            'new_price' => '1100',
+            'category' => 'Data Structures & Algorithms',
+            'experience_label' => 'Programming & Problem Solving Experience',
+            'experience_options' => [
+                'beginner' => 'Beginner (Basic programming knowledge)',
+                'intermediate' => 'Intermediate (Some DSA knowledge)',
+                'advanced' => 'Advanced (Regular competitive programming)',
+                'expert' => 'Expert (Preparing for FAANG interviews)'
+            ],
+            'motivation_placeholder' => 'e.g., I want to crack technical interviews at top companies, improve my problem-solving skills, or master competitive programming...',
+            'highlights' => [
+                'Comprehensive coverage of all major data structures',
+                'Step-by-step algorithm explanations',
+                '200+ Leetcode problems with detailed solutions',
+                'Interview preparation for top tech companies',
+                'Time and space complexity analysis',
+                'Pattern recognition for similar problems',
+                'Weekly mock interview sessions',
+                'Personalized feedback on coding style'
+            ]
+        ],
+        4 => [
+            'id' => 4,
+            'title' => 'Machine Learning for Natural Language Processing',
+            'badge' => '33% OFF',
+            'batch' => 'Batch 8',
+            'duration' => '5 Months',
+            'class_type' => 'Live Classes',
+            'seats' => '100 seats remaining',
+            'days' => '8 days remaining',
+            'image' => asset('images/Course_Card_Banner/d.png'),
+            'old_price' => '6000',
+            'new_price' => '4020',
+            'category' => 'Natural Language Processing & AI',
+            'experience_label' => 'NLP & Machine Learning Experience',
+            'experience_options' => [
+                'beginner' => 'Beginner (No NLP experience)',
+                'basic' => 'Basic (Some text processing knowledge)',
+                'intermediate' => 'Intermediate (Familiar with ML concepts)',
+                'advanced' => 'Advanced (Experience with transformers)'
+            ],
+            'motivation_placeholder' => 'e.g., I want to build chatbots, work on language translation, or develop text analysis systems...',
+            'highlights' => [
+                'Advanced NLP techniques and transformers',
+                'Build intelligent chatbots and language models',
+                'Sentiment analysis and text classification',
+                'Named entity recognition and information extraction',
+                'Pre-trained models (BERT, GPT, T5)',
+                'Real-world NLP project implementations',
+                'Industry applications and case studies',
+                'Research paper discussions and implementations'
+            ]
+        ],
+        5 => [
+            'id' => 5,
+            'title' => 'Theory of Machine Learning (A-Z in Bangla)',
+            'badge' => '80% OFF',
+            'batch' => 'Batch 1',
+            'duration' => '5 Hours (23 Videos)',
+            'class_type' => 'Pre-recorded',
+            'seats' => null,
+            'days' => null,
+            'image' => asset('images/Course_Card_Banner/e.png'),
+            'old_price' => '3000',
+            'new_price' => '600',
+            'category' => 'Machine Learning Fundamentals',
+            'experience_label' => 'Mathematical Background',
+            'experience_options' => [
+                'basic' => 'Basic (High school mathematics)',
+                'intermediate' => 'Intermediate (College-level math)',
+                'advanced' => 'Advanced (Statistics and calculus)',
+                'expert' => 'Expert (Strong mathematical foundation)'
+            ],
+            'motivation_placeholder' => 'e.g., I want to understand ML theory deeply, prepare for advanced courses, or strengthen my mathematical foundation...',
+            'highlights' => [
+                'Complete theoretical foundation in Bangla',
+                'Mathematical concepts explained simply',
+                'Perfect for beginners and intermediate learners',
+                'Video lectures with visual explanations',
+                'Downloadable course materials',
+                'Self-paced learning experience',
+                'Certificate of completion',
+                'Foundation for advanced ML courses'
+            ]
+        ]
+    ];
+
+    // Get enrollment data or return 404
+    $course = $enrollmentData[$id] ?? abort(404);
+    
+    return view('enroll', compact('course'));
+});
+
 Route::get('/mycourses', function () {
     return view('myCourses');
 });

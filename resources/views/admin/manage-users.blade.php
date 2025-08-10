@@ -29,14 +29,24 @@
         .bg-primary { background: #3498db; color: #fff; }
         .bg-success { background: #27ae60; color: #fff; }
         .bg-warning { background: #f39c12; color: #fff; }
+        .bg-danger { background: #e74c3c; color: #fff; }
         .table-responsive { overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; margin-top: 0; background: #fff; }
         th, td { padding: 12px 14px; border-bottom: 1px solid #eee; text-align: left; }
         th { background: #f4f6fa; font-weight: bold; }
         tr:last-child td { border-bottom: none; }
+        tr:hover { background: #f8f9fa; }
         .btn { background: #b2bec3; color: #fff; border: none; border-radius: 6px; padding: 6px 14px; font-size: 1rem; cursor: not-allowed; opacity: 0.7; }
+        .btn-edit { background: #3498db; cursor: pointer; opacity: 1; }
+        .btn-edit:hover { background: #217dbb; }
+        .btn-delete { background: #e74c3c; cursor: pointer; opacity: 1; }
+        .btn-delete:hover { background: #c0392b; }
         .text-muted { color: #888; }
         .gap-3 { display: flex; align-items: center; gap: 16px; }
+        .search-section { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(44,62,80,0.04); }
+        .search-input { width: 100%; max-width: 400px; padding: 10px 16px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+        .search-input:focus { outline: none; border-color: #3498db; }
+        .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: #3498db; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; }
         @media (max-width: 700px) {
             .main-content { padding: 16px 4px; }
             .card-header, th, td { padding: 8px 6px; }
@@ -77,18 +87,20 @@
                     </form>
                 </div>
             </div>
+            <div class="search-section">
+                <input type="text" class="search-input" placeholder="Search users by name, email, or role..." id="userSearch">
+            </div>
             <div class="card">
                 <div class="card-header">
                     <span class="card-title">All Users</span>
-                    <span class="badge bg-primary">2 total users</span>
+                    <span class="badge bg-primary">8 total users</span>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
+                                    <th>User</th>
                                     <th>Email</th>
                                     <th>Role</th>
                                     <th>Status</th>
@@ -98,22 +110,99 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1</td>
-                                    <td>John Doe</td>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span class="user-avatar">J</span>
+                                            <div>
+                                                <div style="font-weight: 600;">John Doe</div>
+                                                <div style="font-size: 0.9rem; color: #888;">ID: 1001</div>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>john@example.com</td>
                                     <td>Admin</td>
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>Jan 1, 2024</td>
-                                    <td><button class="btn" disabled>Action</button></td>
+                                    <td>
+                                        <button class="btn btn-edit">Edit</button>
+                                        <button class="btn btn-delete">Delete</button>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td>2</td>
-                                    <td>Jane Smith</td>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span class="user-avatar">J</span>
+                                            <div>
+                                                <div style="font-weight: 600;">Jane Smith</div>
+                                                <div style="font-size: 0.9rem; color: #888;">ID: 1002</div>
+                                            </div>
+                                        </div>
+                                    </td>
                                     <td>jane@example.com</td>
                                     <td>Student</td>
                                     <td><span class="badge bg-warning">Pending</span></td>
                                     <td>Feb 15, 2024</td>
-                                    <td><button class="btn" disabled>Action</button></td>
+                                    <td>
+                                        <button class="btn btn-edit">Edit</button>
+                                        <button class="btn btn-delete">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span class="user-avatar">M</span>
+                                            <div>
+                                                <div style="font-weight: 600;">Mike Johnson</div>
+                                                <div style="font-size: 0.9rem; color: #888;">ID: 1003</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>mike@example.com</td>
+                                    <td>Student</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>Mar 10, 2024</td>
+                                    <td>
+                                        <button class="btn btn-edit">Edit</button>
+                                        <button class="btn btn-delete">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span class="user-avatar">S</span>
+                                            <div>
+                                                <div style="font-weight: 600;">Sarah Wilson</div>
+                                                <div style="font-size: 0.9rem; color: #888;">ID: 1004</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>sarah@example.com</td>
+                                    <td>Instructor</td>
+                                    <td><span class="badge bg-success">Active</span></td>
+                                    <td>Apr 5, 2024</td>
+                                    <td>
+                                        <button class="btn btn-edit">Edit</button>
+                                        <button class="btn btn-delete">Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                            <span class="user-avatar">D</span>
+                                            <div>
+                                                <div style="font-weight: 600;">David Brown</div>
+                                                <div style="font-size: 0.9rem; color: #888;">ID: 1005</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>david@example.com</td>
+                                    <td>Student</td>
+                                    <td><span class="badge bg-danger">Suspended</span></td>
+                                    <td>May 20, 2024</td>
+                                    <td>
+                                        <button class="btn btn-edit">Edit</button>
+                                        <button class="btn btn-delete">Delete</button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -123,5 +212,20 @@
         </main>
     </div>
 </div>
+<script>
+document.getElementById('userSearch').addEventListener('input', function() {
+    const searchTerm = this.value.toLowerCase();
+    const rows = document.querySelectorAll('tbody tr');
+    
+    rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        if (text.includes(searchTerm)) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+});
+</script>
 </body>
 </html> 

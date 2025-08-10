@@ -26,6 +26,16 @@
         .welcome h2 { color: #1976d2; margin-bottom: 8px; }
         .welcome p { color: #555; font-size: 1.1rem; }
         .gap-3 { display: flex; align-items: center; gap: 16px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 32px; }
+        .stat-card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(44,62,80,0.04); border-left: 4px solid #3498db; }
+        .stat-card.users { border-left-color: #e74c3c; }
+        .stat-card.courses { border-left-color: #27ae60; }
+        .stat-card.enrollments { border-left-color: #f39c12; }
+        .stat-card.revenue { border-left-color: #9b59b6; }
+        .stat-number { font-size: 2.5rem; font-weight: bold; color: #2c3e50; margin-bottom: 8px; }
+        .stat-label { color: #7f8c8d; font-size: 1rem; margin-bottom: 4px; }
+        .stat-change { font-size: 0.9rem; color: #27ae60; }
+        .stat-icon { font-size: 2rem; margin-bottom: 12px; }
     </style>
 </head>
 <body>
@@ -65,6 +75,32 @@
             <div class="welcome">
                 <h2>Welcome, Admin!</h2>
                 <p class="lead mb-0">Manage your platform efficiently. Use the sidebar to navigate between courses, users, and your own courses. All your admin tools are just a click away.</p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card users">
+                    <div class="stat-icon">👥</div>
+                    <div class="stat-number">1,247</div>
+                    <div class="stat-label">Total Users</div>
+                    <div class="stat-change">+12% this month</div>
+                </div>
+                <div class="stat-card courses">
+                    <div class="stat-icon">📚</div>
+                    <div class="stat-number">24</div>
+                    <div class="stat-label">Active Courses</div>
+                    <div class="stat-change">+3 new courses</div>
+                </div>
+                <div class="stat-card enrollments">
+                    <div class="stat-icon">🎓</div>
+                    <div class="stat-number">856</div>
+                    <div class="stat-label">Total Enrollments</div>
+                    <div class="stat-change">+8% this week</div>
+                </div>
+                <div class="stat-card revenue">
+                    <div class="stat-icon">💰</div>
+                    <div class="stat-number">$12,450</div>
+                    <div class="stat-label">Monthly Revenue</div>
+                    <div class="stat-change">+15% vs last month</div>
+                </div>
             </div>
         </main>
     </div>

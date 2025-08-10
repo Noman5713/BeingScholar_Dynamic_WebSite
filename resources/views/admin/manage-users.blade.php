@@ -4,52 +4,329 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users - BeingScholar Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background: #f8f9fa; margin: 0; font-family: Arial, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+            min-height: 100vh; 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
         .container-fluid { width: 100vw; min-height: 100vh; }
         .row { display: flex; min-height: 100vh; }
-        .sidebar { width: 220px; background: #2c3e50; color: #ecf0f1; display: flex; flex-direction: column; }
-        .sidebar-header { padding: 32px 0 16px 0; text-align: center; }
-        .sidebar-header h4 { color: #fff; margin-bottom: 0; }
-        .sidebar-header p { color: #b2bec3; margin-top: 4px; }
-        .nav { list-style: none; padding: 0; margin: 0; }
-        .nav-item { width: 100%; }
-        .nav-link { display: block; padding: 15px 20px; color: #ecf0f1; text-decoration: none; border-radius: 0; transition: background 0.2s; }
-        .nav-link.active, .nav-link:hover { background: #3498db; color: #fff; }
-        .main-content { flex: 1; background: #f8f9fa; min-height: 100vh; padding: 40px 32px; }
-        .navbar-admin { background: #fff; box-shadow: 0 2px 8px rgba(44,62,80,0.04); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
-        .navbar-brand { font-weight: bold; font-size: 1.2rem; }
-        .admin-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #3498db; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1rem; margin-left: 12px; }
-        .logout-btn { border-radius: 6px; background: #e74c3c; color: #fff; border: none; padding: 6px 16px; cursor: pointer; font-size: 1rem; margin-left: 16px; }
-        .logout-btn:hover { background: #c0392b; }
-        .card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(44,62,80,0.08); margin-bottom: 24px; max-width: 100%; }
-        .card-header { padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #eee; background: #f4f6fa; border-radius: 10px 10px 0 0; }
-        .card-title { font-size: 1.1rem; font-weight: bold; }
-        .badge { display: inline-block; padding: 2px 10px; border-radius: 6px; font-size: 0.95em; }
-        .bg-primary { background: #3498db; color: #fff; }
-        .bg-success { background: #27ae60; color: #fff; }
-        .bg-warning { background: #f39c12; color: #fff; }
-        .bg-danger { background: #e74c3c; color: #fff; }
+        
+        .sidebar { 
+            width: 260px; 
+            background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff; 
+            display: flex; 
+            flex-direction: column;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar-header { 
+            padding: 30px 20px; 
+            text-align: center; 
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-header h4 { 
+            color: #fff; 
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+        .sidebar-header p { 
+            color: rgba(255,255,255,0.7); 
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .nav { list-style: none; padding: 20px 0; margin: 0; }
+        .nav-item { width: 100%; margin-bottom: 5px; }
+        .nav-link { 
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px; 
+            color: rgba(255,255,255,0.8); 
+            text-decoration: none; 
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover { 
+            background: rgba(255,255,255,0.1); 
+            color: #fff;
+            padding-left: 30px;
+        }
+        .nav-link.active { 
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border-left: 3px solid #fff;
+        }
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #fff;
+        }
+        
+        .main-content { 
+            flex: 1; 
+            padding: 0;
+            background: transparent;
+            overflow-x: hidden;
+        }
+        
+        .top-header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3c72;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border-radius: 50px;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        
+        .admin-avatar { 
+            width: 38px; 
+            height: 38px; 
+            border-radius: 50%; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 600; 
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(102,126,234,0.3);
+        }
+        
+        .logout-btn { 
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: #fff; 
+            border: none; 
+            padding: 10px 24px; 
+            border-radius: 50px;
+            cursor: pointer; 
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .logout-btn:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245,87,108,0.3);
+        }
+        
+        .content-wrapper {
+            padding: 0 40px 40px;
+        }
+        
+        .search-section { 
+            background: #fff; 
+            border-radius: 16px; 
+            padding: 25px; 
+            margin-bottom: 25px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+        }
+        
+        .search-input { 
+            width: 100%; 
+            max-width: 400px; 
+            padding: 14px 20px; 
+            border: 2px solid #e9ecef; 
+            border-radius: 12px; 
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        .search-input:focus { 
+            outline: none; 
+            border-color: #667eea;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+        
+        .users-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f1f3f5;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .badge { 
+            display: inline-block; 
+            padding: 6px 12px; 
+            border-radius: 20px; 
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .bg-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #fff; }
+        .bg-success { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: #fff; }
+        .bg-warning { background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%); color: #fff; }
+        .bg-danger { background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%); color: #fff; }
+        
         .table-responsive { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; margin-top: 0; background: #fff; }
-        th, td { padding: 12px 14px; border-bottom: 1px solid #eee; text-align: left; }
-        th { background: #f4f6fa; font-weight: bold; }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-top: 0; 
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        th, td { 
+            padding: 16px 20px; 
+            border-bottom: 1px solid #f1f3f5; 
+            text-align: left; 
+        }
+        th { 
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
         tr:last-child td { border-bottom: none; }
-        tr:hover { background: #f8f9fa; }
-        .btn { background: #b2bec3; color: #fff; border: none; border-radius: 6px; padding: 6px 14px; font-size: 1rem; cursor: not-allowed; opacity: 0.7; }
-        .btn-edit { background: #3498db; cursor: pointer; opacity: 1; }
-        .btn-edit:hover { background: #217dbb; }
-        .btn-delete { background: #e74c3c; cursor: pointer; opacity: 1; }
-        .btn-delete:hover { background: #c0392b; }
-        .text-muted { color: #888; }
-        .gap-3 { display: flex; align-items: center; gap: 16px; }
-        .search-section { background: #fff; border-radius: 8px; padding: 20px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(44,62,80,0.04); }
-        .search-input { width: 100%; max-width: 400px; padding: 10px 16px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
-        .search-input:focus { outline: none; border-color: #3498db; }
-        .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: #3498db; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.9rem; }
-        @media (max-width: 700px) {
-            .main-content { padding: 16px 4px; }
-            .card-header, th, td { padding: 8px 6px; }
+        tr:hover { 
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+        
+        .btn { 
+            background: #b2bec3; 
+            color: #fff; 
+            border: none; 
+            border-radius: 8px; 
+            padding: 8px 16px; 
+            font-size: 13px;
+            font-weight: 600;
+            cursor: not-allowed; 
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+        .btn-edit { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            cursor: pointer; 
+            opacity: 1;
+        }
+        .btn-edit:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102,126,234,0.3);
+        }
+        .btn-delete { 
+            background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+            cursor: pointer; 
+            opacity: 1;
+        }
+        .btn-delete:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(238,9,121,0.3);
+        }
+        
+        .text-muted { color: #6c757d; }
+        
+        .user-avatar { 
+            width: 40px; 
+            height: 40px; 
+            border-radius: 50%; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 600; 
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(102,126,234,0.2);
+        }
+        
+        .user-details {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .user-info-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+        
+        .user-info-text p {
+            font-size: 12px;
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar { width: 220px; }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .content-wrapper { padding: 0 20px 20px; }
+            .top-header { padding: 15px 20px; }
+            .page-title { font-size: 24px; }
+            th, td { padding: 12px 15px; }
         }
     </style>
 </head>
@@ -77,25 +354,27 @@
             </ul>
         </nav>
         <main class="main-content">
-            <div class="navbar-admin">
-                <span class="navbar-brand">Manage Users</span>
-                <div class="gap-3">
-                    <span class="fw-semibold">Admin</span>
-                    <span class="admin-avatar">A</span>
-                    <form action="#" method="POST" class="d-inline">
-                        <button type="submit" class="logout-btn">Logout</button>
-                    </form>
+            <div class="top-header">
+                <h1 class="page-title">User Management</h1>
+                <div class="header-actions">
+                    <div class="user-info">
+                        <span class="user-name">Administrator</span>
+                        <span class="admin-avatar">A</span>
+                    </div>
+                    <button class="logout-btn">Logout</button>
                 </div>
             </div>
-            <div class="search-section">
-                <input type="text" class="search-input" placeholder="Search users by name, email, or role..." id="userSearch">
-            </div>
-            <div class="card">
-                <div class="card-header">
-                    <span class="card-title">All Users</span>
-                    <span class="badge bg-primary">8 total users</span>
+            
+            <div class="content-wrapper">
+                <div class="search-section">
+                    <input type="text" class="search-input" placeholder="Search users by name, email, or role..." id="userSearch">
                 </div>
-                <div class="card-body">
+                
+                <div class="users-section">
+                    <div class="section-header">
+                        <h2 class="section-title">All Users</h2>
+                        <span class="badge bg-primary">8 total users</span>
+                    </div>
                     <div class="table-responsive">
                         <table>
                             <thead>
@@ -111,11 +390,11 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="user-details">
                                             <span class="user-avatar">J</span>
-                                            <div>
-                                                <div style="font-weight: 600;">John Doe</div>
-                                                <div style="font-size: 0.9rem; color: #888;">ID: 1001</div>
+                                            <div class="user-info-text">
+                                                <h4>John Doe</h4>
+                                                <p>ID: 1001</p>
                                             </div>
                                         </div>
                                     </td>
@@ -124,17 +403,19 @@
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>Jan 1, 2024</td>
                                     <td>
-                                        <button class="btn btn-edit">Edit</button>
-                                        <button class="btn btn-delete">Delete</button>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-edit">Edit</button>
+                                            <button class="btn btn-delete">Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="user-details">
                                             <span class="user-avatar">J</span>
-                                            <div>
-                                                <div style="font-weight: 600;">Jane Smith</div>
-                                                <div style="font-size: 0.9rem; color: #888;">ID: 1002</div>
+                                            <div class="user-info-text">
+                                                <h4>Jane Smith</h4>
+                                                <p>ID: 1002</p>
                                             </div>
                                         </div>
                                     </td>
@@ -143,17 +424,19 @@
                                     <td><span class="badge bg-warning">Pending</span></td>
                                     <td>Feb 15, 2024</td>
                                     <td>
-                                        <button class="btn btn-edit">Edit</button>
-                                        <button class="btn btn-delete">Delete</button>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-edit">Edit</button>
+                                            <button class="btn btn-delete">Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="user-details">
                                             <span class="user-avatar">M</span>
-                                            <div>
-                                                <div style="font-weight: 600;">Mike Johnson</div>
-                                                <div style="font-size: 0.9rem; color: #888;">ID: 1003</div>
+                                            <div class="user-info-text">
+                                                <h4>Mike Johnson</h4>
+                                                <p>ID: 1003</p>
                                             </div>
                                         </div>
                                     </td>
@@ -162,17 +445,19 @@
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>Mar 10, 2024</td>
                                     <td>
-                                        <button class="btn btn-edit">Edit</button>
-                                        <button class="btn btn-delete">Delete</button>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-edit">Edit</button>
+                                            <button class="btn btn-delete">Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="user-details">
                                             <span class="user-avatar">S</span>
-                                            <div>
-                                                <div style="font-weight: 600;">Sarah Wilson</div>
-                                                <div style="font-size: 0.9rem; color: #888;">ID: 1004</div>
+                                            <div class="user-info-text">
+                                                <h4>Sarah Wilson</h4>
+                                                <p>ID: 1004</p>
                                             </div>
                                         </div>
                                     </td>
@@ -181,17 +466,19 @@
                                     <td><span class="badge bg-success">Active</span></td>
                                     <td>Apr 5, 2024</td>
                                     <td>
-                                        <button class="btn btn-edit">Edit</button>
-                                        <button class="btn btn-delete">Delete</button>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-edit">Edit</button>
+                                            <button class="btn btn-delete">Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="user-details">
                                             <span class="user-avatar">D</span>
-                                            <div>
-                                                <div style="font-weight: 600;">David Brown</div>
-                                                <div style="font-size: 0.9rem; color: #888;">ID: 1005</div>
+                                            <div class="user-info-text">
+                                                <h4>David Brown</h4>
+                                                <p>ID: 1005</p>
                                             </div>
                                         </div>
                                     </td>
@@ -200,8 +487,10 @@
                                     <td><span class="badge bg-danger">Suspended</span></td>
                                     <td>May 20, 2024</td>
                                     <td>
-                                        <button class="btn btn-edit">Edit</button>
-                                        <button class="btn btn-delete">Delete</button>
+                                        <div class="action-buttons">
+                                            <button class="btn btn-edit">Edit</button>
+                                            <button class="btn btn-delete">Delete</button>
+                                        </div>
                                     </td>
                                 </tr>
                             </tbody>

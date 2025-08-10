@@ -4,38 +4,277 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - BeingScholar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background: #f8f9fa; margin: 0; font-family: Arial, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+            min-height: 100vh; 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
         .container-fluid { width: 100vw; min-height: 100vh; }
         .row { display: flex; min-height: 100vh; }
-        .sidebar { width: 220px; background: #2c3e50; color: #ecf0f1; display: flex; flex-direction: column; }
-        .sidebar-header { padding: 32px 0 16px 0; text-align: center; }
-        .sidebar-header h4 { color: #fff; margin-bottom: 0; }
-        .sidebar-header p { color: #b2bec3; margin-top: 4px; }
-        .nav { list-style: none; padding: 0; margin: 0; }
-        .nav-item { width: 100%; }
-        .nav-link { display: block; padding: 15px 20px; color: #ecf0f1; text-decoration: none; border-radius: 0; transition: background 0.2s; }
-        .nav-link.active, .nav-link:hover { background: #3498db; color: #fff; }
-        .main-content { flex: 1; background: #f8f9fa; min-height: 100vh; padding: 40px 32px; }
-        .navbar-admin { background: #fff; box-shadow: 0 2px 8px rgba(44,62,80,0.04); padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; }
-        .navbar-brand { font-weight: bold; font-size: 1.2rem; }
-        .admin-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: #3498db; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1rem; margin-left: 12px; }
-        .logout-btn { border-radius: 6px; background: #e74c3c; color: #fff; border: none; padding: 6px 16px; cursor: pointer; font-size: 1rem; margin-left: 16px; }
-        .logout-btn:hover { background: #c0392b; }
-        .welcome { background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(44,62,80,0.04); padding: 40px; margin-bottom: 24px; }
-        .welcome h2 { color: #1976d2; margin-bottom: 8px; }
-        .welcome p { color: #555; font-size: 1.1rem; }
-        .gap-3 { display: flex; align-items: center; gap: 16px; }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 32px; }
-        .stat-card { background: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(44,62,80,0.04); border-left: 4px solid #3498db; }
-        .stat-card.users { border-left-color: #e74c3c; }
-        .stat-card.courses { border-left-color: #27ae60; }
-        .stat-card.enrollments { border-left-color: #f39c12; }
-        .stat-card.revenue { border-left-color: #9b59b6; }
-        .stat-number { font-size: 2.5rem; font-weight: bold; color: #2c3e50; margin-bottom: 8px; }
-        .stat-label { color: #7f8c8d; font-size: 1rem; margin-bottom: 4px; }
-        .stat-change { font-size: 0.9rem; color: #27ae60; }
-        .stat-icon { font-size: 2rem; margin-bottom: 12px; }
+        
+        .sidebar { 
+            width: 260px; 
+            background: linear-gradient(180deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff; 
+            display: flex; 
+            flex-direction: column;
+            box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+        }
+        .sidebar-header { 
+            padding: 30px 20px; 
+            text-align: center; 
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-header h4 { 
+            color: #fff; 
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+        .sidebar-header p { 
+            color: rgba(255,255,255,0.7); 
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .nav { list-style: none; padding: 20px 0; margin: 0; }
+        .nav-item { width: 100%; margin-bottom: 5px; }
+        .nav-link { 
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 24px; 
+            color: rgba(255,255,255,0.8); 
+            text-decoration: none; 
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover { 
+            background: rgba(255,255,255,0.1); 
+            color: #fff;
+            padding-left: 30px;
+        }
+        .nav-link.active { 
+            background: rgba(255,255,255,0.15);
+            color: #fff;
+            border-left: 3px solid #fff;
+        }
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #fff;
+        }
+        
+        .main-content { 
+            flex: 1; 
+            padding: 0;
+            background: transparent;
+            overflow-x: hidden;
+        }
+        
+        .top-header {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .page-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3c72;
+            letter-spacing: -0.5px;
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 16px;
+            background: #f8f9fa;
+            border-radius: 50px;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        
+        .admin-avatar { 
+            width: 38px; 
+            height: 38px; 
+            border-radius: 50%; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 600; 
+            font-size: 16px;
+            box-shadow: 0 2px 8px rgba(102,126,234,0.3);
+        }
+        
+        .logout-btn { 
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: #fff; 
+            border: none; 
+            padding: 10px 24px; 
+            border-radius: 50px;
+            cursor: pointer; 
+            font-size: 14px;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .logout-btn:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(245,87,108,0.3);
+        }
+        
+        .content-wrapper {
+            padding: 0 40px 40px;
+        }
+        
+        .welcome-section {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+        }
+        
+        .welcome-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 10px;
+        }
+        
+        .welcome-text {
+            color: #7f8c8d;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .stats-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 20px; 
+            margin-bottom: 30px; 
+        }
+        
+        .stat-card { 
+            background: #fff; 
+            border-radius: 16px; 
+            padding: 25px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        
+        .stat-card.users::before { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .stat-card.courses::before { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .stat-card.enrollments::before { background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%); }
+        .stat-card.revenue::before { background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%); }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .stat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .stat-icon { 
+            width: 50px; 
+            height: 50px; 
+            border-radius: 12px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 24px;
+        }
+        
+        .stat-icon.users { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .stat-icon.courses { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .stat-icon.enrollments { background: linear-gradient(135deg, #f2994a 0%, #f2c94c 100%); }
+        .stat-icon.revenue { background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%); }
+        
+        .stat-number { 
+            font-size: 32px; 
+            font-weight: 700; 
+            color: #2c3e50; 
+            margin-bottom: 5px; 
+        }
+        
+        .stat-label { 
+            color: #7f8c8d; 
+            font-size: 14px; 
+            font-weight: 500;
+            margin-bottom: 8px; 
+        }
+        
+        .stat-change { 
+            font-size: 12px; 
+            color: #27ae60; 
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .stat-change::before {
+            content: '↗';
+            font-size: 14px;
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar { width: 220px; }
+            .stats-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .content-wrapper { padding: 0 20px 20px; }
+            .top-header { padding: 15px 20px; }
+            .page-title { font-size: 24px; }
+            .stats-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -62,44 +301,56 @@
             </ul>
         </nav>
         <main class="main-content">
-            <div class="navbar-admin">
-                <span class="navbar-brand">Admin Dashboard</span>
-                <div class="gap-3">
-                    <span class="fw-semibold">Admin</span>
-                    <span class="admin-avatar">A</span>
-                    <form action="#" method="POST" class="d-inline">
-                        <button type="submit" class="logout-btn">Logout</button>
-                    </form>
+            <div class="top-header">
+                <h1 class="page-title">Dashboard Overview</h1>
+                <div class="header-actions">
+                    <div class="user-info">
+                        <span class="user-name">Administrator</span>
+                        <span class="admin-avatar">A</span>
+                    </div>
+                    <button class="logout-btn">Logout</button>
                 </div>
             </div>
-            <div class="welcome">
-                <h2>Welcome, Admin!</h2>
-                <p class="lead mb-0">Manage your platform efficiently. Use the sidebar to navigate between courses, users, and your own courses. All your admin tools are just a click away.</p>
-            </div>
-            <div class="stats-grid">
-                <div class="stat-card users">
-                    <div class="stat-icon">👥</div>
-                    <div class="stat-number">1,247</div>
-                    <div class="stat-label">Total Users</div>
-                    <div class="stat-change">+12% this month</div>
+            
+            <div class="content-wrapper">
+                <div class="welcome-section">
+                    <h2 class="welcome-title">Welcome back, Administrator! 👋</h2>
+                    <p class="welcome-text">Here's what's happening with your platform today. Use the sidebar to navigate between courses, users, and your own courses. All your admin tools are just a click away.</p>
                 </div>
-                <div class="stat-card courses">
-                    <div class="stat-icon">📚</div>
-                    <div class="stat-number">24</div>
-                    <div class="stat-label">Active Courses</div>
-                    <div class="stat-change">+3 new courses</div>
-                </div>
-                <div class="stat-card enrollments">
-                    <div class="stat-icon">🎓</div>
-                    <div class="stat-number">856</div>
-                    <div class="stat-label">Total Enrollments</div>
-                    <div class="stat-change">+8% this week</div>
-                </div>
-                <div class="stat-card revenue">
-                    <div class="stat-icon">💰</div>
-                    <div class="stat-number">$12,450</div>
-                    <div class="stat-label">Monthly Revenue</div>
-                    <div class="stat-change">+15% vs last month</div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card users">
+                        <div class="stat-header">
+                            <div class="stat-icon users">👥</div>
+                        </div>
+                        <div class="stat-number">1,247</div>
+                        <div class="stat-label">Total Users</div>
+                        <div class="stat-change">+12% this month</div>
+                    </div>
+                    <div class="stat-card courses">
+                        <div class="stat-header">
+                            <div class="stat-icon courses">📚</div>
+                        </div>
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Active Courses</div>
+                        <div class="stat-change">+3 new courses</div>
+                    </div>
+                    <div class="stat-card enrollments">
+                        <div class="stat-header">
+                            <div class="stat-icon enrollments">🎓</div>
+                        </div>
+                        <div class="stat-number">856</div>
+                        <div class="stat-label">Total Enrollments</div>
+                        <div class="stat-change">+8% this week</div>
+                    </div>
+                    <div class="stat-card revenue">
+                        <div class="stat-header">
+                            <div class="stat-icon revenue">💰</div>
+                        </div>
+                        <div class="stat-number">$12,450</div>
+                        <div class="stat-label">Monthly Revenue</div>
+                        <div class="stat-change">+15% vs last month</div>
+                    </div>
                 </div>
             </div>
         </main>

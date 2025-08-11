@@ -351,24 +351,22 @@ Route::get('/mycourses', function () {
     return view('myCourses');
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-});
-
-Route::get('/admin/login', function () {
-    return view('admin.login');
-});
-
-Route::get('/admin/manage-courses', function () {
-    return view('admin.manage-courses');
-});
-
-Route::get('/admin/users', function () {
-    return view('admin.manage-users');
-});
-
-Route::get('/admin/mycourses', function () {
-    return view('admin.mycourses');
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\AdminController::class, 'dashboard'])->name('admin.dashboard');
+    Route::get('/login', function () {
+        return view('admin.login');
+    })->name('admin.login');
+    
+    Route::get('/manage-courses', [App\Http\Controllers\AdminController::class, 'manageCourses'])->name('admin.courses');
+    Route::post('/courses', [App\Http\Controllers\AdminController::class, 'storeCourse'])->name('admin.courses.store');
+    Route::put('/courses/{course}', [App\Http\Controllers\AdminController::class, 'updateCourse'])->name('admin.courses.update');
+    Route::delete('/courses/{course}', [App\Http\Controllers\AdminController::class, 'deleteCourse'])->name('admin.courses.delete');
+    
+    Route::get('/users', [App\Http\Controllers\AdminController::class, 'manageUsers'])->name('admin.users');
+    Route::put('/users/{user}', [App\Http\Controllers\AdminController::class, 'updateUser'])->name('admin.users.update');
+    Route::delete('/users/{user}', [App\Http\Controllers\AdminController::class, 'deleteUser'])->name('admin.users.delete');
+    
+    Route::get('/mycourses', [App\Http\Controllers\AdminController::class, 'myCourses'])->name('admin.mycourses');
 });
 
 Route::get('/certificate', function () {

@@ -323,7 +323,7 @@
                         <div class="stat-header">
                             <div class="stat-icon users">👥</div>
                         </div>
-                        <div class="stat-number">1,247</div>
+                        <div class="stat-number">{{ number_format($stats['total_users']) }}</div>
                         <div class="stat-label">Total Users</div>
                         <div class="stat-change">+12% this month</div>
                     </div>
@@ -331,7 +331,7 @@
                         <div class="stat-header">
                             <div class="stat-icon courses">📚</div>
                         </div>
-                        <div class="stat-number">24</div>
+                        <div class="stat-number">{{ $stats['active_courses'] }}</div>
                         <div class="stat-label">Active Courses</div>
                         <div class="stat-change">+3 new courses</div>
                     </div>
@@ -339,7 +339,7 @@
                         <div class="stat-header">
                             <div class="stat-icon enrollments">🎓</div>
                         </div>
-                        <div class="stat-number">856</div>
+                        <div class="stat-number">{{ number_format($stats['total_enrollments']) }}</div>
                         <div class="stat-label">Total Enrollments</div>
                         <div class="stat-change">+8% this week</div>
                     </div>
@@ -347,7 +347,7 @@
                         <div class="stat-header">
                             <div class="stat-icon revenue">💰</div>
                         </div>
-                        <div class="stat-number">$12,450</div>
+                        <div class="stat-number">${{ number_format($stats['monthly_revenue']) }}</div>
                         <div class="stat-label">Monthly Revenue</div>
                         <div class="stat-change">+15% vs last month</div>
                     </div>

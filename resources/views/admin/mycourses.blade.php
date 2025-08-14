@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>My Courses - BeingScholar Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -358,6 +359,20 @@
             .courses-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
         }
         
+        .no-courses {
+            text-align: center;
+            padding: 60px 20px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .no-courses p {
+            font-size: 18px;
+            color: #6c757d;
+            margin-bottom: 30px;
+        }
+        
         @media (max-width: 768px) {
             .sidebar { display: none; }
             .content-wrapper { padding: 0 20px 20px; }
@@ -398,7 +413,10 @@
                         <span class="user-name">Administrator</span>
                     <span class="admin-avatar">A</span>
                     </div>
-                    <button class="logout-btn">Logout</button>
+                    <form method="POST" action="{{ route('admin.logout') }}" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
                 </div>
             </div>
             
@@ -413,70 +431,131 @@
                         <h2 class="section-title">My Created Courses</h2>
                     </div>
                     <div class="courses-grid">
+                        @forelse($courses as $course)
                         <div class="course-card">
                             <div class="course-image-wrapper">
-                                <img src="{{ asset('images/Course_Banner/Java.png') }}" alt="Java Course" class="course-image">
-                                <span class="course-badge badge-active">Active</span>
+                                <img src="{{ asset($course->banner_image ?? 'images/Course_Card_Banner/a.png') }}" alt="{{ $course->title }}" class="course-image">
+                                <span class="course-badge badge-{{ $course->status }}">{{ ucfirst($course->status) }}</span>
                             </div>
                             <div class="course-content">
-                                <h3 class="course-title">Professional Certificate in Java Spring Boot</h3>
-                                <p class="course-description">Master Java Spring Boot development with hands-on projects and real-world applications.</p>
+                                <h3 class="course-title">{{ $course->title }}</h3>
+                                <p class="course-description">{{ Str::limit($course->description, 100) }}</p>
                                 <div class="course-meta">
-                                    <span class="course-price">৳7,500</span>
-                                    <span class="course-students">👥 156 students</span>
+                                    <span class="course-price">৳{{ number_format($course->price) }}</span>
+                                    <span class="course-students">👥 {{ $course->max_students ?? 0 }} students</span>
                                 </div>
                                 <div class="course-actions">
-                                    <button class="btn-action btn-edit">Edit</button>
-                                    <button class="btn-action btn-archive">Archive</button>
-                                    <button class="btn-action btn-delete">Delete</button>
+                                    <button class="btn-action btn-edit" onclick="editCourse({{ $course->id }})">Edit</button>
+                                    @if($course->status === 'active')
+                                        <button class="btn-action btn-archive" onclick="archiveCourse({{ $course->id }})">Archive</button>
+                                    @elseif($course->status === 'draft')
+                                        <button class="btn-action btn-archive" onclick="publishCourse({{ $course->id }})">Publish</button>
+                                    @else
+                                        <button class="btn-action btn-archive" onclick="restoreCourse({{ $course->id }})">Restore</button>
+                                    @endif
+                                    <button class="btn-action btn-delete" onclick="deleteCourse({{ $course->id }})">Delete</button>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image-wrapper">
-                                <img src="{{ asset('images/Course_Banner/Data.png') }}" alt="Data Analytics" class="course-image">
-                                <span class="course-badge badge-active">Active</span>
-                            </div>
-                            <div class="course-content">
-                                <h3 class="course-title">Applied Data Analytics Masterclass</h3>
-                                <p class="course-description">Learn data analysis, visualization, and statistical methods for business insights.</p>
-                                <div class="course-meta">
-                                    <span class="course-price">৳6,800</span>
-                                    <span class="course-students">👥 89 students</span>
-                                </div>
-                                <div class="course-actions">
-                                    <button class="btn-action btn-edit">Edit</button>
-                                    <button class="btn-action btn-archive">Archive</button>
-                                    <button class="btn-action btn-delete">Delete</button>
-                                </div>
-                            </div>
+                        @empty
+                        <div class="no-courses">
+                            <p>You haven't created any courses yet.</p>
+                            <button class="btn-add" onclick="window.location.href='/admin/manage-courses'">
+                                <span>+</span>
+                                <span>Create Your First Course</span>
+                            </button>
                         </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image-wrapper">
-                                <img src="{{ asset('images/Course_Banner/Mern.png') }}" alt="MERN Stack" class="course-image">
-                                <span class="course-badge badge-draft">Draft</span>
-                            </div>
-                            <div class="course-content">
-                                <h3 class="course-title">MERN Stack Development</h3>
-                                <p class="course-description">Build full-stack web applications using MongoDB, Express, React, and Node.js.</p>
-                                <div class="course-meta">
-                                    <span class="course-price">৳8,200</span>
-                                    <span class="course-students">👥 0 students</span>
-                                </div>
-                                <div class="course-actions">
-                                    <button class="btn-action btn-edit">Edit</button>
-                                    <button class="btn-action btn-archive">Publish</button>
-                                    <button class="btn-action btn-delete">Delete</button>
-                                </div>
-                            </div>
-                        </div>
+                        @endforelse
                     </div>
+                    
+                    @if($courses->hasPages())
+                    <div class="pagination-wrapper">
+                        {{ $courses->links() }}
+                    </div>
+                    @endif
                 </div>
             </div>
         </main>
     </div>
 </div>
+    <script>
+        function editCourse(courseId) {
+            if (confirm('Edit course ' + courseId + '?')) {
+                window.location.href = '/admin/courses/' + courseId + '/edit';
+            }
+        }
+
+        function archiveCourse(courseId) {
+            if (confirm('Archive this course?')) {
+                fetch('/admin/courses/' + courseId, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({
+                        status: 'archived'
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+
+        function publishCourse(courseId) {
+            if (confirm('Publish this course?')) {
+                fetch('/admin/courses/' + courseId, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({
+                        status: 'active'
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+
+        function restoreCourse(courseId) {
+            if (confirm('Restore this course?')) {
+                fetch('/admin/courses/' + courseId, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({
+                        status: 'active'
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+
+        function deleteCourse(courseId) {
+            if (confirm('Are you sure you want to delete this course? This action cannot be undone.')) {
+                fetch('/admin/courses/' + courseId, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 </html> 

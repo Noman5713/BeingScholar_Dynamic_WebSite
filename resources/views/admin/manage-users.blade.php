@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Manage Users - BeingScholar Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -361,7 +362,10 @@
                         <span class="user-name">Administrator</span>
                         <span class="admin-avatar">A</span>
                     </div>
-                    <button class="logout-btn">Logout</button>
+                    <form method="POST" action="{{ route('admin.logout') }}" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
                 </div>
             </div>
             
@@ -373,7 +377,7 @@
                 <div class="users-section">
                     <div class="section-header">
                         <h2 class="section-title">All Users</h2>
-                        <span class="badge bg-primary">8 total users</span>
+                        <span class="badge bg-primary">{{ $users->total() }} total users</span>
                     </div>
                     <div class="table-responsive">
                         <table>
@@ -388,114 +392,44 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($users as $user)
                                 <tr>
                                     <td>
                                         <div class="user-details">
-                                            <span class="user-avatar">J</span>
+                                            <span class="user-avatar">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
                                             <div class="user-info-text">
-                                                <h4>John Doe</h4>
-                                                <p>ID: 1001</p>
+                                                <h4>{{ $user->name }}</h4>
+                                                <p>ID: {{ $user->id }}</p>
                                             </div>
                                         </div>
                                     </td>
-                                    <td>john@example.com</td>
-                                    <td>Admin</td>
-                                    <td><span class="badge bg-success">Active</span></td>
-                                    <td>Jan 1, 2024</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ ucfirst($user->role) }}</td>
+                                    <td>
+                                        @if($user->email_verified_at)
+                                            <span class="badge bg-success">Active</span>
+                                        @else
+                                            <span class="badge bg-warning">Pending</span>
+                                        @endif
+                                    </td>
+                                    <td>{{ $user->created_at->format('M d, Y') }}</td>
                                     <td>
                                         <div class="action-buttons">
-                                            <button class="btn btn-edit">Edit</button>
-                                            <button class="btn btn-delete">Delete</button>
+                                            <button class="btn btn-edit" onclick="editUser({{ $user->id }})">Edit</button>
+                                            <button class="btn btn-delete" onclick="deleteUser({{ $user->id }})">Delete</button>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="user-details">
-                                            <span class="user-avatar">J</span>
-                                            <div class="user-info-text">
-                                                <h4>Jane Smith</h4>
-                                                <p>ID: 1002</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>jane@example.com</td>
-                                    <td>Student</td>
-                                    <td><span class="badge bg-warning">Pending</span></td>
-                                    <td>Feb 15, 2024</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn btn-edit">Edit</button>
-                                            <button class="btn btn-delete">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="user-details">
-                                            <span class="user-avatar">M</span>
-                                            <div class="user-info-text">
-                                                <h4>Mike Johnson</h4>
-                                                <p>ID: 1003</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>mike@example.com</td>
-                                    <td>Student</td>
-                                    <td><span class="badge bg-success">Active</span></td>
-                                    <td>Mar 10, 2024</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn btn-edit">Edit</button>
-                                            <button class="btn btn-delete">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="user-details">
-                                            <span class="user-avatar">S</span>
-                                            <div class="user-info-text">
-                                                <h4>Sarah Wilson</h4>
-                                                <p>ID: 1004</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>sarah@example.com</td>
-                                    <td>Instructor</td>
-                                    <td><span class="badge bg-success">Active</span></td>
-                                    <td>Apr 5, 2024</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn btn-edit">Edit</button>
-                                            <button class="btn btn-delete">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="user-details">
-                                            <span class="user-avatar">D</span>
-                                            <div class="user-info-text">
-                                                <h4>David Brown</h4>
-                                                <p>ID: 1005</p>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>david@example.com</td>
-                                    <td>Student</td>
-                                    <td><span class="badge bg-danger">Suspended</span></td>
-                                    <td>May 20, 2024</td>
-                                    <td>
-                                        <div class="action-buttons">
-                                            <button class="btn btn-edit">Edit</button>
-                                            <button class="btn btn-delete">Delete</button>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
+                    
+                    @if($users->hasPages())
+                    <div class="pagination-wrapper">
+                        {{ $users->links() }}
+                    </div>
+                    @endif
                 </div>
             </div>
         </main>
@@ -515,6 +449,27 @@ document.getElementById('userSearch').addEventListener('input', function() {
         }
     });
 });
+
+function editUser(userId) {
+    if (confirm('Edit user ' + userId + '?')) {
+        window.location.href = '/admin/users/' + userId + '/edit';
+    }
+}
+
+function deleteUser(userId) {
+    if (confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+        fetch('/admin/users/' + userId, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        }).then(response => {
+            if (response.ok) {
+                location.reload();
+            }
+        });
+    }
+}
 </script>
 </body>
 </html> 

@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Manage Courses - BeingScholar Admin</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -440,7 +441,10 @@
                         <span class="user-name">Administrator</span>
                     <span class="admin-avatar">A</span>
                     </div>
-                    <button class="logout-btn">Logout</button>
+                    <form method="POST" action="{{ route('admin.logout') }}" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
                 </div>
             </div>
             
@@ -449,28 +453,28 @@
                     <div class="stat-card">
                         <div class="stat-icon blue">📚</div>
                         <div class="stat-details">
-                            <h3>24</h3>
+                            <h3>{{ $courses->total() }}</h3>
                             <p>Total Courses</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon green">✅</div>
                         <div class="stat-details">
-                            <h3>18</h3>
+                            <h3>{{ $courses->where('status', 'active')->count() }}</h3>
                             <p>Active Courses</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon orange">📝</div>
                         <div class="stat-details">
-                            <h3>4</h3>
+                            <h3>{{ $courses->where('status', 'draft')->count() }}</h3>
                             <p>Draft Courses</p>
                         </div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-icon red">🎓</div>
                         <div class="stat-details">
-                            <h3>1,247</h3>
+                            <h3>{{ App\Models\User::where('role', 'student')->count() }}</h3>
                             <p>Total Students</p>
                         </div>
                     </div>
@@ -485,130 +489,123 @@
                         </button>
                     </div>
                     <div class="courses-grid">
+                        @foreach($courses as $course)
                         <div class="course-card">
                             <div class="course-image-wrapper">
-                                <img src="{{ asset('images/Course_Banner/Java.png') }}" alt="Java Course" class="course-image">
-                                <span class="course-badge badge-active">Active</span>
+                                <img src="{{ asset($course->banner_image ?? 'images/Course_Card_Banner/a.png') }}" alt="{{ $course->title }}" class="course-image">
+                                <span class="course-badge badge-{{ $course->status }}">{{ ucfirst($course->status) }}</span>
                             </div>
                             <div class="course-content">
-                                <h3 class="course-title">Professional Certificate in Java Spring Boot</h3>
-                                <p class="course-description">Master Java Spring Boot development with hands-on projects and real-world applications.</p>
+                                <h3 class="course-title">{{ $course->title }}</h3>
+                                <p class="course-description">{{ Str::limit($course->description, 100) }}</p>
                                 <div class="course-meta">
-                                    <span class="course-price">৳7,500</span>
-                                    <span class="course-students">👥 156 students</span>
+                                    <span class="course-price">৳{{ number_format($course->price) }}</span>
+                                    <span class="course-students">👥 {{ $course->max_students ?? 0 }} students</span>
                                 </div>
                                 <div class="course-actions">
-                                    <button class="btn-action btn-edit">Edit</button>
-                                    <button class="btn-action btn-archive">Archive</button>
-                                    <button class="btn-action btn-delete">Delete</button>
+                                    <button class="btn-action btn-edit" onclick="editCourse({{ $course->id }})">Edit</button>
+                                    @if($course->status === 'active')
+                                        <button class="btn-action btn-archive" onclick="archiveCourse({{ $course->id }})">Archive</button>
+                                    @elseif($course->status === 'draft')
+                                        <button class="btn-action btn-archive" onclick="publishCourse({{ $course->id }})">Publish</button>
+                                    @else
+                                        <button class="btn-action btn-archive" onclick="restoreCourse({{ $course->id }})">Restore</button>
+                                    @endif
+                                    <button class="btn-action btn-delete" onclick="deleteCourse({{ $course->id }})">Delete</button>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image-wrapper">
-                                <img src="{{ asset('images/Course_Banner/Data.png') }}" alt="Data Analytics" class="course-image">
-                                <span class="course-badge badge-active">Active</span>
-                            </div>
-                            <div class="course-content">
-                                <h3 class="course-title">Applied Data Analytics Masterclass</h3>
-                                <p class="course-description">Learn data analysis, visualization, and statistical methods for business insights.</p>
-                                <div class="course-meta">
-                                    <span class="course-price">৳6,800</span>
-                                    <span class="course-students">👥 89 students</span>
-                                </div>
-                                <div class="course-actions">
-                                    <button class="btn-action btn-edit">Edit</button>
-                                    <button class="btn-action btn-archive">Archive</button>
-                                    <button class="btn-action btn-delete">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image-wrapper">
-                                <img src="{{ asset('images/Course_Banner/Mern.png') }}" alt="MERN Stack" class="course-image">
-                                <span class="course-badge badge-draft">Draft</span>
-                            </div>
-                            <div class="course-content">
-                                <h3 class="course-title">MERN Stack Development</h3>
-                                <p class="course-description">Build full-stack web applications using MongoDB, Express, React, and Node.js.</p>
-                                <div class="course-meta">
-                                    <span class="course-price">৳8,200</span>
-                                    <span class="course-students">👥 0 students</span>
-                                </div>
-                                <div class="course-actions">
-                                    <button class="btn-action btn-edit">Edit</button>
-                                    <button class="btn-action btn-archive">Publish</button>
-                                    <button class="btn-action btn-delete">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image-wrapper">
-                                <img src="{{ asset('images/Course_Banner/ARVR.png') }}" alt="AR/VR" class="course-image">
-                                <span class="course-badge badge-archived">Archived</span>
-                            </div>
-                            <div class="course-content">
-                                <h3 class="course-title">AR/VR Development Fundamentals</h3>
-                                <p class="course-description">Explore augmented and virtual reality development with Unity and modern tools.</p>
-                                <div class="course-meta">
-                                    <span class="course-price">৳9,500</span>
-                                    <span class="course-students">👥 45 students</span>
-                                </div>
-                                <div class="course-actions">
-                                    <button class="btn-action btn-edit">Edit</button>
-                                    <button class="btn-action btn-archive">Restore</button>
-                                    <button class="btn-action btn-delete">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image-wrapper">
-                                <img src="{{ asset('images/Course_Card_Banner/a.png') }}" alt="AI Python" class="course-image">
-                                <span class="course-badge badge-active">Active</span>
-                            </div>
-                            <div class="course-content">
-                                <h3 class="course-title">AI Based Software Development</h3>
-                                <p class="course-description">Master AI development with Python, machine learning, and deep learning techniques.</p>
-                                <div class="course-meta">
-                                    <span class="course-price">৳5,100</span>
-                                    <span class="course-students">👥 234 students</span>
-                                </div>
-                                <div class="course-actions">
-                                    <button class="btn-action btn-edit">Edit</button>
-                                    <button class="btn-action btn-archive">Archive</button>
-                                    <button class="btn-action btn-delete">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="course-card">
-                            <div class="course-image-wrapper">
-                                <img src="{{ asset('images/Course_Card_Banner/b.png') }}" alt="Web Development" class="course-image">
-                                <span class="course-badge badge-draft">Draft</span>
-                            </div>
-                            <div class="course-content">
-                                <h3 class="course-title">Modern Web Development</h3>
-                                <p class="course-description">Learn HTML5, CSS3, JavaScript, and modern web development frameworks.</p>
-                                <div class="course-meta">
-                                    <span class="course-price">৳4,800</span>
-                                    <span class="course-students">👥 0 students</span>
-                                </div>
-                                <div class="course-actions">
-                                    <button class="btn-action btn-edit">Edit</button>
-                                    <button class="btn-action btn-archive">Publish</button>
-                                    <button class="btn-action btn-delete">Delete</button>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
+                    
+                    @if($courses->hasPages())
+                    <div class="pagination-wrapper">
+                        {{ $courses->links() }}
+                    </div>
+                    @endif
                 </div>
             </div>
         </main>
     </div>
 </div>
+    <script>
+        function editCourse(courseId) {
+            if (confirm('Edit course ' + courseId + '?')) {
+                window.location.href = '/admin/courses/' + courseId + '/edit';
+            }
+        }
+
+        function archiveCourse(courseId) {
+            if (confirm('Archive this course?')) {
+                fetch('/admin/courses/' + courseId, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({
+                        status: 'archived'
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+
+        function publishCourse(courseId) {
+            if (confirm('Publish this course?')) {
+                fetch('/admin/courses/' + courseId, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({
+                        status: 'active'
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+
+        function restoreCourse(courseId) {
+            if (confirm('Restore this course?')) {
+                fetch('/admin/courses/' + courseId, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    },
+                    body: JSON.stringify({
+                        status: 'active'
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+
+        function deleteCourse(courseId) {
+            if (confirm('Are you sure you want to delete this course? This action cannot be undone.')) {
+                fetch('/admin/courses/' + courseId, {
+                    method: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                });
+            }
+        }
+    </script>
 </body>
 </html> 

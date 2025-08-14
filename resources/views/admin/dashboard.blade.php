@@ -308,7 +308,10 @@
                         <span class="user-name">Administrator</span>
                         <span class="admin-avatar">A</span>
                     </div>
-                    <button class="logout-btn">Logout</button>
+                    <form method="POST" action="{{ route('admin.logout') }}" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="logout-btn">Logout</button>
+                    </form>
                 </div>
             </div>
             

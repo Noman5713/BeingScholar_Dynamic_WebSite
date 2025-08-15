@@ -115,7 +115,8 @@
                                 
                                 <!-- Transaction Verification Form (if not verified) -->
                                 @php
-                                    $hasAccess = session('verified_courses.' . $course['title'], false);
+                                    // Always start with locked access (no session persistence)
+                                    $hasAccess = false;
                                     $firstTopic = $course['curriculum'][0] ?? [];
                                 @endphp
                                 
@@ -323,12 +324,12 @@
             })
             .then(response => response.json())
             .then(data => {
-                if (data.success) {
+                if (data.success && data.access_granted) {
                     messageDiv.innerHTML = `<div class="success-message">${data.message}</div>`;
-                    // Reload page after 2 seconds to show unlocked content
+                    // Temporarily unlock curriculum (only for current session)
                     setTimeout(() => {
-                        window.location.reload();
-                    }, 2000);
+                        unlockCurriculum();
+                    }, 1500);
                 } else {
                     messageDiv.innerHTML = `<div class="error-message">${data.message}</div>`;
                 }
@@ -337,6 +338,48 @@
                 messageDiv.innerHTML = '<div class="error-message">An error occurred. Please try again.</div>';
             });
         });
+
+        // Function to temporarily unlock curriculum (client-side only)
+        function unlockCurriculum() {
+            // Hide the verification form
+            const verificationSection = document.querySelector('.payment-verification-section');
+            if (verificationSection) {
+                verificationSection.style.display = 'none';
+            }
+            
+            // Show all locked curriculum items
+            const lockedItems = document.querySelectorAll('.topic-locked');
+            lockedItems.forEach(item => {
+                item.classList.remove('topic-locked');
+                const blurredContent = item.querySelector('.blurred-content');
+                if (blurredContent) {
+                    blurredContent.style.filter = 'none';
+                    blurredContent.style.pointerEvents = 'auto';
+                }
+                const blurOverlay = item.querySelector('.blur-overlay');
+                if (blurOverlay) {
+                    blurOverlay.style.display = 'none';
+                }
+                const lockIcon = item.querySelector('.lock-icon');
+                if (lockIcon) {
+                    lockIcon.style.display = 'none';
+                }
+            });
+            
+            // Show success message
+            const curriculumContent = document.querySelector('.curriculum-content');
+            if (curriculumContent) {
+                const successBanner = document.createElement('div');
+                successBanner.className = 'temporary-access-banner';
+                successBanner.innerHTML = `
+                    <div style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center;">
+                        <strong>🎉 Access Granted!</strong><br>
+                        <small>Note: This access is temporary. You'll need to verify again after refreshing the page.</small>
+                    </div>
+                `;
+                curriculumContent.insertBefore(successBanner, curriculumContent.firstChild);
+            }
+        }
 
     </script>
 

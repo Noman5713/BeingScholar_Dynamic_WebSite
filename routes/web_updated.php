@@ -423,199 +423,7 @@ The curriculum is designed to take you from a complete beginner to a confident P
                 ]
             ]
         ],
-        9 => [
-            'id' => 9,
-            'title' => 'JavaScript for New Developer',
-            'badge' => 'New',
-            'batch' => 'Batch 1',
-            'seats' => null,
-            'days' => null,
-            'image' => asset('images/Course_Card_Banner/i.png'),
-            'old_price' => null,
-            'new_price' => '1000',
-            'duration' => '20 Hours (50 Videos)',
-            'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
-            'description' => 'Complete JavaScript course for beginners who want to learn modern JavaScript and web development fundamentals. This course covers everything from basic syntax to advanced JavaScript concepts and modern ES6+ features.
-
-You will learn DOM manipulation, event handling, asynchronous programming, APIs, and modern JavaScript frameworks introduction. The course includes hands-on projects to build interactive web applications and prepare you for frontend development roles.
-
-Perfect for complete beginners with no programming experience as well as developers from other languages who want to master JavaScript for web development.',
-            'curriculum' => [
-                ['JavaScript introduction', 'Setup and environment', 'Browser developer tools'],
-                ['Basic syntax', 'Variables and data types', 'Operators and expressions'],
-                ['Control structures', 'Conditionals and loops', 'Switch statements'],
-                ['Functions', 'Function declarations', 'Arrow functions and scope'],
-                ['Arrays and objects', 'Array methods', 'Object manipulation'],
-                ['DOM manipulation', 'Selecting elements', 'Modifying content'],
-                ['Event handling', 'Event listeners', 'Event propagation'],
-                ['ES6+ features', 'Let/const, template literals', 'Destructuring'],
-                ['Asynchronous JavaScript', 'Callbacks and promises', 'Async/await'],
-                ['APIs and fetch', 'HTTP requests', 'JSON handling'],
-                ['Error handling', 'Try-catch blocks', 'Debugging techniques'],
-                ['Modern JavaScript', 'Modules and imports', 'Build tools introduction'],
-                ['DOM projects', 'Interactive applications', 'Form validation'],
-                ['API projects', 'Fetching data', 'Dynamic content'],
-                ['Framework introduction', 'React basics', 'Vue.js overview']
-            ],
-            'reviews' => [
-                'web' => [
-                    ['name' => 'Sakib Rahman', 'comment' => 'Excellent JavaScript course for complete beginners. Very practical.', 'rating' => 5],
-                    ['name' => 'Farzana Ahmed', 'comment' => 'Great introduction to modern JavaScript and web development.', 'rating' => 5],
-                    ['name' => 'Imran Ali', 'comment' => 'Perfect foundation for frontend development career.', 'rating' => 4]
-                ],
-                'social' => [
-                    ['name' => 'Rashid Hassan', 'comment' => 'Best JavaScript course for new developers. Highly recommended.', 'rating' => 5],
-                    ['name' => 'Salma Begum', 'comment' => 'Clear explanations and excellent hands-on projects.', 'rating' => 5]
-                ],
-                'video' => [
-                    ['title' => 'JavaScript Project Demos'],
-                    ['title' => 'Modern Web Development'],
-                    ['title' => 'Frontend Career Guide']
-                ]
-            ]
-        ],
-        10 => [
-            'id' => 10,
-            'title' => 'System Design Software Developer - 01',
-            'badge' => '50% OFF',
-            'batch' => 'Batch 1',
-            'seats' => '49 seats remaining',
-            'days' => '266 days remaining',
-            'image' => asset('images/Course_Card_Banner/j.png'),
-            'old_price' => '7000',
-            'new_price' => '3500',
-            'duration' => '35-40 Classes',
-            'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
-            'description' => 'Master system design principles and architecture patterns for scalable software development. This course is essential for software engineers who want to design large-scale distributed systems and prepare for system design interviews.',
-            'curriculum' => [
-                ['System design fundamentals', 'Scalability principles', 'Performance metrics'],
-                ['Database design', 'SQL vs NoSQL', 'Database sharding'],
-                ['Caching strategies', 'Cache patterns', 'Redis and Memcached'],
-                ['Load balancing', 'Load balancer types', 'Distribution algorithms'],
-                ['API design', 'RESTful services', 'API versioning'],
-                ['Microservices architecture', 'Service decomposition', 'Inter-service communication'],
-                ['Message queues', 'Asynchronous processing', 'Queue systems'],
-                ['Distributed systems', 'CAP theorem', 'Consistency patterns'],
-                ['Security design', 'Authentication', 'Authorization patterns'],
-                ['Monitoring and logging', 'System observability', 'Error tracking'],
-                ['Case study: Social media', 'Twitter-like system', 'Timeline generation'],
-                ['Case study: Video streaming', 'YouTube-like system', 'Content delivery'],
-                ['Case study: E-commerce', 'Amazon-like system', 'Payment processing'],
-                ['Interview preparation', 'System design questions', 'Communication skills']
-            ],
-            'reviews' => [
-                'web' => [
-                    ['name' => 'Mahbub Rahman', 'comment' => 'Excellent system design course. Perfect for senior developer interviews.', 'rating' => 5],
-                    ['name' => 'Kamrul Hasan', 'comment' => 'Great practical approach with real-world case studies.', 'rating' => 5],
-                    ['name' => 'Shabnam Akter', 'comment' => 'Very comprehensive coverage of distributed systems concepts.', 'rating' => 4]
-                ],
-                'social' => [
-                    ['name' => 'Aminul Islam', 'comment' => 'Best system design course for software architects. Highly recommended.', 'rating' => 5],
-                    ['name' => 'Taslima Begum', 'comment' => 'Excellent preparation for system design interviews.', 'rating' => 5]
-                ],
-                'video' => [
-                    ['title' => 'System Architecture Walkthroughs'],
-                    ['title' => 'Interview Success Stories'],
-                    ['title' => 'Senior Developer Career Path']
-                ]
-            ]
-        ],
-        11 => [
-            'id' => 11,
-            'title' => 'End to End AI Product Development for Fresher',
-            'badge' => 'New',
-            'batch' => 'Batch 1',
-            'seats' => '50 seats remaining',
-            'days' => '132 days remaining',
-            'image' => asset('images/Course_Card_Banner/k.png'),
-            'old_price' => null,
-            'new_price' => '7500',
-            'duration' => '50-60 Classes',
-            'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
-            'description' => 'Complete AI product development journey from concept to deployment for fresh graduates and entry-level developers. This comprehensive course covers the entire lifecycle of AI product development including ideation, data collection, model development, deployment, and maintenance.',
-            'curriculum' => [
-                ['AI product landscape', 'Market analysis', 'Product opportunities'],
-                ['Product ideation', 'Problem identification', 'Solution design'],
-                ['Data strategy', 'Data collection methods', 'Data quality assessment'],
-                ['ML model development', 'Algorithm selection', 'Model training'],
-                ['Model evaluation', 'Performance metrics', 'Model validation'],
-                ['Backend development', 'API design', 'Database integration'],
-                ['Frontend development', 'User interface design', 'User experience'],
-                ['Model deployment', 'Cloud platforms', 'Containerization'],
-                ['Monitoring and maintenance', 'Model performance tracking', 'Continuous integration'],
-                ['Scalability considerations', 'Load handling', 'Performance optimization'],
-                ['Security and privacy', 'Data protection', 'Model security'],
-                ['Product analytics', 'User behavior tracking', 'A/B testing'],
-                ['Business aspects', 'Monetization strategies', 'Product metrics'],
-                ['Capstone project', 'End-to-end development', 'Product presentation']
-            ],
-            'reviews' => [
-                'web' => [
-                    ['name' => 'Fahim Ahmed', 'comment' => 'Perfect course for fresh graduates. Comprehensive product development approach.', 'rating' => 5],
-                    ['name' => 'Rashida Khatun', 'comment' => 'Excellent practical training for AI product development career.', 'rating' => 5],
-                    ['name' => 'Sohel Rahman', 'comment' => 'Great end-to-end coverage from concept to deployment.', 'rating' => 4]
-                ],
-                'social' => [
-                    ['name' => 'Nasir Uddin', 'comment' => 'Best course for starting AI product development career.', 'rating' => 5],
-                    ['name' => 'Ruma Begum', 'comment' => 'Practical approach with real industry projects.', 'rating' => 5]
-                ],
-                'video' => [
-                    ['title' => 'AI Product Showcases'],
-                    ['title' => 'Student Success Stories'],
-                    ['title' => 'Career in AI Products']
-                ]
-            ]
-        ],
-        12 => [
-            'id' => 12,
-            'title' => 'Data Analytics With Machine Learning',
-            'badge' => '40% OFF',
-            'batch' => 'Batch 2',
-            'seats' => '50 seats remaining',
-            'days' => '5 days remaining',
-            'image' => asset('images/Course_Card_Banner/l.png'),
-            'old_price' => '7500',
-            'new_price' => '4500',
-            'duration' => '45-50 Classes',
-            'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
-            'description' => 'Combine data analytics with machine learning to extract insights and build predictive models from complex datasets. This course bridges the gap between traditional data analysis and modern machine learning techniques.',
-            'curriculum' => [
-                ['Data analytics fundamentals', 'Statistical concepts', 'Analytics workflow'],
-                ['Data collection and preprocessing', 'Data sources', 'Cleaning techniques'],
-                ['Exploratory data analysis', 'Descriptive statistics', 'Data visualization'],
-                ['Statistical inference', 'Hypothesis testing', 'Confidence intervals'],
-                ['Regression analysis', 'Linear and logistic regression', 'Model interpretation'],
-                ['Classification algorithms', 'Decision trees', 'Random forests'],
-                ['Clustering techniques', 'K-means clustering', 'Hierarchical clustering'],
-                ['Time series analysis', 'Trend analysis', 'Forecasting models'],
-                ['Feature engineering', 'Feature selection', 'Dimensionality reduction'],
-                ['Model evaluation', 'Cross-validation', 'Performance metrics'],
-                ['Business intelligence', 'Dashboard creation', 'Reporting tools'],
-                ['Customer analytics', 'Segmentation', 'Churn prediction'],
-                ['Marketing analytics', 'Campaign optimization', 'ROI analysis'],
-                ['Capstone project', 'End-to-end analytics', 'Business recommendations']
-            ],
-            'reviews' => [
-                'web' => [
-                    ['name' => 'Sharmin Akter', 'comment' => 'Perfect combination of analytics and ML. Very practical approach.', 'rating' => 5],
-                    ['name' => 'Rafiqul Islam', 'comment' => 'Excellent course for advancing from analyst to ML practitioner.', 'rating' => 5],
-                    ['name' => 'Nargis Begum', 'comment' => 'Great business focus with technical depth.', 'rating' => 4]
-                ],
-                'social' => [
-                    ['name' => 'Kamal Ahmed', 'comment' => 'Best course for data analytics career advancement.', 'rating' => 5],
-                    ['name' => 'Fatema Khan', 'comment' => 'Comprehensive coverage of analytics and ML integration.', 'rating' => 5]
-                ],
-                'video' => [
-                    ['title' => 'Analytics Project Presentations'],
-                    ['title' => 'Business Case Studies'],
-                    ['title' => 'Data Career Progression']
-                ]
-            ]
-        ]
+        // Add more courses as needed...
     ];
 
     // Get course data or return 404
@@ -639,7 +447,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 9',
             'duration' => '6-8 Months',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '100 seats remaining',
             'days' => '56 days remaining',
             'image' => asset('images/Course_Card_Banner/a.png'),
@@ -672,7 +479,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 7',
             'duration' => '40-45 Classes',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '100 seats remaining',
             'days' => '65 days remaining',
             'image' => asset('images/Course_Card_Banner/b.png'),
@@ -705,7 +511,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '24 Classes',
             'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
             'seats' => null,
             'days' => null,
             'image' => asset('images/Course_Card_Banner/c.png'),
@@ -738,7 +543,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 8',
             'duration' => '5 Months',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '100 seats remaining',
             'days' => '8 days remaining',
             'image' => asset('images/Course_Card_Banner/d.png'),
@@ -771,7 +575,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '5 Hours (23 Videos)',
             'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
             'seats' => null,
             'days' => null,
             'image' => asset('images/Course_Card_Banner/e.png'),
@@ -804,7 +607,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '30-35 Classes',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '75 seats remaining',
             'days' => '246 days remaining',
             'image' => asset('images/Course_Card_Banner/f.png'),
@@ -837,7 +639,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '15 Hours (45 Videos)',
             'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
             'seats' => null,
             'days' => null,
             'image' => asset('images/Course_Card_Banner/g.png'),
@@ -870,7 +671,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '25 Hours (60 Videos)',
             'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
             'seats' => null,
             'days' => null,
             'image' => asset('images/Course_Card_Banner/h.png'),
@@ -896,138 +696,6 @@ Route::get('/enroll/{id}', function ($id) {
                 'Career guidance for software development'
             ]
         ],
-        9 => [
-            'id' => 9,
-            'title' => 'JavaScript for New Developer',
-            'badge' => 'New',
-            'batch' => 'Batch 1',
-            'duration' => '20 Hours (50 Videos)',
-            'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
-            'seats' => null,
-            'days' => null,
-            'image' => asset('images/Course_Card_Banner/i.png'),
-            'old_price' => null,
-            'new_price' => '1000',
-            'category' => 'Web Development & JavaScript',
-            'experience_label' => 'Web Development Experience',
-            'experience_options' => [
-                'complete_beginner' => 'Complete Beginner (No web development)',
-                'html_css' => 'HTML/CSS (Basic web knowledge)',
-                'basic' => 'Basic (Some programming experience)',
-                'transitioning' => 'Transitioning (From other languages)'
-            ],
-            'motivation_placeholder' => 'e.g., I want to become frontend developer, build interactive websites, or learn modern web development...',
-            'highlights' => [
-                'Complete JavaScript mastery for beginners',
-                'Modern ES6+ features and syntax',
-                'DOM manipulation and event handling',
-                'Asynchronous programming and APIs',
-                'Interactive web application projects',
-                'Introduction to popular frameworks',
-                'Industry best practices and coding standards',
-                'Frontend development career guidance'
-            ]
-        ],
-        10 => [
-            'id' => 10,
-            'title' => 'System Design Software Developer - 01',
-            'badge' => '50% OFF',
-            'batch' => 'Batch 1',
-            'duration' => '35-40 Classes',
-            'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
-            'seats' => '49 seats remaining',
-            'days' => '266 days remaining',
-            'image' => asset('images/Course_Card_Banner/j.png'),
-            'old_price' => '7000',
-            'new_price' => '3500',
-            'category' => 'System Design & Software Architecture',
-            'experience_label' => 'Software Development Experience',
-            'experience_options' => [
-                'junior' => 'Junior (1-2 years experience)',
-                'mid_level' => 'Mid-level (3-5 years experience)',
-                'senior' => 'Senior (5+ years experience)',
-                'architect' => 'Architect (Looking to formalize knowledge)'
-            ],
-            'motivation_placeholder' => 'e.g., I want to design scalable systems, prepare for senior interviews, or become software architect...',
-            'highlights' => [
-                'Scalable system design principles',
-                'Distributed systems architecture',
-                'Database design and optimization',
-                'Load balancing and caching strategies',
-                'Microservices and API design',
-                'Real-world case studies and projects',
-                'Interview preparation for senior roles',
-                'Industry best practices and patterns'
-            ]
-        ],
-        11 => [
-            'id' => 11,
-            'title' => 'End to End AI Product Development for Fresher',
-            'badge' => 'New',
-            'batch' => 'Batch 1',
-            'duration' => '50-60 Classes',
-            'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
-            'seats' => '50 seats remaining',
-            'days' => '132 days remaining',
-            'image' => asset('images/Course_Card_Banner/k.png'),
-            'old_price' => null,
-            'new_price' => '7500',
-            'category' => 'AI Product Development & Deployment',
-            'experience_label' => 'AI/ML and Development Experience',
-            'experience_options' => [
-                'fresh_graduate' => 'Fresh Graduate (CS/Engineering)',
-                'career_changer' => 'Career Changer (From other fields)',
-                'basic_ml' => 'Basic ML (Some theoretical knowledge)',
-                'developer' => 'Developer (Looking to add AI skills)'
-            ],
-            'motivation_placeholder' => 'e.g., I want to build AI products, start AI career, or launch AI startup...',
-            'highlights' => [
-                'Complete AI product development lifecycle',
-                'From ideation to production deployment',
-                'Full-stack development with AI integration',
-                'Cloud deployment and scalability',
-                'Product management and business aspects',
-                'Real industry projects and portfolio',
-                'Startup guidance and entrepreneurship',
-                'Job placement assistance in AI companies'
-            ]
-        ],
-        12 => [
-            'id' => 12,
-            'title' => 'Data Analytics With Machine Learning',
-            'badge' => '40% OFF',
-            'batch' => 'Batch 2',
-            'duration' => '45-50 Classes',
-            'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
-            'seats' => '50 seats remaining',
-            'days' => '5 days remaining',
-            'image' => asset('images/Course_Card_Banner/l.png'),
-            'old_price' => '7500',
-            'new_price' => '4500',
-            'category' => 'Data Analytics & Machine Learning',
-            'experience_label' => 'Analytics and ML Experience',
-            'experience_options' => [
-                'analyst' => 'Data Analyst (Looking to add ML)',
-                'basic_ml' => 'Basic ML (Want analytics skills)',
-                'business' => 'Business (Need technical skills)',
-                'advanced' => 'Advanced (Looking for specialization)'
-            ],
-            'motivation_placeholder' => 'e.g., I want to advance from analyst to ML engineer, build predictive models, or lead data-driven decisions...',
-            'highlights' => [
-                'Perfect bridge between analytics and ML',
-                'Advanced statistical analysis techniques',
-                'Predictive modeling and forecasting',
-                'Business intelligence and reporting',
-                'Customer analytics and segmentation',
-                'End-to-end analytics projects',
-                'Industry case studies and applications',
-                'Career advancement in data roles'
-            ]
-        ]
     ];
 
     // Get enrollment data or return 404

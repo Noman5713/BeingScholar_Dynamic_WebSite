@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TransactionController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -488,7 +487,11 @@ Perfect for complete beginners with no programming experience as well as develop
             'duration' => '35-40 Classes',
             'class_type' => 'Live Classes',
             'access' => 'Lifetime',
-            'description' => 'Master system design principles and architecture patterns for scalable software development. This course is essential for software engineers who want to design large-scale distributed systems and prepare for system design interviews.',
+            'description' => 'Master system design principles and architecture patterns for scalable software development. This course is essential for software engineers who want to design large-scale distributed systems and prepare for system design interviews.
+
+You will learn about scalability, reliability, availability, and consistency in distributed systems. The course covers database design, caching strategies, load balancing, microservices architecture, and real-world system design case studies.
+
+Perfect for mid-level to senior developers who want to advance their careers and take on system architect roles. The course includes practical exercises designing systems like social media platforms, video streaming services, and e-commerce applications.',
             'curriculum' => [
                 ['System design fundamentals', 'Scalability principles', 'Performance metrics'],
                 ['Database design', 'SQL vs NoSQL', 'Database sharding'],
@@ -535,7 +538,11 @@ Perfect for complete beginners with no programming experience as well as develop
             'duration' => '50-60 Classes',
             'class_type' => 'Live Classes',
             'access' => 'Lifetime',
-            'description' => 'Complete AI product development journey from concept to deployment for fresh graduates and entry-level developers. This comprehensive course covers the entire lifecycle of AI product development including ideation, data collection, model development, deployment, and maintenance.',
+            'description' => 'Complete AI product development journey from concept to deployment for fresh graduates and entry-level developers. This comprehensive course covers the entire lifecycle of AI product development including ideation, data collection, model development, deployment, and maintenance.
+
+You will learn to build AI products from scratch, including web applications with AI features, mobile apps with ML integration, and cloud-based AI services. The course emphasizes practical skills and industry best practices for AI product development.
+
+Perfect for fresh graduates who want to start their careers in AI/ML product development and learn how to build production-ready AI applications that solve real-world problems.',
             'curriculum' => [
                 ['AI product landscape', 'Market analysis', 'Product opportunities'],
                 ['Product ideation', 'Problem identification', 'Solution design'],
@@ -582,7 +589,11 @@ Perfect for complete beginners with no programming experience as well as develop
             'duration' => '45-50 Classes',
             'class_type' => 'Live Classes',
             'access' => 'Lifetime',
-            'description' => 'Combine data analytics with machine learning to extract insights and build predictive models from complex datasets. This course bridges the gap between traditional data analysis and modern machine learning techniques.',
+            'description' => 'Combine data analytics with machine learning to extract insights and build predictive models from complex datasets. This course bridges the gap between traditional data analysis and modern machine learning techniques.
+
+You will learn advanced analytics techniques including statistical analysis, data visualization, predictive modeling, and machine learning algorithm implementation. The course focuses on practical applications in business intelligence, customer analytics, and data-driven decision making.
+
+Perfect for data analysts who want to upgrade their skills with machine learning and for ML practitioners who want to strengthen their analytics foundation.',
             'curriculum' => [
                 ['Data analytics fundamentals', 'Statistical concepts', 'Analytics workflow'],
                 ['Data collection and preprocessing', 'Data sources', 'Cleaning techniques'],
@@ -616,6 +627,7 @@ Perfect for complete beginners with no programming experience as well as develop
                 ]
             ]
         ]
+        // Add more courses as needed...
     ];
 
     // Get course data or return 404
@@ -624,10 +636,47 @@ Perfect for complete beginners with no programming experience as well as develop
     return view('course-detail', compact('course'));
 });
 
-// Enhanced Transaction Routes using Controller
-Route::post('/verify-transaction', [TransactionController::class, 'verifyTransaction']);
-Route::post('/submit-transaction', [TransactionController::class, 'submitTransaction']);
-Route::get('/transaction-status/{trxn_id}', [TransactionController::class, 'getTransactionStatus']);
+// Transaction verification route
+Route::post('/verify-transaction', function (Illuminate\Http\Request $request) {
+    $request->validate([
+        'trxn_id' => 'required|string',
+        'course_name' => 'required|string',
+    ]);
+
+    $transaction = App\Models\Transaction::where('trxn_id', $request->trxn_id)
+        ->where('course_name', $request->course_name)
+        ->where('status', 'verified')
+        ->first();
+
+    if ($transaction) {
+        // Store in session for this user
+        session(['verified_courses.' . $request->course_name => true]);
+        return response()->json(['success' => true, 'message' => 'Transaction verified! You now have access to the full curriculum.']);
+    }
+
+    return response()->json(['success' => false, 'message' => 'Invalid transaction ID or course name.']);
+});
+
+// Transaction submission route (for users to submit their transaction IDs)
+Route::post('/submit-transaction', function (Illuminate\Http\Request $request) {
+    $request->validate([
+        'trxn_id' => 'required|string|unique:transactions,trxn_id',
+        'course_name' => 'required|string',
+        'amount' => 'nullable|numeric',
+        'payment_method' => 'nullable|string',
+    ]);
+
+    App\Models\Transaction::create([
+        'trxn_id' => $request->trxn_id,
+        'course_name' => $request->course_name,
+        'user_id' => auth()->id(), // null if not logged in
+        'amount' => $request->amount,
+        'payment_method' => $request->payment_method,
+        'status' => 'pending',
+    ]);
+
+    return response()->json(['success' => true, 'message' => 'Transaction submitted for verification. Please wait for admin approval.']);
+});
 
 Route::get('/enroll/{id}', function ($id) {
     // Course enrollment data mapping
@@ -639,7 +688,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 9',
             'duration' => '6-8 Months',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '100 seats remaining',
             'days' => '56 days remaining',
             'image' => asset('images/Course_Card_Banner/a.png'),
@@ -672,7 +720,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 7',
             'duration' => '40-45 Classes',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '100 seats remaining',
             'days' => '65 days remaining',
             'image' => asset('images/Course_Card_Banner/b.png'),
@@ -705,7 +752,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '24 Classes',
             'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
             'seats' => null,
             'days' => null,
             'image' => asset('images/Course_Card_Banner/c.png'),
@@ -738,7 +784,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 8',
             'duration' => '5 Months',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '100 seats remaining',
             'days' => '8 days remaining',
             'image' => asset('images/Course_Card_Banner/d.png'),
@@ -771,7 +816,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '5 Hours (23 Videos)',
             'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
             'seats' => null,
             'days' => null,
             'image' => asset('images/Course_Card_Banner/e.png'),
@@ -804,7 +848,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '30-35 Classes',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '75 seats remaining',
             'days' => '246 days remaining',
             'image' => asset('images/Course_Card_Banner/f.png'),
@@ -837,7 +880,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '15 Hours (45 Videos)',
             'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
             'seats' => null,
             'days' => null,
             'image' => asset('images/Course_Card_Banner/g.png'),
@@ -870,7 +912,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '25 Hours (60 Videos)',
             'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
             'seats' => null,
             'days' => null,
             'image' => asset('images/Course_Card_Banner/h.png'),
@@ -903,7 +944,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '20 Hours (50 Videos)',
             'class_type' => 'Pre-recorded',
-            'access' => 'Lifetime',
             'seats' => null,
             'days' => null,
             'image' => asset('images/Course_Card_Banner/i.png'),
@@ -936,7 +976,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '35-40 Classes',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '49 seats remaining',
             'days' => '266 days remaining',
             'image' => asset('images/Course_Card_Banner/j.png'),
@@ -969,7 +1008,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 1',
             'duration' => '50-60 Classes',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '50 seats remaining',
             'days' => '132 days remaining',
             'image' => asset('images/Course_Card_Banner/k.png'),
@@ -1002,7 +1040,6 @@ Route::get('/enroll/{id}', function ($id) {
             'batch' => 'Batch 2',
             'duration' => '45-50 Classes',
             'class_type' => 'Live Classes',
-            'access' => 'Lifetime',
             'seats' => '50 seats remaining',
             'days' => '5 days remaining',
             'image' => asset('images/Course_Card_Banner/l.png'),

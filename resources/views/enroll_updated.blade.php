@@ -230,7 +230,7 @@
                         <ul class="features-list">
                             <li>✅ {{ $course['duration'] }} of content</li>
                             <li>✅ {{ $course['class_type'] }}</li>
-                            <li>✅ {{ $course['access'] ?? 'Lifetime' }} access</li>
+                            <li>✅ {{ $course['access'] }} access</li>
                             <li>✅ Certificate of completion</li>
                             <li>✅ Expert instructor support</li>
                             <li>✅ Course materials & resources</li>

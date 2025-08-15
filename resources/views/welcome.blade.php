@@ -140,11 +140,19 @@
                         <div class="course-details">
                             <p class="course-description">Master AI development with Python. Learn machine learning, deep learning, and build intelligent applications.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳7500</span>
-                            <span class="new-price">৳5100</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Master AI development with Python. Learn machine learning, deep learning, and build intelligent applications.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳7500</span>
+                                <span class="new-price">৳5100</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="1">View Details</button>
+                        <button class="course-details-btn" data-course-id="1">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -164,11 +172,19 @@
                         <div class="course-details">
                             <p class="course-description">Explore computer vision with deep learning. Build image recognition and object detection systems.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳6000</span>
-                            <span class="new-price">৳4020</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Explore computer vision with deep learning. Build image recognition and object detection systems.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳6000</span>
+                                <span class="new-price">৳4020</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="2">View Details</button>
+                        <button class="course-details-btn" data-course-id="2">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -187,10 +203,18 @@
                         <div class="course-details">
                             <p class="course-description">Master data structures and algorithms with hands-on Leetcode practice for interview preparation.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="new-price">৳1100</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Master data structures and algorithms with hands-on Leetcode practice for interview preparation.</p>
+                            <div class="course-price">
+                                <span class="new-price">৳1100</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="3">View Details</button>
+                        <button class="course-details-btn" data-course-id="3">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -210,11 +234,19 @@
                         <div class="course-details">
                             <p class="course-description">Learn NLP techniques and build intelligent text processing and language understanding systems.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳6000</span>
-                            <span class="new-price">৳4020</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Learn NLP techniques and build intelligent text processing and language understanding systems.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳6000</span>
+                                <span class="new-price">৳4020</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="4">View Details</button>
+                        <button class="course-details-btn" data-course-id="4">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -233,11 +265,19 @@
                         <div class="course-details">
                             <p class="course-description">Complete machine learning theory explained in Bangla. Perfect for beginners and intermediate learners.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳3000</span>
-                            <span class="new-price">৳600</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Complete machine learning theory explained in Bangla. Perfect for beginners and intermediate learners.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳3000</span>
+                                <span class="new-price">৳600</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="5">View Details</button>
+                        <button class="course-details-btn" data-course-id="5">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -257,11 +297,19 @@
                         <div class="course-details">
                             <p class="course-description">Advanced reinforcement learning techniques for research and development in AI systems.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳3000</span>
-                            <span class="new-price">৳1800</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Advanced reinforcement learning techniques for research and development in AI systems.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳3000</span>
+                                <span class="new-price">৳1800</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="6">View Details</button>
+                        <button class="course-details-btn" data-course-id="6">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -280,11 +328,19 @@
                         <div class="course-details">
                             <p class="course-description">Complete Pandas library tutorial in Bangla. Master data manipulation and analysis with Python.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="old-price">৳2000</span>
-                            <span class="new-price">৳1000</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Complete Pandas library tutorial in Bangla. Master data manipulation and analysis with Python.</p>
+                            <div class="course-price">
+                                <span class="old-price">৳2000</span>
+                                <span class="new-price">৳1000</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="7">View Details</button>
+                        <button class="course-details-btn" data-course-id="7">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
@@ -303,20 +359,129 @@
                         <div class="course-details">
                             <p class="course-description">Learn Python from basics to advanced OOP concepts. Perfect for beginners and intermediate developers.</p>
                         </div>
-                        <div class="course-price">
-                            <span class="new-price">৳1000</span>
+                        <div class="course-short-details">
+                            <p class="short-description">Learn Python from basics to advanced OOP concepts. Perfect for beginners and intermediate developers.</p>
+                            <div class="course-price">
+                                <span class="new-price">৳1000</span>
+                            </div>
                         </div>
-                        <button class="course-btn toggle-details" data-course="8">View Details</button>
+                        <button class="course-details-btn" data-course-id="8">
+                            Details
+                            <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9,18 15,12 9,6"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
             </div>
             <div class="view-all-courses-wrapper">
-                <a href="#" class="btn-primary view-all-courses-btn">View All Courses</a>
+                <a href="/courses" class="btn-primary view-all-courses-btn">View All Courses</a>
             </div>
         </div>
     </section>
 
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Course details navigation functionality
+        document.querySelectorAll('.course-details-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Get course ID from button
+                const courseId = this.getAttribute('data-course-id');
+                
+                // Navigate to course detail page
+                if (courseId) {
+                    window.location.href = `/course/${courseId}`;
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Course Short Details - Always Visible */
+        .course-short-details {
+            margin-bottom: 1rem;
+            padding: 0.8rem;
+            background: #f8f9fb;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .short-description {
+            color: #64748b;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            margin-bottom: 0.6rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* New Details Button with Arrow */
+        .course-details-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: #fff;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            box-shadow: 0 2px 8px rgba(25, 118, 210, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .arrow-icon {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .course-details-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .course-details-btn:hover::before {
+            left: 100%;
+        }
+        
+        .course-details-btn:hover {
+            background: linear-gradient(135deg, #1565c0 0%, #0d47a1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(25, 118, 210, 0.3);
+        }
+        
+        .course-details-btn:hover .arrow-icon {
+            transform: translateX(3px);
+        }
+        
+        .course-details-btn:active {
+            transform: translateY(0);
+        }
+    </style>
 </body>
 </html>
 

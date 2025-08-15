@@ -636,6 +636,48 @@ Perfect for data analysts who want to upgrade their skills with machine learning
     return view('course-detail', compact('course'));
 });
 
+// Transaction verification route
+Route::post('/verify-transaction', function (Illuminate\Http\Request $request) {
+    $request->validate([
+        'trxn_id' => 'required|string',
+        'course_name' => 'required|string',
+    ]);
+
+    $transaction = App\Models\Transaction::where('trxn_id', $request->trxn_id)
+        ->where('course_name', $request->course_name)
+        ->where('status', 'verified')
+        ->first();
+
+    if ($transaction) {
+        // Store in session for this user
+        session(['verified_courses.' . $request->course_name => true]);
+        return response()->json(['success' => true, 'message' => 'Transaction verified! You now have access to the full curriculum.']);
+    }
+
+    return response()->json(['success' => false, 'message' => 'Invalid transaction ID or course name.']);
+});
+
+// Transaction submission route (for users to submit their transaction IDs)
+Route::post('/submit-transaction', function (Illuminate\Http\Request $request) {
+    $request->validate([
+        'trxn_id' => 'required|string|unique:transactions,trxn_id',
+        'course_name' => 'required|string',
+        'amount' => 'nullable|numeric',
+        'payment_method' => 'nullable|string',
+    ]);
+
+    App\Models\Transaction::create([
+        'trxn_id' => $request->trxn_id,
+        'course_name' => $request->course_name,
+        'user_id' => auth()->id(), // null if not logged in
+        'amount' => $request->amount,
+        'payment_method' => $request->payment_method,
+        'status' => 'pending',
+    ]);
+
+    return response()->json(['success' => true, 'message' => 'Transaction submitted for verification. Please wait for admin approval.']);
+});
+
 Route::get('/enroll/{id}', function ($id) {
     // Course enrollment data mapping
     $enrollmentData = [

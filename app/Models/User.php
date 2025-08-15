@@ -53,4 +53,19 @@ class User extends Authenticatable
     {
         return $this->role === 'student';
     }
+
+    // Relationship with transactions
+    public function transactions()
+    {
+        return $this->hasMany(Transaction::class);
+    }
+
+    // Check if user has access to a specific course
+    public function hasAccessToCourse($courseName)
+    {
+        return $this->transactions()
+            ->where('course_name', $courseName)
+            ->where('status', 'verified')
+            ->exists();
+    }
 }

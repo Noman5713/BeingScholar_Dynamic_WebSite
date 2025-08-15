@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $course['title'] }} - DIU BeingScholar</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/course-detail.css') }}">
 </head>
@@ -111,15 +112,71 @@
                         <div class="tab-panel" id="curriculum">
                             <div class="curriculum-content">
                                 <h2>Course Curriculum</h2>
+                                
+                                <!-- Transaction Verification Form (if not verified) -->
+                                @php
+                                    $hasAccess = session('verified_courses.' . $course['title'], false);
+                                    $firstTopic = $course['curriculum'][0] ?? [];
+                                @endphp
+                                
+                                @if(!$hasAccess)
+                                    <div class="payment-verification-section">
+                                        <div class="access-info">
+                                            <div class="info-header">
+                                                <h3>🔒 Premium Content</h3>
+                                                <p>You have access to the first topic for free. To unlock the complete curriculum, please verify your payment.</p>
+                                            </div>
+                                            
+                                            <div class="verification-form">
+                                                <h4>Verify Your Payment</h4>
+                                                <form id="verifyTransactionForm">
+                                                    @csrf
+                                                    <input type="hidden" name="course_name" value="{{ $course['title'] }}">
+                                                    <div class="form-group">
+                                                        <label for="trxn_id">Transaction ID:</label>
+                                                        <input type="text" id="trxn_id" name="trxn_id" required placeholder="Enter your transaction ID">
+                                                    </div>
+                                                    <button type="submit" class="verify-btn">Verify Transaction</button>
+                                                </form>
+                                                <div id="verification-message"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+
                                 <div class="topics-list">
                                     @foreach($course['curriculum'] as $index => $topic)
-                                        <div class="topic-item">
-                                            <h4>Topic - {{ $index + 1 }}</h4>
-                                            <ul>
-                                                @foreach($topic as $item)
-                                                    <li>{{ $item }}</li>
-                                                @endforeach
-                                            </ul>
+                                        <div class="topic-item {{ !$hasAccess && $index > 0 ? 'topic-locked' : '' }}">
+                                            <h4>
+                                                Topic - {{ $index + 1 }}
+                                                @if(!$hasAccess && $index > 0)
+                                                    <span class="lock-icon">🔒</span>
+                                                @endif
+                                            </h4>
+                                            
+                                            @if($hasAccess || $index === 0)
+                                                <!-- Show content for verified users or first topic -->
+                                                <ul>
+                                                    @foreach($topic as $item)
+                                                        <li>{{ $item }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            @else
+                                                <!-- Show blurred content for locked topics -->
+                                                <div class="blurred-content">
+                                                    <ul class="blurred-list">
+                                                        @foreach($topic as $item)
+                                                            <li>{{ $item }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                    <div class="blur-overlay">
+                                                        <div class="unlock-message">
+                                                            <span class="lock-icon">🔒</span>
+                                                            <p>Unlock this content by verifying your payment above</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
                                         </div>
                                     @endforeach
                                 </div>
@@ -247,7 +304,197 @@
 
         // Enroll button functionality (navigation handled by onclick attribute)
 
+        // Transaction verification functionality
+        document.getElementById('verifyTransactionForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const messageDiv = document.getElementById('verification-message');
+            
+            // Show loading state
+            messageDiv.innerHTML = '<div style="color: #6c757d;">Verifying transaction...</div>';
+            
+            fetch('/verify-transaction', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || document.querySelector('input[name="_token"]').value
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    messageDiv.innerHTML = `<div class="success-message">${data.message}</div>`;
+                    // Reload page after 2 seconds to show unlocked content
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 2000);
+                } else {
+                    messageDiv.innerHTML = `<div class="error-message">${data.message}</div>`;
+                }
+            })
+            .catch(error => {
+                messageDiv.innerHTML = '<div class="error-message">An error occurred. Please try again.</div>';
+            });
+        });
 
     </script>
+
+    <style>
+        /* Payment Verification Styles */
+        .payment-verification-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #dee2e6;
+        }
+
+        .info-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-header h3 {
+            color: #495057;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-header p {
+            color: #6c757d;
+            margin: 0;
+        }
+
+        .verification-form {
+            max-width: 400px;
+            margin: 0 auto;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .verification-form h4 {
+            margin-top: 0;
+            color: #495057;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.15s ease-in-out;
+            box-sizing: border-box;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #80bdff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .verify-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .verify-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+
+        /* Locked Content Styles */
+        .topic-locked {
+            position: relative;
+        }
+
+        .topic-locked h4 {
+            color: #6c757d;
+        }
+
+        .lock-icon {
+            margin-left: 0.5rem;
+            color: #dc3545;
+        }
+
+        .blurred-content {
+            position: relative;
+            filter: blur(3px);
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .blur-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+
+        .unlock-message {
+            text-align: center;
+            color: #495057;
+        }
+
+        .unlock-message .lock-icon {
+            font-size: 1.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .unlock-message p {
+            margin: 0;
+            font-weight: 600;
+        }
+
+        /* Verification Message Styles */
+        #verification-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+    </style>
 </body>
 </html>

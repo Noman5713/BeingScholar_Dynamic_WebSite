@@ -194,7 +194,7 @@
                                 <span class="new-price">৳600</span>
                             </div>
                         </div>
-                        <button class="course-details-btn" data-course-id="4">
+                        <button class="course-details-btn" data-course-id="5">
                             Details
                             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9,18 15,12 9,6"></polyline>
@@ -226,7 +226,7 @@
                                 <span class="new-price">৳1800</span>
                             </div>
                         </div>
-                        <button class="course-details-btn" data-course-id="4">
+                        <button class="course-details-btn" data-course-id="6">
                             Details
                             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9,18 15,12 9,6"></polyline>
@@ -258,7 +258,7 @@
                                 <span class="new-price">৳1000</span>
                             </div>
                         </div>
-                        <button class="course-details-btn" data-course-id="4">
+                        <button class="course-details-btn" data-course-id="7">
                             Details
                             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9,18 15,12 9,6"></polyline>
@@ -290,7 +290,7 @@
                                 <span class="new-price">৳1000</span>
                             </div>
                         </div>
-                        <button class="course-details-btn" data-course-id="4">
+                        <button class="course-details-btn" data-course-id="8">
                             Details
                             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9,18 15,12 9,6"></polyline>
@@ -322,7 +322,7 @@
                                 <span class="new-price">৳1000</span>
                             </div>
                         </div>
-                        <button class="course-details-btn" data-course-id="4">
+                        <button class="course-details-btn" data-course-id="9">
                             Details
                             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9,18 15,12 9,6"></polyline>
@@ -356,7 +356,7 @@
                                 <span class="new-price">৳3500</span>
                             </div>
                         </div>
-                        <button class="course-details-btn" data-course-id="4">
+                        <button class="course-details-btn" data-course-id="10">
                             Details
                             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9,18 15,12 9,6"></polyline>
@@ -389,7 +389,7 @@
                                 <span class="new-price">৳7500</span>
                             </div>
                         </div>
-                        <button class="course-details-btn" data-course-id="4">
+                        <button class="course-details-btn" data-course-id="11">
                             Details
                             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9,18 15,12 9,6"></polyline>
@@ -423,7 +423,7 @@
                                 <span class="new-price">৳4500</span>
                             </div>
                         </div>
-                        <button class="course-details-btn" data-course-id="4">
+                        <button class="course-details-btn" data-course-id="12">
                             Details
                             <svg class="arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9,18 15,12 9,6"></polyline>
@@ -477,11 +477,8 @@
                 const courseId = this.getAttribute('data-course-id');
                 
                 // Navigate to course detail page
-                if (courseId && courseId <= 3) {
+                if (courseId) {
                     window.location.href = `/course/${courseId}`;
-                } else {
-                    // For courses without detail pages yet, show a message
-                    alert('Course detail page is coming soon!');
                 }
             });
         });

@@ -52,8 +52,8 @@
                                 <input type="radio" id="mobile-banking" name="payment_method" value="mobile_banking" checked>
                                 <label for="mobile-banking" class="payment-option-label">
                                     <div class="payment-logos">
-                                        <img src="https://cdn.bkash.com/images/icon/bkash_icon_white.png" alt="bKash" class="payment-logo bkash-logo">
-                                        <img src="https://nagad.com.bd/wp-content/uploads/2019/10/nagad-icon.png" alt="Nagad" class="payment-logo nagad-logo">
+                                        <img src="{{ asset('images/payment/bkash.png') }}" alt="bKash" class="payment-logo bkash-logo">
+                                        <img src="{{ asset('images/payment/nagad.png') }}" alt="Nagad" class="payment-logo nagad-logo">
                                     </div>
                                 </label>
                             </div>
@@ -62,7 +62,7 @@
                             <div class="payment-option">
                                 <input type="radio" id="bank" name="payment_method" value="bank">
                                 <label for="bank" class="payment-option-label">
-                                    <img src="https://seeklogo.com/images/D/dutch-bangla-bank-logo-B696153DDD-seeklogo.com.png" alt="Dutch Bangla Bank" class="payment-logo bank-logo">
+                                    <img src="{{ asset('images/payment/dbbl.png') }}" alt="Dutch Bangla Bank" class="payment-logo bank-logo">
                                 </label>
                             </div>
                         </div>

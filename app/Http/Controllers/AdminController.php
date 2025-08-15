@@ -87,9 +87,16 @@ class AdminController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'role' => 'required|in:admin,student',
+            'password' => 'nullable|string|min:8|confirmed',
         ]);
 
-        $user->update($request->all());
+        $data = $request->only(['name', 'email', 'role']);
+        
+        if ($request->filled('password')) {
+            $data['password'] = bcrypt($request->password);
+        }
+
+        $user->update($data);
 
         return redirect()->route('admin.users')->with('success', 'User updated successfully!');
     }
@@ -104,5 +111,20 @@ class AdminController extends Controller
     {
         $courses = Course::where('instructor', 'Administrator')->latest()->paginate(10);
         return view('admin.mycourses', compact('courses'));
+    }
+
+    public function createCourse()
+    {
+        return view('admin.courses.create');
+    }
+
+    public function editCourse(Course $course)
+    {
+        return view('admin.courses.edit', compact('course'));
+    }
+
+    public function editUser(User $user)
+    {
+        return view('admin.users.edit', compact('user'));
     }
 } 

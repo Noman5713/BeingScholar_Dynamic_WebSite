@@ -235,6 +235,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
+            text-decoration: none;
         }
         
         .btn-add:hover {
@@ -483,10 +484,10 @@
                 <div class="courses-section">
                     <div class="section-header">
                         <h2 class="section-title">All Courses</h2>
-                        <button class="btn-add">
+                        <a href="{{ route('admin.courses.create') }}" class="btn-add">
                             <span>+</span>
                             <span>Add New Course</span>
-                        </button>
+                        </a>
                     </div>
                     <div class="courses-grid">
                         @foreach($courses as $course)
@@ -530,9 +531,7 @@
 </div>
     <script>
         function editCourse(courseId) {
-            if (confirm('Edit course ' + courseId + '?')) {
-                window.location.href = '/admin/courses/' + courseId + '/edit';
-            }
+            window.location.href = '/admin/courses/' + courseId + '/edit';
         }
 
         function archiveCourse(courseId) {

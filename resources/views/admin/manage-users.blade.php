@@ -451,9 +451,7 @@ document.getElementById('userSearch').addEventListener('input', function() {
 });
 
 function editUser(userId) {
-    if (confirm('Edit user ' + userId + '?')) {
-        window.location.href = '/admin/users/' + userId + '/edit';
-    }
+    window.location.href = '/admin/users/' + userId + '/edit';
 }
 
 function deleteUser(userId) {

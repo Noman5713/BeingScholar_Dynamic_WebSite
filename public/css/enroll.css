@@ -96,27 +96,94 @@
     gap: 0.5rem;
 }
 
+/* Image-based payment logos */
 .payment-logo {
     height: 40px;
+    max-width: 80px;
     object-fit: contain;
+    border-radius: 6px;
+    transition: all 0.3s ease;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 }
 
+/* Individual logo styling */
 .bkash-logo {
     background: #e2136e;
-    padding: 8px;
-    border-radius: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
 }
 
 .nagad-logo {
     background: #ec1c24;
-    padding: 8px;
-    border-radius: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
 }
 
 .bank-logo {
-    height: 50px;
-    padding: 5px;
+    height: 45px;
+    max-width: 120px;
+    padding: 4px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Hover effects for payment logos */
+.payment-option:hover .payment-logo {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.payment-option input[type="radio"]:checked ~ .payment-option-label .payment-logo {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+/* Enhanced styling for selected payment option */
+.payment-option input[type="radio"]:checked ~ .payment-option-label {
+    transform: translateY(-1px);
+}
+
+/* Text-based payment logo for bank (fallback) */
+.payment-logo-text {
+    padding: 8px 16px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.bank-style {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    color: white;
+    font-size: 0.9rem;
+    padding: 12px 20px;
+    min-width: 140px;
+}
+
+/* Hover effects for text-based payment logos */
+.payment-option:hover .payment-logo-text {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.payment-option input[type="radio"]:checked ~ .payment-option-label .payment-logo-text {
+    transform: scale(1.05);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+/* Fallback styling if images don't load */
+.payment-logo[alt]:after {
+    content: attr(alt);
+    display: block;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1e293b;
+    padding: 8px;
 }
 
 /* Payment Details */

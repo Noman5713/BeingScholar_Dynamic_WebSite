@@ -77,16 +77,23 @@ class TransactionController extends Controller
 
         $transaction = Transaction::where('trxn_id', $request->trxn_id)
             ->where('course_name', $request->course_name)
-            ->where('status', 'verified')
+            ->whereIn('status', ['verified', 'pending'])
             ->first();
 
         if ($transaction) {
-            // Return success without storing in session (access is temporary)
-            return response()->json([
-                'success' => true, 
-                'message' => '✅ Transaction verified! You now have access to the full curriculum.',
-                'access_granted' => true
-            ]);
+            if ($transaction->status === 'verified') {
+                return response()->json([
+                    'success' => true, 
+                    'message' => '✅ Transaction verified! You now have full access to the curriculum.',
+                    'access_granted' => true
+                ]);
+            } else {
+                return response()->json([
+                    'success' => true, 
+                    'message' => '⏳ Transaction found but pending verification. You have temporary access to the curriculum.',
+                    'access_granted' => true
+                ]);
+            }
         }
 
         return response()->json([

@@ -100,4 +100,58 @@ class StudentAuthController extends Controller
         }
         return back()->withErrors(['otp' => 'Invalid OTP.']);
     }
+
+    public function showForgotPasswordForm()
+    {
+        return view('auth.student-forgot-password');
+    }
+
+    public function sendResetLink(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+        $user = User::where('email', $request->email)->where('role', 'student')->first();
+        if (!$user) {
+            return back()->withErrors(['email' => 'No student account found with that email.']);
+        }
+        $token = Str::random(64);
+        \DB::table('password_resets')->updateOrInsert(
+            ['email' => $user->email],
+            ['token' => $token, 'created_at' => now()]
+        );
+        $resetLink = url('/reset-password/' . $token . '?email=' . urlencode($user->email));
+        \Mail::raw("Reset your password: $resetLink", function ($message) use ($user) {
+            $message->to($user->email)->subject('Password Reset Link');
+        });
+        return back()->with('status', 'Password reset link sent to your email.');
+    }
+
+    public function showResetPasswordForm(Request $request, $token)
+    {
+        $email = $request->query('email');
+        return view('auth.student-reset-password', compact('token', 'email'));
+    }
+
+    public function resetPassword(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'token' => 'required',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        $reset = \DB::table('password_resets')
+            ->where('email', $request->email)
+            ->where('token', $request->token)
+            ->first();
+        if (!$reset) {
+            return back()->withErrors(['email' => 'Invalid or expired reset token.']);
+        }
+        $user = User::where('email', $request->email)->where('role', 'student')->first();
+        if (!$user) {
+            return back()->withErrors(['email' => 'No student account found.']);
+        }
+        $user->password = Hash::make($request->password);
+        $user->save();
+        \DB::table('password_resets')->where('email', $request->email)->delete();
+        return redirect()->route('student.login.form')->with('status', 'Password reset successful. You can now login.');
+    }
 }

@@ -1078,6 +1078,11 @@ Route::post('/logout', [App\Http\Controllers\StudentAuthController::class, 'logo
 Route::get('/verify-otp', [App\Http\Controllers\StudentAuthController::class, 'showVerifyOtpForm'])->name('student.verify-otp.form');
 Route::post('/verify-otp', [App\Http\Controllers\StudentAuthController::class, 'verifyOtp'])->name('student.verify-otp');
 
+Route::get('/forgot-password', [App\Http\Controllers\StudentAuthController::class, 'showForgotPasswordForm'])->name('student.forgot-password.form');
+Route::post('/forgot-password', [App\Http\Controllers\StudentAuthController::class, 'sendResetLink'])->name('student.forgot-password.send');
+Route::get('/reset-password/{token}', [App\Http\Controllers\StudentAuthController::class, 'showResetPasswordForm'])->name('student.reset-password.form');
+Route::post('/reset-password', [App\Http\Controllers\StudentAuthController::class, 'resetPassword'])->name('student.reset-password');
+
 Route::get('/certificate', function () {
     return view('certificate');
 });

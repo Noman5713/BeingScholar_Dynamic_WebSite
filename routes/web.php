@@ -1066,6 +1066,18 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+// Student Authentication Routes
+Route::get('/register', [App\Http\Controllers\StudentAuthController::class, 'showRegisterForm'])->name('student.register.form');
+Route::post('/register', [App\Http\Controllers\StudentAuthController::class, 'register'])->name('student.register');
+Route::get('/signup', function() { return redirect('/register'); });
+
+Route::get('/login', [App\Http\Controllers\StudentAuthController::class, 'showLoginForm'])->name('student.login.form');
+Route::post('/login', [App\Http\Controllers\StudentAuthController::class, 'login'])->name('student.login');
+Route::post('/logout', [App\Http\Controllers\StudentAuthController::class, 'logout'])->name('student.logout');
+
+Route::get('/verify-otp', [App\Http\Controllers\StudentAuthController::class, 'showVerifyOtpForm'])->name('student.verify-otp.form');
+Route::post('/verify-otp', [App\Http\Controllers\StudentAuthController::class, 'verifyOtp'])->name('student.verify-otp');
+
 Route::get('/certificate', function () {
     return view('certificate');
 });

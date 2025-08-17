@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.main')
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/studentdashboard.css') }}">
-    <title>Student Dashboard</title>
-    
-</head>
-
-<body>
+@endsection
+@section('content')
     <div class="container">
         <div class="mobile-overlay" id="mobileOverlay"></div>
-
         <aside class="sidebar" id="sidebar">
             <h2>Student Dashboard</h2>
             <ul class="menu">
@@ -20,7 +12,6 @@
                 <li><a href="#courses">My Courses</a></li>
             </ul>
         </aside>
-
         <main class="main-content">
             <div class="header">
                 <div class="header-left">
@@ -38,7 +29,6 @@
                     </div>
                 </div>
             </div>
-
             <section id="overview" class="overview-section">
                 <div class="card">
                     <h2>Enrolled Courses</h2>
@@ -49,8 +39,6 @@
                     <p class="number">2</p>
                 </div>
             </section>
-
-
             <section id="courses" class="courses-section">
                 <h2>My Courses</h2>
                 <div class="table-container">
@@ -108,42 +96,35 @@
                     </table>
                 </div>
             </section>
-
         </main>
     </div>
-
-    <script>
-        // Mobile menu functionality
-        const hamburgerMenu = document.getElementById('hamburgerMenu');
-        const sidebar = document.getElementById('sidebar');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-
-        function toggleSidebar() {
-            sidebar.classList.toggle('show');
-            mobileOverlay.classList.toggle('show');
+@endsection
+@section('scripts')
+<script>
+    // Mobile menu functionality
+    const hamburgerMenu = document.getElementById('hamburgerMenu');
+    const sidebar = document.getElementById('sidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    function toggleSidebar() {
+        sidebar.classList.toggle('show');
+        mobileOverlay.classList.toggle('show');
+    }
+    function closeSidebar() {
+        sidebar.classList.remove('show');
+        mobileOverlay.classList.remove('show');
+    }
+    hamburgerMenu.addEventListener('click', toggleSidebar);
+    mobileOverlay.addEventListener('click', closeSidebar);
+    // Close sidebar when clicking on menu items (optional)
+    const menuLinks = document.querySelectorAll('.menu a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', closeSidebar);
+    });
+    // Handle window resize
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 768) {
+            closeSidebar();
         }
-
-        function closeSidebar() {
-            sidebar.classList.remove('show');
-            mobileOverlay.classList.remove('show');
-        }
-
-        hamburgerMenu.addEventListener('click', toggleSidebar);
-        mobileOverlay.addEventListener('click', closeSidebar);
-
-        // Close sidebar when clicking on menu items (optional)
-        const menuLinks = document.querySelectorAll('.menu a');
-        menuLinks.forEach(link => {
-            link.addEventListener('click', closeSidebar);
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', function () {
-            if (window.innerWidth > 768) {
-                closeSidebar();
-            }
-        });
-    </script>
-</body>
-
-</html>
+    });
+</script>
+@endsection

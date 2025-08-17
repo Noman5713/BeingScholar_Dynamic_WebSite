@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $course['title'] }} - DIU BeingScholar</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+@extends('layouts.main')
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/course-detail.css') }}">
-</head>
-
-<body>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+@section('content')
+    <!-- All page content previously inside <body> goes here, except for navbar/footer -->
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container nav-container">
@@ -24,13 +20,12 @@
                 <li><a href="/#join">Join Us</a></li>
                 <li><a href="/#contact">Contact</a></li>
             </ul>
-            <div class="login-btn"><a href="#login">Login/Register</a></div>
+            <div class="login-btn"><a href="/login">Login/Register</a></div>
             <div class="menu-toggle" id="mobile-menu">
                 <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
-
     <!-- Breadcrumb -->
     <section class="breadcrumb-section">
         <div class="container">
@@ -281,7 +276,8 @@
             </div>
         </div>
     </section>
-
+@endsection
+@section('scripts')
     <script>
         // Mobile menu toggle
         document.getElementById('mobile-menu').addEventListener('click', function() {
@@ -539,5 +535,4 @@
             color: #721c24;
         }
     </style>
-</body>
-</html>
+@endsection

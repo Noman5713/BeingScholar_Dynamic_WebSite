@@ -26,6 +26,9 @@
         </div>
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
+    <div class="mt-2">
+        <a href="{{ route('student.forgot-password.form') }}">Forgot Password?</a>
+    </div>
     <p class="mt-3">Don't have an account? <a href="{{ route('student.register.form') }}">Register here</a>.</p>
 </div>
 @endsection

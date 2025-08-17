@@ -593,17 +593,135 @@
 
         function deleteCourse(courseId) {
             if (confirm('Are you sure you want to delete this course? This action cannot be undone.')) {
+                // Show loading state
+                const deleteBtn = event.target;
+                const originalText = deleteBtn.textContent;
+                deleteBtn.textContent = 'Deleting...';
+                deleteBtn.disabled = true;
+                deleteBtn.style.opacity = '0.7';
+                
                 fetch('/admin/courses/' + courseId, {
                     method: 'DELETE',
                     headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
                     }
-                }).then(response => {
+                })
+                .then(response => {
                     if (response.ok) {
-                        location.reload();
+                        // Success - remove the course card from the grid
+                        const courseCard = deleteBtn.closest('.course-card');
+                        courseCard.style.backgroundColor = '#d4edda';
+                        courseCard.style.transition = 'all 0.3s ease';
+                        
+                        setTimeout(() => {
+                            courseCard.style.transform = 'scale(0.8)';
+                            courseCard.style.opacity = '0';
+                            setTimeout(() => {
+                                courseCard.remove();
+                                // Update the total count
+                                const totalBadge = document.querySelector('.badge.bg-primary');
+                                if (totalBadge) {
+                                    const currentCount = parseInt(totalBadge.textContent.match(/\d+/)[0]);
+                                    totalBadge.textContent = (currentCount - 1) + ' total courses';
+                                }
+                                showNotification('Course deleted successfully!', 'success');
+                            }, 300);
+                        }, 200);
+                    } else {
+                        // Error handling
+                        return response.json().then(data => {
+                            throw new Error(data.message || 'Failed to delete course');
+                        });
                     }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showNotification('Error deleting course: ' + error.message, 'error');
+                    
+                    // Reset button state
+                    deleteBtn.textContent = originalText;
+                    deleteBtn.disabled = false;
+                    deleteBtn.style.opacity = '1';
                 });
             }
+        }
+
+        function showNotification(message, type) {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <span class="notification-message">${message}</span>
+                    <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+                </div>
+            `;
+            
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#d4edda' : '#f8d7da'};
+                color: ${type === 'success' ? '#155724' : '#721c24'};
+                border: 1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'};
+                border-radius: 8px;
+                padding: 15px 20px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+                max-width: 400px;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            // Add animation styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+                .notification-content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+                }
+                .notification-close {
+                    background: none;
+                    border: none;
+                    font-size: 20px;
+                    cursor: pointer;
+                    color: inherit;
+                    padding: 0;
+                    width: 20px;
+                    height: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .notification-close:hover {
+                    opacity: 0.7;
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
         }
     </script>
 </body>

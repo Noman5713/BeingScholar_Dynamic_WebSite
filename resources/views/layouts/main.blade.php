@@ -4,83 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeingScholar</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     @yield('head')
 </head>
 <body>
-    <!-- Navbar (copying main site style) -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">BeingScholar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/teachers">Teachers</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/success">Success & Reviews</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/join">Join Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-                </ul>
-                <div class="d-flex ms-3">
-                    <a href="/login" class="btn btn-outline-primary me-2">Login</a>
-                    <a href="/register" class="btn btn-primary">Register</a>
-                </div>
-            </div>
-        </div>
-    </nav>
     <main>
         @yield('content')
     </main>
-    <footer class="bg-dark text-light pt-5 pb-3 mt-5">
+    <footer class="footer">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-3">
+            <div class="footer-content">
+                <div class="footer-section">
                     <h5>BeingScholar</h5>
                     <p>Develop Your Skills, Learn Something New, and Grow Your Skills From Anywhere in the World!</p>
-                    <p class="mb-1"><strong>Address:</strong> Daffodil International University, Daffodil Smart City, Dhaka-1216</p>
-                    <p class="mb-1"><strong>Phone:</strong> +880 1571044054</p>
-                    <p class="mb-1"><strong>Email:</strong> info@beingscholar.com</p>
+                    <p><strong>Address:</strong> Daffodil International University, Daffodil Smart City, Dhaka-1216</p>
+                    <p><strong>Phone:</strong> +880 1571044054</p>
+                    <p><strong>Email:</strong> info@beingscholar.com</p>
                 </div>
-                <div class="col-md-2 mb-3">
+                <div class="footer-section">
                     <h6>Explore</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="/" class="text-light text-decoration-none">Home</a></li>
-                        <li><a href="/about" class="text-light text-decoration-none">About</a></li>
-                        <li><a href="/courses" class="text-light text-decoration-none">Courses</a></li>
-                        <li><a href="/contact" class="text-light text-decoration-none">Contact</a></li>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/courses">Courses</a></li>
+                        <li><a href="/contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="col-md-2 mb-3">
+                <div class="footer-section">
                     <h6>Resources</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-light text-decoration-none">Job Guidance</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Privacy Policy</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Terms & Conditions</a></li>
-                        <li><a href="#" class="text-light text-decoration-none">Refund Policy</a></li>
+                    <ul>
+                        <li><a href="#">Job Guidance</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Refund Policy</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4 mb-3">
+                <div class="footer-section">
                     <h6>Student Support</h6>
                     <p>Working to bring significant changes in online-based learning by doing extensive research for course curriculum preparation, student engagements, and looking forward to the flexible education!</p>
-                    <div>
-                        <a href="#" class="text-light me-2"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-light me-2"><i class="bi bi-youtube"></i></a>
-                        <a href="#" class="text-light me-2"><i class="bi bi-linkedin"></i></a>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-3">
+            <div class="footer-bottom">
                 <small>&copy; {{ date('Y') }} BeingScholar. All rights reserved.</small>
             </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     @yield('scripts')
 </body>
 </html>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use App\Http\Controllers\TransactionController;
 
 Route::get('/', function () {
@@ -1104,6 +1105,15 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
+Route::get('/teachers', function () {
+    return view('teachers');
+});
+
+// Success stories routes
+use App\Http\Controllers\SuccessStoryController;
+
+Route::get('/success', [SuccessStoryController::class, 'index'])->name('success.index');
+Route::post('/submit-success', [SuccessStoryController::class, 'store'])->name('success.store');
 Route::get('/studentdashboard', function () {
     return view('studentdashboard');
 });

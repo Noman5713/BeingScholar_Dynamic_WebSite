@@ -19,10 +19,9 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/about">About</a></li>
                 <li><a href="/courses">Courses</a></li>
-                <li><a href="/#teachers">Teachers</a></li>
+                <li><a href="/teachers">Teachers</a></li>
                 <li><a href="/faq">FAQ</a></li>
-                <li><a href="/#success">Success & Reviews</a></li>
-                <li><a href="/#join">Join Us</a></li>
+                <li><a href="/success">Success & Reviews</a></li>
                 <li><a href="/contact" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a></li>
             </ul>
             <div class="login-btn"><a href="/login">Login/Register</a></div>

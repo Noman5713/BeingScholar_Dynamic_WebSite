@@ -773,9 +773,11 @@ body {
    TESTIMONIALS SECTION
    ================================ */
 
+/* Testimonials Section (Project Palette) */
 .testimonials-section {
   padding: 80px 0;
-  background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+  /* Revert to core brand gradient (indigo -> purple) */
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   position: relative;
   overflow: hidden;
 }
@@ -783,14 +785,12 @@ body {
 .testimonials-section::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(168, 230, 207, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(220, 237, 193, 0.2) 0%, transparent 50%);
+  inset: 0;
+  /* Softer ambient lighting using brand tones */
+  background:
+    radial-gradient(circle at 15% 85%, rgba(118, 75, 162, 0.25) 0%, transparent 55%),
+    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 45% 40%, rgba(102, 126, 234, 0.18) 0%, transparent 55%);
   pointer-events: none;
 }
 

@@ -1,0 +1,207 @@
+/* BeingScholar Admin Auth Page Styles */
+
+body { 
+    min-height: 100vh;
+    background: linear-gradient(135deg, #072b53 0%, #1976d2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+}
+
+.login-card { 
+    background: #fff;
+    border-radius: 28px;
+    box-shadow: 0 8px 40px rgba(7, 43, 83, 0.12);
+    overflow: hidden;
+}
+
+.login-header { 
+    background: linear-gradient(135deg, #072b53 0%, #1976d2 100%);
+    color: #fff; 
+    padding: 40px 30px 30px 30px; 
+    text-align: center; 
+    position: relative;
+}
+
+.login-header .avatar { 
+    width: 70px; 
+    height: 70px; 
+    border-radius: 50%; 
+    background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+    color: #fff; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 28px; 
+    font-weight: 700; 
+    margin: 0 auto 15px auto;
+    box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.login-header h2 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+}
+
+.login-header p {
+    font-size: 14px;
+    opacity: 0.92;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+}
+
+.login-body { 
+    padding: 40px 30px; 
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-label { 
+    display: block; 
+    margin-bottom: 7px; 
+    font-weight: 500;
+    color: #072b53;
+    font-size: 14px;
+}
+
+.form-control { 
+    width: 100%; 
+    border-radius: 12px; 
+    border: 1.5px solid #e3eaf2; 
+    padding: 14px 16px; 
+    font-size: 15px; 
+    transition: all 0.2s ease;
+    background: #f8f9fb;
+}
+
+.form-control:focus { 
+    border-color: #1976d2; 
+    outline: none; 
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.1);
+}
+
+.btn-login { 
+    background: linear-gradient(135deg, #072b53 0%, #1976d2 100%);
+    border: none; 
+    border-radius: 12px; 
+    padding: 14px 16px; 
+    font-weight: 600; 
+    color: #fff; 
+    width: 100%; 
+    font-size: 16px; 
+    cursor: pointer; 
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(7, 43, 83, 0.2);
+}
+
+.btn-login:hover { 
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(7, 43, 83, 0.3);
+}
+
+.alert { 
+    border-radius: 12px; 
+    border: none; 
+    padding: 12px 16px; 
+    margin-bottom: 20px; 
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alert-danger { 
+    background: #fee2e2;
+    color: #ef4444;
+    border-left: 4px solid #ef4444;
+}
+
+.alert-success { 
+    background: #dcfce7;
+    color: #22c55e;
+    border-left: 4px solid #22c55e;
+}
+
+.form-check { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 20px; 
+    gap: 10px;
+}
+
+.form-check-input { 
+    width: 18px;
+    height: 18px;
+    accent-color: #1976d2;
+}
+
+.form-check-label {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.text-center { 
+    text-align: center; 
+}
+
+.text-muted { 
+    color: #64748b; 
+}
+
+.text-decoration-none { 
+    text-decoration: none; 
+}
+
+.mt-4 { 
+    margin-top: 20px; 
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: #f8f9fb;
+    border-radius: 8px;
+    color: #072b53;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background: #e3eaf2;
+    transform: translateX(-3px);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 10px;
+    }
+    .login-header {
+        padding: 30px 20px 20px 20px;
+    }
+    .login-body {
+        padding: 30px 20px;
+    }
+}

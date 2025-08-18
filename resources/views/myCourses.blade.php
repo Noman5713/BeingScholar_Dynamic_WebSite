@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/mycourses.css') }}">
-    
+
 @endsection
 @section('content')
     <div class="header-bar">
@@ -19,13 +19,13 @@
         <div class="course-card">
             <img class="course-img" src="{{ asset('images/Course_Card_Banner/i.png') }}" alt="Batch 11">
             <div class="course-info">
-                <div class="course-title">Professional Certificate in Java Spring boot and Web App Developnent</div>
+                <div class="course-title">Professional Certificate in Java Spring boot and Web App Development</div>
                 <div class="progress-bar">
                     <div class="progress" style="width: 68%;"></div>
                     <span class="progress-label">68%</span>
                 </div>
                 <div class="course-actions">
-                    <button class="course-btn">Continue Course</button>
+                    <a href="{{ url('/courseContent/1') }}" class="course-btn">Continue Course</a>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@
                     <span class="progress-label">0%</span>
                 </div>
                 <div class="course-actions">
-                    <button class="course-btn">Continue Course</button>
+                    <a href="{{ url('/courseContent/2') }}" class="course-btn">Continue Course</a>
                 </div>
             </div>
         </div>

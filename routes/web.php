@@ -1040,6 +1040,10 @@ Route::get('/mycourses', function () {
     return view('myCourses');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
 Route::prefix('admin')->group(function () {
     Route::get('/login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('admin.login.post');

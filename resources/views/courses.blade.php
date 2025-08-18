@@ -1,30 +1,8 @@
 @extends('layouts.main')
 @section('head')
-    <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/courses.css') }}">
 @endsection
 @section('content')
-    <!-- All page content previously inside <body> goes here, except for navbar/footer -->
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">BeingScholar</div>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/#about">About</a></li>
-                <li><a href="/courses" class="active">Courses</a></li>
-                <li><a href="/#teachers">Teachers</a></li>
-                <li><a href="/#services">Services</a></li>
-                <li><a href="/#success">Success & Reviews</a></li>
-                <li><a href="/#join">Join Us</a></li>
-                <li><a href="/#contact">Contact</a></li>
-            </ul>
-            <div class="login-btn"><a href="/login">Login/Register</a></div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
     <!-- Courses Header Section -->
     <section class="courses-header">
         <div class="container">

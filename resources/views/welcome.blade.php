@@ -3,27 +3,6 @@
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
 @endsection
 @section('content')
-<!-- Navigation Bar and all page content previously inside <body> goes here, except for navbar/footer -->
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-      <div class="container nav-container">
-        <div class="logo">BeingScholar</div>
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="/courses">Courses</a></li>
-          <li><a href="#teachers">Teachers</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#success">Success & Reviews</a></li>
-          <li><a href="#join">Join Us</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="login-btn"><a href="/login">Login/Register</a></div>
-        <div class="menu-toggle" id="mobile-menu">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    </nav>
     <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="container hero-flex">

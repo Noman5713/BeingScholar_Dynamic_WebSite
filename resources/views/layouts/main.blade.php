@@ -5,9 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeingScholar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     @yield('head')
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">BeingScholar</div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/#teachers">Teachers</a></li>
+                <li><a href="/#services">Services</a></li>
+                <li><a href="/#success">Success & Reviews</a></li>
+                <li><a href="/#join">Join Us</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+            <div class="login-btn"><a href="/login">Login/Register</a></div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+    
     <main>
         @yield('content')
     </main>
@@ -54,6 +77,20 @@
             </div>
         </div>
     </footer>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    navLinks.classList.toggle('show');
+                    menuToggle.classList.toggle('active');
+                });
+            }
+        });
+    </script>
     @yield('scripts')
 </body>
 </html>

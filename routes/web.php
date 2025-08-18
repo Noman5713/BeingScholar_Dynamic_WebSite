@@ -1040,6 +1040,10 @@ Route::get('/mycourses', function () {
     return view('myCourses');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
 Route::prefix('admin')->group(function () {
     Route::get('/login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('admin.login');
     Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('admin.login.post');
@@ -1066,6 +1070,23 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+// Student Authentication Routes
+Route::get('/register', [App\Http\Controllers\StudentAuthController::class, 'showRegisterForm'])->name('student.register.form');
+Route::post('/register', [App\Http\Controllers\StudentAuthController::class, 'register'])->name('student.register');
+Route::get('/signup', function() { return redirect('/register'); });
+
+Route::get('/login', [App\Http\Controllers\StudentAuthController::class, 'showLoginForm'])->name('student.login.form');
+Route::post('/login', [App\Http\Controllers\StudentAuthController::class, 'login'])->name('student.login');
+Route::post('/logout', [App\Http\Controllers\StudentAuthController::class, 'logout'])->name('student.logout');
+
+Route::get('/verify-otp', [App\Http\Controllers\StudentAuthController::class, 'showVerifyOtpForm'])->name('student.verify-otp.form');
+Route::post('/verify-otp', [App\Http\Controllers\StudentAuthController::class, 'verifyOtp'])->name('student.verify-otp');
+
+Route::get('/forgot-password', [App\Http\Controllers\StudentAuthController::class, 'showForgotPasswordForm'])->name('student.forgot-password.form');
+Route::post('/forgot-password', [App\Http\Controllers\StudentAuthController::class, 'sendResetLink'])->name('student.forgot-password.send');
+Route::get('/reset-password/{token}', [App\Http\Controllers\StudentAuthController::class, 'showResetPasswordForm'])->name('student.reset-password.form');
+Route::post('/reset-password', [App\Http\Controllers\StudentAuthController::class, 'resetPassword'])->name('student.reset-password');
+
 Route::get('/certificate', function () {
     return view('certificate');
 });
@@ -1080,4 +1101,7 @@ Route::get('/faq', function () {
 
 Route::get('/studentdashboard', function () {
     return view('studentdashboard');
+});
+Route::get('/courseContent', function () {
+    return view('courseContent');
 });

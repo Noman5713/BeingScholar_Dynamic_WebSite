@@ -71,8 +71,27 @@ class AdminController extends Controller
 
     public function deleteCourse(Course $course)
     {
-        $course->delete();
-        return redirect()->route('admin.courses')->with('success', 'Course deleted successfully!');
+        try {
+            $course->delete();
+            
+            if (request()->expectsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Course deleted successfully!'
+                ]);
+            }
+            
+            return redirect()->route('admin.courses')->with('success', 'Course deleted successfully!');
+        } catch (\Exception $e) {
+            if (request()->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Failed to delete course: ' . $e->getMessage()
+                ], 500);
+            }
+            
+            return redirect()->route('admin.courses')->with('error', 'Failed to delete course: ' . $e->getMessage());
+        }
     }
 
     public function manageUsers()
@@ -103,8 +122,27 @@ class AdminController extends Controller
 
     public function deleteUser(User $user)
     {
-        $user->delete();
-        return redirect()->route('admin.users')->with('success', 'User deleted successfully!');
+        try {
+            $user->delete();
+            
+            if (request()->expectsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'User deleted successfully!'
+                ]);
+            }
+            
+            return redirect()->route('admin.users')->with('success', 'User deleted successfully!');
+        } catch (\Exception $e) {
+            if (request()->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Failed to delete user: ' . $e->getMessage()
+                ], 500);
+            }
+            
+            return redirect()->route('admin.users')->with('error', 'Failed to delete user: ' . $e->getMessage());
+        }
     }
 
     public function myCourses()

@@ -275,10 +275,81 @@
         </div>
     </section>
 
+    <!-- Success Modal -->
+    <div id="successModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="success-icon">
+                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="10" fill="#28a745"/>
+                        <path d="m9 12 2 2 4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h2 class="modal-title">🎉 Payment Submitted Successfully!</h2>
+            </div>
+            <div class="modal-body">
+                <div class="success-message-content">
+                    <p class="main-message">Your payment information has been received and is being processed.</p>
+                    <div class="transaction-details">
+                        <div class="detail-item">
+                            <span class="label">📋 Transaction ID:</span>
+                            <span class="value" id="modal-trxn-id">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">📚 Course:</span>
+                            <span class="value" id="modal-course-name">{{ $course['title'] }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">💰 Amount:</span>
+                            <span class="value">৳{{ $course['new_price'] }}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">📅 Status:</span>
+                            <span class="value status-pending">Pending Verification</span>
+                        </div>
+                    </div>
+                    <div class="next-steps">
+                        <h4>📋 What happens next?</h4>
+                        <ul>
+                            <li>✅ Your transaction is now in our system</li>
+                            <li>🔍 We'll verify your payment within 24-48 hours</li>
+                            <li>📧 You'll receive confirmation via email/SMS</li>
+                            <li>🎓 Full course access will be unlocked after verification</li>
+                        </ul>
+                    </div>
+                    <div class="support-info">
+                        <p><strong>💬 Need help?</strong> Contact us at:</p>
+                        <p>📱 WhatsApp: +8801705644008</p>
+                        <p>📧 Email: support@beingscholar.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeSuccessModal(); window.location.href='/courses'">📋 View All Courses</button>
+                <button class="btn btn-primary" onclick="goToCourseDetail()">📖 View Course Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="modal-overlay" style="display: none;" onclick="closeSuccessModal()"></div>
+
     <script>
         // Mobile menu toggle
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
         });
 
         // Payment method switching
@@ -297,29 +368,80 @@
             });
         });
 
-        // Enhanced form submission with backend integration
-        document.getElementById('paymentForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 DOM Content Loaded event fired');
+            
+            // Enhanced form submission with backend integration
+            const paymentForm = document.getElementById('paymentForm');
+            if (!paymentForm) {
+                console.error('❌ Payment form not found!');
+                return;
+            }
+            console.log('✅ Payment form found:', paymentForm);
+            
+            // Add form submit listener
+            paymentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                console.log('🎯 Form submit event triggered!');
+                handleFormSubmission();
+            });
+            console.log('✅ Form submit listener attached');
+            
+            // Also add direct click handler to submit button as backup
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn) {
+                submitBtn.addEventListener('click', function(e) {
+                    console.log('🖱️ Submit button clicked directly!');
+                    e.preventDefault();
+                    handleFormSubmission();
+                });
+                console.log('✅ Submit button click listener attached');
+            } else {
+                console.error('❌ Submit button not found for click listener!');
+            }
+        });
+
+        function handleFormSubmission() {
+            console.log('🔥 handleFormSubmission called!');
+            alert('Form submission started! Check console for details.');
+            
+            // First, let's just test if we can show a simple alert
+            try {
             
             const submitBtn = document.getElementById('submitBtn');
             const btnText = submitBtn.querySelector('.btn-text');
             const btnLoading = submitBtn.querySelector('.btn-loading');
             const messageDiv = document.getElementById('payment-message');
+            const paymentForm = document.getElementById('paymentForm');
+            
+            // Check if payment method is selected
+            const selectedPaymentElement = document.querySelector('input[name="payment_method"]:checked');
+            if (!selectedPaymentElement) {
+                console.error('❌ No payment method selected!');
+                showMessage('error', '❌ Please select a payment method first');
+                return;
+            }
+            
+            const selectedPayment = selectedPaymentElement.value;
+            console.log('✅ Selected payment method:', selectedPayment);
             
             // Get form data
-            const formData = new FormData(this);
-            const selectedPayment = document.querySelector('input[name="payment_method"]:checked').value;
+            const formData = new FormData(paymentForm);
             
             // Get transaction ID based on selected payment method
             let transactionId = '';
             if (selectedPayment === 'mobile_banking') {
                 transactionId = document.getElementById('transaction-id').value;
+                console.log('📱 Mobile banking transaction ID:', transactionId);
             } else if (selectedPayment === 'bank') {
                 transactionId = document.getElementById('bank-transaction-id').value;
+                console.log('🏦 Bank transaction ID:', transactionId);
             }
             
             // Validation
             if (!transactionId || transactionId.trim() === '') {
+                console.error('❌ Transaction ID is empty!');
                 showMessage('error', '❌ Please enter a valid transaction ID');
                 return;
             }
@@ -333,32 +455,45 @@
             formData.set('transaction_id', transactionId);
             formData.set('payment_method', selectedPayment === 'mobile_banking' ? 'bKash/Nagad/Rocket' : 'Bank Transfer');
             
+            // Debug: Log all form data
+            console.log('📋 Form data being sent:');
+            for (let [key, value] of formData.entries()) {
+                console.log(`  ${key}: ${value}`);
+            }
+            
             // Show loading state
             submitBtn.disabled = true;
             btnText.style.display = 'none';
             btnLoading.style.display = 'inline-flex';
+            console.log('⏳ Loading state activated');
+            
+            // Get CSRF token
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            console.log('🔐 CSRF Token:', csrfToken ? 'Found' : 'Missing');
             
             // Submit to backend
+            console.log('🚀 Sending request to /submit-transaction');
             fetch('/submit-transaction', {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    'X-CSRF-TOKEN': csrfToken
                 }
             })
-            .then(response => response.json())
+            .then(response => {
+                console.log('📥 Response status:', response.status);
+                return response.json();
+            })
             .then(data => {
+                console.log('📋 Response data:', data);
                 if (data.success) {
-                    showMessage('success', data.message);
-                    // Clear form and show success state
-                    document.getElementById('paymentForm').reset();
-                    // Optionally redirect after success
-                    setTimeout(() => {
-                        if (confirm('🎉 Payment submitted successfully! Would you like to view all courses?')) {
-                            window.location.href = '/courses';
-                        }
-                    }, 3000);
+                    console.log('✅ Success! Transaction ID:', data.transaction_id);
+                    // Show success modal instead of simple message
+                    showSuccessModal(data.transaction_id);
+                    // Clear form
+                    paymentForm.reset();
                 } else {
+                    console.error('❌ Error:', data.message);
                     showMessage('error', '❌ ' + data.message);
                 }
             })
@@ -372,7 +507,12 @@
                 btnText.style.display = 'inline';
                 btnLoading.style.display = 'none';
             });
-        });
+            
+            } catch (error) {
+                console.error('❌ Error in handleFormSubmission:', error);
+                alert('Error occurred: ' + error.message);
+            }
+        }
 
         function showMessage(type, message) {
             const messageDiv = document.getElementById('payment-message');
@@ -396,6 +536,62 @@
             let value = e.target.value.replace(/\D/g, '');
             if (value.length > 11) value = value.substring(0, 11);
             e.target.value = value;
+        });
+
+        // Success Modal Functions
+        function showSuccessModal(transactionId) {
+            // Update modal content with transaction details
+            document.getElementById('modal-trxn-id').textContent = transactionId;
+            
+            // Show modal with animation
+            const modal = document.getElementById('successModal');
+            const overlay = document.getElementById('modalOverlay');
+            
+            overlay.style.display = 'block';
+            modal.style.display = 'block';
+            
+            // Trigger animation
+            setTimeout(() => {
+                modal.classList.add('show');
+                overlay.classList.add('show');
+            }, 10);
+            
+            // Disable body scroll
+            document.body.style.overflow = 'hidden';
+            
+            // Auto-close after 10 seconds (optional)
+            setTimeout(() => {
+                if (modal.style.display === 'block') {
+                    closeSuccessModal();
+                }
+            }, 10000);
+        }
+
+        function closeSuccessModal() {
+            const modal = document.getElementById('successModal');
+            const overlay = document.getElementById('modalOverlay');
+            
+            modal.classList.remove('show');
+            overlay.classList.remove('show');
+            
+            setTimeout(() => {
+                modal.style.display = 'none';
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        function goToCourseDetail() {
+            // Get current course ID from URL or course data
+            const courseId = '{{ $course["id"] }}';
+            window.location.href = '/course/' + courseId;
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSuccessModal();
+            }
         });
     </script>
 
@@ -553,6 +749,13 @@
             transition: all 0.3s ease;
             padding: 1rem 2rem;
             font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            z-index: 1;
         }
 
         .submit-btn:hover:not(:disabled) {
@@ -663,6 +866,245 @@
             .submit-btn {
                 padding: 0.875rem 1.5rem;
                 font-size: 1rem;
+            }
+        }
+
+        /* Success Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9998;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+        }
+
+        .modal {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .modal.show {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            max-width: 500px;
+            width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-header {
+            text-align: center;
+            padding: 2rem 2rem 1rem 2rem;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .success-icon {
+            margin: 0 auto 1rem auto;
+            animation: successPulse 1s ease-out;
+        }
+
+        @keyframes successPulse {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-title {
+            margin: 0;
+            color: #28a745;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .modal-body {
+            padding: 1.5rem 2rem;
+        }
+
+        .main-message {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #495057;
+            margin-bottom: 1.5rem;
+        }
+
+        .transaction-details {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .detail-item .label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .detail-item .value {
+            font-weight: 500;
+            color: #212529;
+        }
+
+        .status-pending {
+            background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .next-steps {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #e3f2fd;
+        }
+
+        .next-steps h4 {
+            margin: 0 0 1rem 0;
+            color: #1976d2;
+            font-size: 1.1rem;
+        }
+
+        .next-steps ul {
+            margin: 0;
+            padding-left: 1.5rem;
+            list-style: none;
+        }
+
+        .next-steps li {
+            margin-bottom: 0.5rem;
+            color: #495057;
+            position: relative;
+        }
+
+        .next-steps li::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 6px;
+            height: 6px;
+            background: #28a745;
+            border-radius: 50%;
+        }
+
+        .support-info {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .support-info p {
+            margin: 0.25rem 0;
+            color: #155724;
+            font-size: 0.9rem;
+        }
+
+        .support-info p:first-child {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-footer {
+            padding: 1rem 2rem 2rem 2rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #495057 0%, #343a40 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem;
+                max-width: calc(100vw - 2rem);
+            }
+            
+            .modal-header,
+            .modal-body,
+            .modal-footer {
+                padding: 1.5rem;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>

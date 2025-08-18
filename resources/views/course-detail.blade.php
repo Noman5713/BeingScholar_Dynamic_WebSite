@@ -1,36 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $course['title'] }} - DIU BeingScholar</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
+@extends('layouts.main')
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/course-detail.css') }}">
-</head>
-
-<body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <div class="logo">BeingScholar</div>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/#about">About</a></li>
-                <li><a href="/courses">Courses</a></li>
-                <li><a href="/#teachers">Teachers</a></li>
-                <li><a href="/#services">Services</a></li>
-                <li><a href="/#success">Success & Reviews</a></li>
-                <li><a href="/#join">Join Us</a></li>
-                <li><a href="/#contact">Contact</a></li>
-            </ul>
-            <div class="login-btn"><a href="#login">Login/Register</a></div>
-            <div class="menu-toggle" id="mobile-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+@endsection
+@section('content')
     <!-- Breadcrumb -->
     <section class="breadcrumb-section">
         <div class="container">
@@ -281,11 +254,24 @@
             </div>
         </div>
     </section>
-
+@endsection
+@section('scripts')
     <script>
         // Mobile menu toggle
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
         });
 
         // Tab functionality
@@ -539,5 +525,4 @@
             color: #721c24;
         }
     </style>
-</body>
-</html>
+@endsection

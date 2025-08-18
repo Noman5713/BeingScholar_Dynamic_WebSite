@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ - Frequently Asked Questions</title>
+@extends('layouts.main')
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/faq.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
+@endsection
+@section('content')
+    <!-- All page content previously inside <body> goes here, except for navbar/footer -->
     <!-- Background decoration -->
     <div class="bg-decoration">
         <div class="bg-shape bg-shape-1"></div>
@@ -385,7 +382,8 @@
             </div>
         </div>
     </section>
-
+@endsection
+@section('scripts')
     <script>
         // Enhanced FAQ functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -491,5 +489,4 @@
             });
         });
     </script>
-</body>
-</html>
+@endsection

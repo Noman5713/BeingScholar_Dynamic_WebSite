@@ -1,0 +1,210 @@
+/* BeingScholar Student Auth Page Styles */
+
+body.student-auth-bg {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #072b53 0%, #1976d2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.auth-container {
+  display: flex;
+  width: 900px;
+  min-height: 540px;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 8px 40px rgba(7, 43, 83, 0.12);
+  overflow: hidden;
+}
+
+.auth-left {
+  flex: 1.2;
+  background: linear-gradient(135deg, #072b53 0%, #1976d2 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 60px 48px;
+  position: relative;
+}
+
+.auth-left h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.auth-left p {
+  font-size: 1.15rem;
+  opacity: 0.92;
+  margin-bottom: 0;
+}
+
+.auth-left .auth-graphic {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 180px;
+  opacity: 0.12;
+}
+
+.auth-right {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 40px;
+}
+
+.auth-form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #072b53;
+  margin-bottom: 32px;
+}
+
+.auth-form {
+  width: 100%;
+}
+
+.auth-form .form-group {
+  margin-bottom: 22px;
+}
+
+.auth-form .form-label {
+  font-weight: 500;
+  color: #072b53;
+  margin-bottom: 7px;
+  display: block;
+}
+
+.auth-form .form-control {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #e3eaf2;
+  background: #f8f9fb;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.auth-form .form-control:focus {
+  border-color: #1976d2;
+  background: #fff;
+  outline: none;
+}
+
+.auth-form .form-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.auth-form .form-check-input {
+  width: 18px;
+  height: 18px;
+  accent-color: #1976d2;
+}
+
+.auth-form .form-check-label {
+  font-size: 0.98rem;
+  color: #555;
+}
+
+.auth-form .forgot-link {
+  margin-left: auto;
+  font-size: 0.98rem;
+  color: #1976d2;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.auth-form .forgot-link:hover {
+  color: #072b53;
+}
+
+.auth-form .btn-auth {
+  width: 100%;
+  padding: 14px 0;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #1976d2 0%, #072b53 100%);
+  color: #fff;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  margin-top: 8px;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.10);
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+
+.auth-form .btn-auth:hover {
+  background: linear-gradient(90deg, #072b53 0%, #1976d2 100%);
+  transform: translateY(-2px);
+}
+
+.auth-form .auth-bottom-text {
+  text-align: center;
+  margin-top: 28px;
+  font-size: 1rem;
+  color: #555;
+}
+
+.auth-form .auth-bottom-text a {
+  color: #1976d2;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.auth-form .auth-bottom-text a:hover {
+  color: #072b53;
+}
+
+/* Alerts */
+.auth-form .alert {
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 1rem;
+  margin-bottom: 18px;
+}
+.auth-form .alert-danger {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+  color: #fff;
+}
+.auth-form .alert-success {
+  background: linear-gradient(135deg, #51cf66 0%, #40c057 100%);
+  color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .auth-container {
+    width: 98vw;
+    min-width: 0;
+  }
+}
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    width: 98vw;
+    min-width: 0;
+    border-radius: 0;
+  }
+  .auth-left, .auth-right {
+    padding: 36px 18px;
+    min-width: 0;
+  }
+  .auth-left {
+    align-items: center;
+    text-align: center;
+  }
+  .auth-left .auth-graphic {
+    display: none;
+  }
+}

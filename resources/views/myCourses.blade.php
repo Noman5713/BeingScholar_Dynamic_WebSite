@@ -1,51 +1,50 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="light">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@extends('layouts.main')
+@section('head')
     <link rel="stylesheet" href="{{ asset('css/mycourses.css') }}">
-    <title>My Courses</title>
-</head>
-
-
-<body>
-    <h1 style="font-size:40px;font-weight:700;margin-bottom:24px;color:#1976d2;text-align:center;">My Courses</h1>
-    <div class="container" style="margin-top: 48px;">
-  
-        <div class="card">
-            <div class="img">
-                <img src="{{ asset('images/Course_Card_Banner/i.png') }}" alt="Java Spring Boot Course">
-                <div class="course-badge">Active</div>
-            </div>
-            <div class="info">
-                <h3>Professional Certificate in Java Spring boot and Web App Development</h3>
-                <button class="btn" data-course="1">View Details</button>
-            </div>
-        </div>
     
-        <div class="card">
-            <div class="img">
-                <img src="{{ asset('images/Course_Card_Banner/e.png') }}" alt="Data Analytics Course">
-                <div class="course-badge">Active</div>
-            </div>
-            <div class="info">
-                <h3>Applied Data Analytics Masterclass</h3>
-                <button class="btn" data-course="2">View Details</button>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="img">
-                <img src="{{ asset('images/Course_Card_Banner/l.png') }}" alt="Mern Stack Course">
-                <div class="course-badge2">Pending</div>
-            </div>
-            <div class="info">
-                <h3>Academia2Industry Mern Stack Launched</h3>
-                <button class="btn" data-course="3">View Details</button>
+@endsection
+@section('content')
+    <div class="header-bar">
+        <div class="logo" style="font-size:1.6rem;font-weight:bold;color:#2b6cb0;">BeingScholar</div>
+        <div class="user-profile">
+            <span class="user-name">{{ Auth::user()->name ?? 'Student' }}</span>
+            <div class="avatar">
+                <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" alt="User Avatar" />
             </div>
         </div>
     </div>
-</body>
-
-</html>
+    <div class="my-courses-title">My Courses</div>
+    <div class="courses-list">
+        <!-- Course 1 -->
+        <div class="course-card">
+            <img class="course-img" src="{{ asset('images/Course_Card_Banner/i.png') }}" alt="Batch 11">
+            <div class="course-info">
+                <div class="course-title">Professional Certificate in Java Spring boot and Web App Developnent</div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 68%;"></div>
+                    <span class="progress-label">68%</span>
+                </div>
+                <div class="course-actions">
+                    <button class="course-btn">Continue Course</button>
+                </div>
+            </div>
+        </div>
+        <!-- Course 2 -->
+        <div class="course-card">
+            <img class="course-img" src="{{ asset('images/Course_Card_Banner/e.png') }}" alt="Recommended Course">
+            <div class="course-info">
+                <div class="course-title">Applied Data Analytics Masterclass</div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 0%;"></div>
+                    <span class="progress-label">0%</span>
+                </div>
+                <div class="course-actions">
+                    <button class="course-btn">Continue Course</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@section('scripts')
+    <!-- Place any page-specific scripts here -->
+@endsection

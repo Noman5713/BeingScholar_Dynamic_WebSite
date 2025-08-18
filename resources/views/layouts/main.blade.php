@@ -22,12 +22,8 @@
                 <li><a href="/#teachers">Teachers</a></li>
                 <li><a href="/faq">FAQ</a></li>
                 <li><a href="/#success">Success & Reviews</a></li>
-<<<<<<< HEAD
                 <li><a href="/#join">Join Us</a></li>
                 <li><a href="/contact" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a></li>
-=======
-                <li><a href="/contact">Contact</a></li>
->>>>>>> b38ce502424d7e97dc3f58cc5da9688601e620ea
             </ul>
             <div class="login-btn"><a href="/login">Login/Register</a></div>
             <div class="menu-toggle" id="mobile-menu">

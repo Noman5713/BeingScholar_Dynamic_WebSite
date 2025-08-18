@@ -18,7 +18,7 @@ Route::post('/submit-transaction', [TransactionController::class, 'submitTransac
 Route::get('/transaction-status/{trxn_id}', [TransactionController::class, 'getTransactionStatus']);
 
 Route::get('/enroll/{id}', [App\Http\Controllers\CourseController::class, 'enroll']);
-   
+
 Route::get('/mycourses', function () {
     return view('myCourses');
 });
@@ -62,7 +62,8 @@ Route::prefix('admin')->group(function () {
 Route::get('/register', [App\Http\Controllers\StudentAuthController::class, 'showRegisterForm'])->name('student.register.form');
 Route::post('/register', [App\Http\Controllers\StudentAuthController::class, 'register'])->name('student.register');
 Route::get('/signup', function () {
-    return redirect('/register'); });
+    return redirect('/register');
+});
 
 Route::get('/login', [App\Http\Controllers\StudentAuthController::class, 'showLoginForm'])->name('student.login.form');
 Route::post('/login', [App\Http\Controllers\StudentAuthController::class, 'login'])->name('student.login');

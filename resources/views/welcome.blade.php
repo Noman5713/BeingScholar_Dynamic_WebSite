@@ -351,6 +351,410 @@
         </div>
     </section>
 
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="testimonials-header">
+                <h2 class="testimonials-title">
+                    What Our <span class="gradient-text">Amazing Students</span> Say
+                </h2>
+                <p class="testimonials-subtitle">
+                    Discover how BeingScholar has transformed careers and lives through quality education and mentorship
+                </p>
+            </div>
+            
+            <div class="testimonials-carousel-wrapper">
+                <div class="testimonials-carousel" id="testimonialsCarousel">
+                    <div class="testimonial-track">
+                        <!-- Testimonial 1 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "BeingScholar completely transformed my career! The practical approach and industry-focused curriculum helped me land my dream job as a Full Stack Developer. The instructors are amazing!"
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Ahmed Rahman</h4>
+                                        <p class="author-role">Full Stack Developer at TechCorp</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "The Data Analytics course at BeingScholar opened so many doors for me. The hands-on projects and real-world case studies prepared me perfectly for the industry challenges."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Fatima Khan</h4>
+                                        <p class="author-role">Data Analyst at DataTech Solutions</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "Amazing learning experience! The Java Spring Boot course was comprehensive and well-structured. I got placed in a top company within 2 months of completion."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Mohammad Hassan</h4>
+                                        <p class="author-role">Backend Developer at InnovateSoft</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 4 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "The AR/VR course was incredible! BeingScholar provided cutting-edge knowledge and practical skills that helped me become a VR developer at a gaming company."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Ayesha Sultana</h4>
+                                        <p class="author-role">VR Developer at GameStudio Pro</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 5 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "BeingScholar's MERN Stack course was exactly what I needed. The mentorship and project-based learning approach made all the difference in my web development journey."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Rahul Ahmed</h4>
+                                        <p class="author-role">Frontend Developer at WebTech Ltd</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 6 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "Outstanding experience! The instructors at BeingScholar are industry experts who provided real-world insights. I'm now working as a Software Engineer at my dream company."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Sadia Rahman</h4>
+                                        <p class="author-role">Software Engineer at TechGiants Inc</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 7 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "The mentorship program at BeingScholar is exceptional. My mentor guided me throughout the course and helped me secure a position at a multinational company."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Karim Uddin</h4>
+                                        <p class="author-role">DevOps Engineer at CloudTech</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 8 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "BeingScholar's UI/UX design course changed my career path completely. The practical projects and portfolio building helped me transition from marketing to design successfully."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Nusrat Jahan</h4>
+                                        <p class="author-role">UI/UX Designer at DesignStudio</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 9 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "The cybersecurity course at BeingScholar was comprehensive and up-to-date with industry standards. I learned both theoretical concepts and practical skills that are essential in the field."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Tanvir Islam</h4>
+                                        <p class="author-role">Cybersecurity Analyst at SecureNet</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 10 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "I was amazed by the quality of education and support system at BeingScholar. The mobile app development course gave me the skills to create my own startup!"
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Sabbir Ahmed</h4>
+                                        <p class="author-role">Mobile App Developer & Entrepreneur</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 11 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "The digital marketing course helped me understand the modern marketing landscape. Within 3 months of completing the course, I started my own digital agency."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b47c?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Rashida Khatun</h4>
+                                        <p class="author-role">Digital Marketing Consultant</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 12 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "BeingScholar's blockchain development course was ahead of its time. The knowledge I gained helped me become a blockchain consultant and work with international clients."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Mahbub Rahman</h4>
+                                        <p class="author-role">Blockchain Developer at CryptoTech</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 13 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "The machine learning course at BeingScholar provided both theoretical depth and practical implementation. I'm now working as an AI researcher at a leading tech company."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Lamia Hassan</h4>
+                                        <p class="author-role">AI Researcher at InnovateLab</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 14 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "BeingScholar's cloud computing course prepared me for the future of technology. The hands-on AWS and Azure training was invaluable for my current role."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Rafiq Uddin</h4>
+                                        <p class="author-role">Cloud Solutions Architect</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 15 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "The game development course was a dream come true! BeingScholar provided all the tools and knowledge I needed to create my first indie game which is now on Steam."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Taslima Akter</h4>
+                                        <p class="author-role">Indie Game Developer</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 16 -->
+                        <div class="testimonial-card">
+                            <div class="testimonial-content">
+                                <div class="quote-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                                    </svg>
+                                </div>
+                                <p class="testimonial-text">
+                                    "BeingScholar's quality assurance course gave me a solid foundation in software testing. The practical exposure to different testing tools was excellent preparation for my career."
+                                </p>
+                                <div class="testimonial-author">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Student" class="author-image">
+                                    <div class="author-info">
+                                        <h4 class="author-name">Shafiq Ahmed</h4>
+                                        <p class="author-role">QA Engineer at TestPro Solutions</p>
+                                        <div class="rating">
+                                            <span class="stars">★★★★★</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script>
         // Mobile menu toggle
         const mobileMenu = document.getElementById('mobile-menu');
@@ -466,7 +870,74 @@
     </style>
 @endsection
 @section('scripts')
-<!-- Place any page-specific scripts here -->
+<script>
+// Counter Animation for Testimonials Stats
+function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-count'));
+    const increment = target / 100; // Animation duration in steps
+    let current = 0;
+    
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target.toLocaleString();
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current).toLocaleString();
+        }
+    }, 20);
+}
+
+// Intersection Observer for triggering counter animation
+function initCounterAnimation() {
+    const statNumbers = document.querySelectorAll('.stat-number[data-count]');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                entry.target.classList.add('animated');
+                animateCounter(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    statNumbers.forEach(stat => observer.observe(stat));
+}
+
+// Duplicate testimonials for seamless infinite scroll
+function duplicateTestimonials() {
+    const track = document.querySelector('.testimonial-track');
+    if (track) {
+        const testimonials = Array.from(track.children);
+        
+        // Clone all testimonials and append them for seamless loop
+        testimonials.forEach(testimonial => {
+            const clone = testimonial.cloneNode(true);
+            track.appendChild(clone);
+        });
+    }
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initCounterAnimation();
+    duplicateTestimonials();
+    
+    // Optional: Pause animation on hover for better UX
+    const testimonialTrack = document.querySelector('.testimonial-track');
+    if (testimonialTrack) {
+        testimonialTrack.addEventListener('mouseenter', () => {
+            testimonialTrack.style.animationPlayState = 'paused';
+        });
+        
+        testimonialTrack.addEventListener('mouseleave', () => {
+            testimonialTrack.style.animationPlayState = 'running';
+        });
+    }
+});
+</script>
 @endsection
 
    

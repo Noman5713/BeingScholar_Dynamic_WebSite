@@ -3,32 +3,37 @@
     <link rel="stylesheet" href="{{ asset('css/studentdashboard.css') }}">
 @endsection
 @section('content')
+    <div id="mobileOverlay"></div>
     <div class="container">
-        <div class="mobile-overlay" id="mobileOverlay"></div>
         <aside class="sidebar" id="sidebar">
             <h2>Student Dashboard</h2>
             <ul class="menu">
                 <li><a class="active" href="#overview">Overview</a></li>
-                <li><a href="#courses">My Courses</a></li>
+                <li><a href="/mycourses">My Courses</a></li>
             </ul>
         </aside>
         <main class="main-content">
             <div class="header">
                 <div class="header-left">
-                    <button class="hamburger-menu" id="hamburgerMenu">
-                       <span></span>
-                       <span></span>
-                       <span></span>
-                    </button>
+                    <div class="hamburger-menu" id="hamburgerMenu">
+                        <img class="hamburger" src="{{ asset('images/icons8-hamburger-menu-50.png') }}" alt="">
+                    </div>
                     <h1>Dashboard</h1>
                 </div>
-                <div class="user-info">
-                    <h2>Uodoy</h2>
-                    <div class="avatar">
-                        <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" alt="User Avatar" />
+                <div class="user-info"><span class="dashboard-greeting">Hello,
+                        {{ Auth::user()->name ?? 'Student' }}!</span>
+                    <div class="profile-dropdown" id="profileDropdown"><button class="profile-btn" id="profileBtn">
+                            <div class="profile-avatar"><img
+                                    src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp"
+                                    alt="User Avatar" /></div>
+                        </button>
+                        <div class="dropdown-content" id="dropdownContent">
+                            <a href="#">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="dashboard-toolbar"></div>
             <section id="overview" class="overview-section">
                 <div class="card">
                     <h2>Enrolled Courses</h2>
@@ -61,7 +66,7 @@
                                 <td><span class="badge success">Active</span></td>
                                 <td>
                                     <div class="progress">
-                                        <div class="progress-bar" style="width: 80%"></div>
+                                        <div class="progress-bar w80"></div>
                                     </div>
                                 </td>
                             </tr>
@@ -74,7 +79,7 @@
                                 <td><span class="badge success">Active</span></td>
                                 <td>
                                     <div class="progress">
-                                        <div class="progress-bar" style="width: 65%"></div>
+                                        <div class="progress-bar w65"></div>
                                     </div>
                                 </td>
                             </tr>
@@ -88,7 +93,7 @@
                                 <td><span class="badge warning">Pending</span></td>
                                 <td>
                                     <div class="progress">
-                                        <div class="progress-bar" style="width: 40%"></div>
+                                        <div class="progress-bar w40"></div>
                                     </div>
                                 </td>
                             </tr>
@@ -98,33 +103,56 @@
             </section>
         </main>
     </div>
-@endsection
-@section('scripts')
-<script>
-    // Mobile menu functionality
-    const hamburgerMenu = document.getElementById('hamburgerMenu');
-    const sidebar = document.getElementById('sidebar');
-    const mobileOverlay = document.getElementById('mobileOverlay');
-    function toggleSidebar() {
-        sidebar.classList.toggle('show');
-        mobileOverlay.classList.toggle('show');
-    }
-    function closeSidebar() {
-        sidebar.classList.remove('show');
-        mobileOverlay.classList.remove('show');
-    }
-    hamburgerMenu.addEventListener('click', toggleSidebar);
-    mobileOverlay.addEventListener('click', closeSidebar);
-    // Close sidebar when clicking on menu items (optional)
-    const menuLinks = document.querySelectorAll('.menu a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', closeSidebar);
-    });
-    // Handle window resize
-    window.addEventListener('resize', function () {
-        if (window.innerWidth > 768) {
-            closeSidebar();
+    <script>
+        const profileBtn = document.getElementById('profileBtn');
+        const profileDropdown = document.getElementById('profileDropdown');
+
+        profileBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            profileDropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!profileDropdown.contains(e.target)) {
+                profileDropdown.classList.remove('show');
+            }
+        });
+
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const sidebar = document.getElementById('sidebar');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+
+        function openSidebar() {
+            sidebar.classList.add('show');
+            mobileOverlay.classList.add('show');
+            // Remove the manual display style manipulation
         }
-    });
-</script>
+
+        function closeSidebar() {
+            sidebar.classList.remove('show');
+            mobileOverlay.classList.remove('show');
+        }
+
+        hamburgerMenu.addEventListener('click', function (e) {
+            e.stopPropagation();
+            openSidebar();
+        });
+
+        mobileOverlay.addEventListener('click', function () {
+            closeSidebar();
+        });
+
+        const menuLinks = document.querySelectorAll('.menu a');
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', closeSidebar);
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > 768) {
+                closeSidebar();
+            }
+        });
+    </script>
+
 @endsection

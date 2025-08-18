@@ -1102,3 +1102,6 @@ Route::get('/faq', function () {
 Route::get('/studentdashboard', function () {
     return view('studentdashboard');
 });
+Route::get('/courseContent', function () {
+    return view('courseContent');
+});

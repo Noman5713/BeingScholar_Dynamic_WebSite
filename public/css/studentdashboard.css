@@ -29,6 +29,13 @@ body {
     transform: translateX(-100%);
 }
 
+.sidebar h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 32px;
+    color: #1f2937;
+}
+
 .hamburger-menu {
     display: none;
     background: none;
@@ -38,6 +45,10 @@ body {
     padding: 8px;
     border-radius: 4px;
     transition: background-color 0.3s ease;
+}
+
+.hamburger{
+    width: 30px;
 }
 
 .hamburger-menu:hover {
@@ -64,11 +75,8 @@ body {
     z-index: 999;
 }
 
-.sidebar h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 32px;
-    color: #1f2937;
+.mobile-overlay.show {
+    display: block;
 }
 
 .menu {
@@ -110,12 +118,16 @@ body {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 32px;
+    flex-direction: row;
+    gap: 16px;
+    text-align: left;
 }
 
 .header-left {
     display: flex;
     align-items: center;
     gap: 16px;
+    flex: 1;
 }
 
 .header h1 {
@@ -134,6 +146,12 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: #1f2937;
+}
+
+.user-info .dashboard-greeting {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2b6cb0;
 }
 
 .avatar {
@@ -163,7 +181,6 @@ body {
     border-radius: 12px;
     box-shadow: 2px 4px 6px rgba(0, 0, 0, 1);
     transition: 0.3s;
-
 }
 
 .card:hover {
@@ -225,7 +242,6 @@ body {
     border-bottom: 1px solid #f3f4f6;
 }
 
-
 .badge {
     padding: 4px 12px;
     border-radius: 20px;
@@ -259,6 +275,94 @@ body {
     transition: width 0.3s ease;
 }
 
+.progress-bar.w80 {
+    width: 80%;
+}
+
+.progress-bar.w65 {
+    width: 65%;
+}
+
+.progress-bar.w40 {
+    width: 40%;
+}
+
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    color: #2b6cb0;
+    font-weight: 600;
+}
+
+.profile-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #e0e0e0;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 44px;
+    background: #fff;
+    min-width: 140px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    z-index: 100;
+    padding: 8px 0;
+}
+
+.dropdown-content a {
+    color: #222;
+    padding: 10px 18px;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+}
+
+.dropdown-content a:hover {
+    background: #e3e8f0;
+    color: #2b6cb0;
+}
+
+.profile-dropdown.show .dropdown-content {
+    display: block;
+}
+
+#mobileOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: transparent;
+    z-index: 2000;
+}
+
+#mobileOverlay.show {
+    display: block;
+}
+
 
 @media (max-width: 768px) {
     .hamburger-menu {
@@ -268,7 +372,6 @@ body {
     .sidebar {
         transform: translateX(-100%);
     }
-
 
     .sidebar.show {
         transform: translateX(0);

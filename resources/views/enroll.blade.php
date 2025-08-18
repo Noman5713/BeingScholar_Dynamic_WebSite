@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enroll - {{ $course['title'] }} - DIU BeingScholar</title>
+    <title>Enroll - {{ $course->title }} - DIU BeingScholar</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/enroll.css') }}">
@@ -35,7 +35,7 @@
     <section class="page-header">
         <div class="container">
             <h1 class="page-title">Course Enrollment</h1>
-            <p class="page-subtitle">Complete your payment to secure your spot in {{ $course['title'] }}</p>
+            <p class="page-subtitle">Complete your payment to secure your spot in {{ $course->title }}</p>
         </div>
     </section>
 
@@ -75,8 +75,8 @@
                         <!-- Payment Details Form -->
                         <form class="payment-form" id="paymentForm">
                             @csrf
-                            <input type="hidden" name="course_name" value="{{ $course['title'] }}">
-                            <input type="hidden" name="amount" value="{{ $course['new_price'] }}">
+                            <input type="hidden" name="course_name" value="{{ $course->title }}">
+                            <input type="hidden" name="amount" value="{{ $course->price }}">
                             
                             <!-- Mobile Banking Details -->
                             <div class="payment-details" id="mobile-banking-details">
@@ -85,7 +85,7 @@
                                     <div class="info-card">
                                         <h4>💰 Send Money To:</h4>
                                         <p class="account-number">01705644008</p>
-                                        <p class="payment-amount"><strong>Amount: ৳{{ $course['new_price'] }}</strong></p>
+                                        <p class="payment-amount"><strong>Amount: ৳{{ $course->price }}</strong></p>
                                     </div>
                                 </div>
                                 
@@ -95,7 +95,7 @@
                                         <li>Open your <strong>bKash/Nagad/Rocket</strong> app</li>
                                         <li>Select <strong>"Send Money"</strong> option</li>
                                         <li>Enter number: <strong>01705644008</strong></li>
-                                        <li>Enter amount: <strong>৳{{ $course['new_price'] }}</strong></li>
+                                        <li>Enter amount: <strong>৳{{ $course->price }}</strong></li>
                                         <li>Complete the transaction with your PIN</li>
                                         <li>Copy the <strong>Transaction ID</strong> from confirmation message</li>
                                         <li>Enter the Transaction ID in the field below</li>

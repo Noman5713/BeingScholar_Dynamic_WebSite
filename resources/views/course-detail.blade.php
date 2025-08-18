@@ -8,7 +8,7 @@
     <section class="breadcrumb-section">
         <div class="container">
             <nav class="breadcrumb">
-                <a href="/">Home</a> / <a href="/courses">Courses</a> / <span>{{ $course['title'] }}</span>
+                <a href="/">Home</a> / <a href="/courses">Courses</a> / <span>{{ $course->title }}</span>
             </nav>
         </div>
     </section>
@@ -22,21 +22,26 @@
                     <!-- Course Header -->
                     <div class="course-header">
                         <div class="course-badge-container">
-                            @if($course['badge'])
-                                <span class="course-badge">{{ $course['badge'] }}</span>
+                            @if($course->price < 1000)
+                                <span class="course-badge">New</span>
+                            @else
+                                <span class="course-badge">{{ round((($course->price * 1.5 - $course->price) / ($course->price * 1.5)) * 100) }}% OFF</span>
                             @endif
                         </div>
-                        <h1 class="course-title">{{ $course['title'] }}</h1>
+                        <h1 class="course-title">{{ $course->title }}</h1>
                         <div class="course-meta">
-                            <span class="batch">{{ $course['batch'] }}</span>
-                            @if($course['seats'])
-                                <span class="seats">{{ $course['seats'] }} seats remaining</span>
+                            <span class="batch">{{ $course->batch_number }}</span>
+                            @if($course->max_students)
+                                <span class="seats">{{ $course->max_students }} seats remaining</span>
                             @endif
-                            @if($course['days'])
-                                <span class="days">{{ $course['days'] }} days remaining</span>
+                            @if($course->start_date && $course->end_date)
+                                @php
+                                    $daysRemaining = \Carbon\Carbon::parse($course->end_date)->diffInDays(now());
+                                @endphp
+                                <span class="days">{{ $daysRemaining }} days remaining</span>
                             @endif
                         </div>
-                        <button class="enroll-btn" onclick="window.location.href='/enroll/{{ $course['id'] }}'">Enroll Now</button>
+                        <button class="enroll-btn" onclick="window.location.href='/enroll/{{ $course->id }}'">Enroll Now</button>
                     </div>
 
                     <!-- Course Navigation Tabs -->
@@ -53,7 +58,7 @@
                             <div class="course-description">
                                 <h2>Course Description</h2>
                                 <div class="description-content">
-                                    {!! nl2br(e($course['description'])) !!}
+                                    {!! nl2br(e($course->description)) !!}
                                 </div>
 
                                 <h3>Will You Get Certificate After the Course:</h3>
@@ -90,7 +95,7 @@
                                 @php
                                     // Always start with locked access (no session persistence)
                                     $hasAccess = false;
-                                    $firstTopic = $course['curriculum'][0] ?? [];
+                                    $firstTopic = ['Course Introduction', 'Getting Started', 'Basic Concepts'];
                                 @endphp
                                 
                                 @if(!$hasAccess)
@@ -105,7 +110,7 @@
                                                 <h4>Verify Your Payment</h4>
                                                 <form id="verifyTransactionForm">
                                                     @csrf
-                                                    <input type="hidden" name="course_name" value="{{ $course['title'] }}">
+                                                    <input type="hidden" name="course_name" value="{{ $course->title }}">
                                                     <div class="form-group">
                                                         <label for="trxn_id">Transaction ID:</label>
                                                         <input type="text" id="trxn_id" name="trxn_id" required placeholder="Enter your transaction ID">
@@ -119,7 +124,16 @@
                                 @endif
 
                                 <div class="topics-list">
-                                    @foreach($course['curriculum'] as $index => $topic)
+                                    @php
+                                        $curriculum = [
+                                            ['Course Introduction', 'Getting Started', 'Basic Concepts'],
+                                            ['Core Fundamentals', 'Key Principles', 'Practical Examples'],
+                                            ['Advanced Topics', 'Real-world Applications', 'Best Practices'],
+                                            ['Project Work', 'Hands-on Practice', 'Final Assessment']
+                                        ];
+                                    @endphp
+                                    
+                                    @foreach($curriculum as $index => $topic)
                                         <div class="topic-item {{ !$hasAccess && $index > 0 ? 'topic-locked' : '' }}">
                                             <h4>
                                                 Topic - {{ $index + 1 }}
@@ -165,7 +179,15 @@
                                     <div class="review-type">
                                         <h3>Web Review</h3>
                                         <div class="web-reviews">
-                                            @foreach($course['reviews']['web'] as $review)
+                                            @php
+                                                $webReviews = [
+                                                    ['name' => 'Ahmed Rahman', 'comment' => 'Excellent course with comprehensive coverage. The instructor explains complex topics very clearly.', 'rating' => 5],
+                                                    ['name' => 'Fatima Khan', 'comment' => 'Great practical approach with real-world projects. I learned to build my own applications.', 'rating' => 5],
+                                                    ['name' => 'Mohammad Ali', 'comment' => 'The course structure is well-organized and the assignments are challenging but rewarding.', 'rating' => 4]
+                                                ];
+                                            @endphp
+                                            
+                                            @foreach($webReviews as $review)
                                                 <div class="review-item">
                                                     <h4>{{ $review['name'] }}</h4>
                                                     <p>{{ $review['comment'] }}</p>
@@ -182,7 +204,14 @@
                                     <div class="review-type">
                                         <h3>Social Review</h3>
                                         <div class="social-reviews">
-                                            @foreach($course['reviews']['social'] as $review)
+                                            @php
+                                                $socialReviews = [
+                                                    ['name' => 'Rashida Begum', 'comment' => 'Highly recommended for anyone wanting to enter this field. Great value for money!', 'rating' => 5],
+                                                    ['name' => 'Karim Hassan', 'comment' => 'The instructor is knowledgeable and patient. Excellent support throughout the course.', 'rating' => 5]
+                                                ];
+                                            @endphp
+                                            
+                                            @foreach($socialReviews as $review)
                                                 <div class="review-item">
                                                     <h4>{{ $review['name'] }}</h4>
                                                     <p>{{ $review['comment'] }}</p>
@@ -199,7 +228,15 @@
                                     <div class="review-type">
                                         <h3>Video Review</h3>
                                         <div class="video-reviews">
-                                            @foreach($course['reviews']['video'] as $video)
+                                            @php
+                                                $videoReviews = [
+                                                    ['title' => 'Student Success Story'],
+                                                    ['title' => 'Course Overview and Expectations'],
+                                                    ['title' => 'Alumni Testimonial']
+                                                ];
+                                            @endphp
+                                            
+                                            @foreach($videoReviews as $video)
                                                 <div class="video-review-item">
                                                     <h4>{{ $video['title'] }}</h4>
                                                     <div class="video-placeholder">
@@ -219,34 +256,34 @@
                 <div class="course-sidebar">
                     <div class="course-info-card">
                         <div class="course-image">
-                            <img src="{{ $course['image'] }}" alt="{{ $course['title'] }}">
+                            <img src="{{ asset($course->banner_image) }}" alt="{{ $course->title }}">
                         </div>
                         
                         <div class="price-section">
                             <div class="price">
-                                @if($course['old_price'])
-                                    <span class="old-price">৳{{ $course['old_price'] }}</span>
-                                @endif
-                                <span class="new-price">৳{{ $course['new_price'] }}</span>
+                                                            @if($course->price > 1000)
+                                <span class="old-price">৳{{ number_format($course->price * 1.5) }}</span>
+                            @endif
+                            <span class="new-price">৳{{ number_format($course->price) }}</span>
                             </div>
                         </div>
 
                         <div class="course-details">
                             <div class="detail-item">
                                 <span class="label">Duration</span>
-                                <span class="value">{{ $course['duration'] }}</span>
+                                <span class="value">{{ $course->duration }}</span>
                             </div>
                             <div class="detail-item">
                                 <span class="label">Class Type</span>
-                                <span class="value">{{ $course['class_type'] }}</span>
+                                <span class="value">Live Classes</span>
                             </div>
                             <div class="detail-item">
                                 <span class="label">Access</span>
-                                <span class="value">{{ $course['access'] }}</span>
+                                <span class="value">Lifetime</span>
                             </div>
                         </div>
 
-                        <button class="enroll-btn-sidebar" onclick="window.location.href='/enroll/{{ $course['id'] }}'">Enroll Now</button>
+                        <button class="enroll-btn-sidebar" onclick="window.location.href='/enroll/{{ $course->id }}'">Enroll Now</button>
                     </div>
 
 

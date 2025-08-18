@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/homepage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     @yield('head')
+    @yield('styles')
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -21,7 +22,8 @@
                 <li><a href="/teachers">Teachers</a></li>
                 <li><a href="/faq">FAQ</a></li>
                 <li><a href="/success">Success & Reviews</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/#join">Join Us</a></li>
+                <li><a href="/contact" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a></li>
             </ul>
             <div class="login-btn"><a href="/login">Login/Register</a></div>
             <div class="menu-toggle" id="mobile-menu">

@@ -32,6 +32,11 @@
       margin-bottom: 32px;
   }
 
+  .header-left {
+      display: flex;
+      align-items: center;
+  }
+
   .user-profile {
       display: flex;
       align-items: center;

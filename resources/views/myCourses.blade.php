@@ -1,11 +1,16 @@
-@extends('layouts.main')
+@extends('layouts.dashboard')
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/mycourses.css') }}">
     
 @endsection
 @section('content')
     <div class="header-bar">
-        <div class="logo" style="font-size:1.6rem;font-weight:bold;color:#2b6cb0;">BeingScholar</div>
+        <div class="header-left">
+            <a href="{{ route('student.dashboard') }}" style="color: #2b6cb0; text-decoration: none; margin-right: 20px; font-size: 1.2rem;">
+                ← Back to Dashboard
+            </a>
+            <div class="logo" style="font-size:1.6rem;font-weight:bold;color:#2b6cb0;">BeingScholar</div>
+        </div>
         <div class="user-profile">
             <span class="user-name">{{ Auth::user()->name ?? 'Student' }}</span>
             <div class="avatar">

@@ -34,14 +34,33 @@ class StudentAuthController extends Controller
             'otp' => $otp,
         ]);
 
-        // Send OTP email
-        Mail::raw("Your OTP code is: $otp", function ($message) use ($user) {
-            $message->to($user->email)
-                ->subject('Email Verification OTP');
-        });
-
-        session(['student_otp_user_id' => $user->id]);
-        return redirect()->route('student.verify-otp.form')->with('status', 'Registration successful! Please verify your email.');
+        try {
+            // Send OTP email
+            Mail::raw("Your OTP verification code for BeingScholar registration is: $otp\n\nThis code will expire in 15 minutes for security reasons.\n\nIf you didn't request this code, please ignore this email.\n\nBest regards,\nBeingScholar Team", function ($message) use ($user) {
+                $message->to($user->email)
+                    ->subject('BeingScholar - Email Verification OTP')
+                    ->from(config('mail.from.address'), config('mail.from.name'));
+            });
+            
+            // Log the OTP for debugging (remove in production)
+            \Log::info("OTP generated for {$user->email}: $otp");
+            
+            // Store the OTP in the session for verification
+            session(['student_otp_user_id' => $user->id]);
+            return redirect()->route('student.verify-otp.form')
+                ->with('status', 'Registration successful! Please check your email for the verification code.')
+                ->with('email', $user->email);
+                
+        } catch (\Exception $e) {
+            // If mail sending fails, log the error but still allow the user to proceed
+            \Log::error("Failed to send OTP email to {$user->email}: " . $e->getMessage());
+            
+            session(['student_otp_user_id' => $user->id]);
+            return redirect()->route('student.verify-otp.form')
+                ->with('status', 'Registration successful! We had trouble sending your verification email. Your OTP code is: ' . $otp)
+                ->with('otp', $otp)
+                ->with('email', $user->email);
+        }
     }
 
     public function showLoginForm()
@@ -59,12 +78,33 @@ class StudentAuthController extends Controller
         $user = User::where('email', $request->email)->where('role', 'student')->first();
         if ($user && Hash::check($request->password, $user->password)) {
             if (!$user->email_verified_at) {
+                // Generate a new OTP and save it
+                $otp = rand(100000, 999999);
+                $user->otp = $otp;
+                $user->save();
+                
+                // Log the new OTP
+                \Log::info("New login OTP generated for {$user->email}: $otp");
+                
+                try {
+                    // Send OTP email
+                    Mail::raw("Your OTP verification code for BeingScholar login is: $otp\n\nThis code will expire in 15 minutes for security reasons.\n\nIf you didn't request this code, please secure your account immediately.\n\nBest regards,\nBeingScholar Team", function ($message) use ($user) {
+                        $message->to($user->email)
+                            ->subject('BeingScholar - Email Verification OTP')
+                            ->from(config('mail.from.address'), config('mail.from.name'));
+                    });
+                } catch (\Exception $e) {
+                    \Log::error("Failed to send login OTP email to {$user->email}: " . $e->getMessage());
+                }
+                
                 session(['student_otp_user_id' => $user->id]);
-                return redirect()->route('student.verify-otp.form')->withErrors(['email' => 'Please verify your email before logging in.']);
+                return redirect()->route('student.verify-otp.form')
+                    ->with('status', 'Please verify your email before logging in.')
+                    ->with('otp', $otp);
             }
             Auth::login($user);
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->route('student.dashboard')->with('status', 'Welcome back! You have successfully logged in.');
         }
         return back()->withErrors(['email' => 'Invalid credentials or not a student account.']);
     }
@@ -74,7 +114,7 @@ class StudentAuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/login');
+        return redirect()->route('student.login.form')->with('status', 'You have been logged out successfully.');
     }
 
     public function showVerifyOtpForm()
@@ -93,10 +133,8 @@ class StudentAuthController extends Controller
             $user->email_verified_at = now();
             $user->otp = null;
             $user->save();
-            Auth::login($user);
-            $request->session()->regenerate();
             session()->forget('student_otp_user_id');
-            return redirect('/')->with('status', 'Email verified and logged in!');
+            return redirect()->route('student.login.form')->with('status', 'Registration completed successfully! Please login to continue.');
         }
         return back()->withErrors(['otp' => 'Invalid OTP.']);
     }

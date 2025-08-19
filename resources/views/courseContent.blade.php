@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.dashboard')
 @section('head')
 <link rel="stylesheet" href="{{ asset('css/courseContent.css') }}">    
 @endsection

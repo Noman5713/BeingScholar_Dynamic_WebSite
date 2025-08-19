@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.dashboard')
 @section('head')
     <link rel="stylesheet" href="{{ asset('css/studentdashboard.css') }}">
 @endsection
@@ -9,7 +9,7 @@
             <h2>Student Dashboard</h2>
             <ul class="menu">
                 <li><a class="active" href="#overview">Overview</a></li>
-                <li><a href="/mycourses">My Courses</a></li>
+                <li><a href="{{ route('student.mycourses') }}">My Courses</a></li>
             </ul>
         </aside>
         <main class="main-content">
@@ -28,7 +28,10 @@
                                     alt="User Avatar" /></div>
                         </button>
                         <div class="dropdown-content" id="dropdownContent">
-                            <a href="#">Logout</a>
+                            <form action="{{ route('student.logout') }}" method="POST" style="display: inline;">
+                                @csrf
+                                <button type="submit" style="background: none; border: none; color: inherit; text-decoration: none; cursor: pointer; width: 100%; text-align: left; padding: 8px 12px;">Logout</button>
+                            </form>
                         </div>
                     </div>
                 </div>

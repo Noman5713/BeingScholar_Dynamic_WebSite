@@ -78,6 +78,21 @@ Route::post('/forgot-password', [App\Http\Controllers\StudentAuthController::cla
 Route::get('/reset-password/{token}', [App\Http\Controllers\StudentAuthController::class, 'showResetPasswordForm'])->name('student.reset-password.form');
 Route::post('/reset-password', [App\Http\Controllers\StudentAuthController::class, 'resetPassword'])->name('student.reset-password');
 
+// Protected Student Routes
+Route::middleware(['student'])->group(function () {
+    Route::get('/studentdashboard', function () {
+        return view('studentdashboard');
+    })->name('student.dashboard');
+    
+    Route::get('/mycourses', function () {
+        return view('myCourses');
+    })->name('student.mycourses');
+    
+    Route::get('/courseContent', function () {
+        return view('courseContent');
+    })->name('student.course-content');
+});
+
 Route::get('/certificate', function () {
     return view('certificate');
 });
@@ -99,9 +114,3 @@ use App\Http\Controllers\SuccessStoryController;
 
 Route::get('/success', [SuccessStoryController::class, 'index'])->name('success.index');
 Route::post('/submit-success', [SuccessStoryController::class, 'store'])->name('success.store');
-Route::get('/studentdashboard', function () {
-    return view('studentdashboard');
-});
-Route::get('/courseContent', function () {
-    return view('courseContent');
-});

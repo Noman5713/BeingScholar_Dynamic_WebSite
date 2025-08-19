@@ -76,6 +76,7 @@
                         <form class="payment-form" id="paymentForm">
                             @csrf
                             <input type="hidden" name="course_name" value="{{ $course->title }}">
+                            <input type="hidden" name="course_id" value="{{ $course->id }}">
                             <input type="hidden" name="amount" value="{{ $course->price }}">
                             
                             <!-- Mobile Banking Details -->

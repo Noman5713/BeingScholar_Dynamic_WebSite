@@ -4,19 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transaction;
+use App\Models\Course;
+use App\Models\CourseEnrollment;
 use Illuminate\Support\Facades\Validator;
 
 class TransactionController extends Controller
 {
-    /**
-     * Submit a new transaction from enrollment page
-     */
     public function submitTransaction(Request $request)
     {
-        // Validate the request data
         $validator = Validator::make($request->all(), [
             'transaction_id' => 'required|string|unique:transactions,trxn_id',
             'course_name' => 'required|string', 
+            'course_id' => 'required|exists:courses,id',
             'amount' => 'required|numeric',
             'payment_method' => 'required|string',
             'student_name' => 'nullable|string|max:255',
@@ -32,11 +31,13 @@ class TransactionController extends Controller
         }
 
         try {
-            // Create transaction record
+            $course = Course::findOrFail($request->course_id);
+            
             $transaction = Transaction::create([
                 'trxn_id' => $request->transaction_id,
                 'course_name' => $request->course_name,
-                'user_id' => auth()->id(), // null if not logged in
+                'course_id' => $request->course_id,
+                'user_id' => auth()->id(),
                 'amount' => $request->amount,
                 'payment_method' => $request->payment_method,
                 'status' => 'pending',
@@ -49,6 +50,20 @@ class TransactionController extends Controller
                     'user_agent' => $request->userAgent(),
                 ]),
             ]);
+
+            if (auth()->check()) {
+                CourseEnrollment::updateOrCreate(
+                    [
+                        'user_id' => auth()->id(),
+                        'course_id' => $request->course_id,
+                    ],
+                    [
+                        'enrolled_at' => now(),
+                        'status' => 'active',
+                        'progress_percentage' => 0.00,
+                    ]
+                );
+            }
 
             return response()->json([
                 'success' => true, 
@@ -65,29 +80,56 @@ class TransactionController extends Controller
         }
     }
 
-    /**
-     * Verify transaction for curriculum access
-     */
     public function verifyTransaction(Request $request)
     {
         $request->validate([
             'trxn_id' => 'required|string',
             'course_name' => 'required|string',
+            'course_id' => 'required|exists:courses,id',
         ]);
 
         $transaction = Transaction::where('trxn_id', $request->trxn_id)
             ->where('course_name', $request->course_name)
+            ->where('course_id', $request->course_id)
             ->whereIn('status', ['verified', 'pending'])
             ->first();
 
         if ($transaction) {
             if ($transaction->status === 'verified') {
+                if (auth()->check() && $transaction->course_id) {
+                    CourseEnrollment::updateOrCreate(
+                        [
+                            'user_id' => auth()->id(),
+                            'course_id' => $transaction->course_id,
+                        ],
+                        [
+                            'enrolled_at' => now(),
+                            'status' => 'active',
+                            'progress_percentage' => 0.00,
+                        ]
+                    );
+                }
+                
                 return response()->json([
                     'success' => true, 
                     'message' => '✅ Transaction verified! You now have full access to the curriculum.',
                     'access_granted' => true
                 ]);
             } else {
+                if (auth()->check() && $transaction->course_id) {
+                    CourseEnrollment::updateOrCreate(
+                        [
+                            'user_id' => auth()->id(),
+                            'course_id' => $transaction->course_id,
+                        ],
+                        [
+                            'enrolled_at' => now(),
+                            'status' => 'active',
+                            'progress_percentage' => 0.00,
+                        ]
+                    );
+                }
+                
                 return response()->json([
                     'success' => true, 
                     'message' => '⏳ Transaction found but pending verification. You have temporary access to the curriculum.',
@@ -102,9 +144,6 @@ class TransactionController extends Controller
         ]);
     }
 
-    /**
-     * Get transaction status (for checking payment status)
-     */
     public function getTransactionStatus(Request $request)
     {
         $request->validate([

@@ -12,6 +12,7 @@ class Transaction extends Model
     protected $fillable = [
         'trxn_id',
         'course_name',
+        'course_id',
         'user_id',
         'amount',
         'payment_method',
@@ -26,13 +27,16 @@ class Transaction extends Model
         'amount' => 'decimal:2',
     ];
 
-    // Relationship with User (transaction owner)
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Relationship with User (admin who verified)
+    public function course()
+    {
+        return $this->belongsTo(Course::class);
+    }
+
     public function verifiedBy()
     {
         return $this->belongsTo(User::class, 'verified_by');

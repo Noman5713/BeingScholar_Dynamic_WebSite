@@ -93,8 +93,6 @@
                                 
                                 <!-- Transaction Verification Form (if not verified) -->
                                 @php
-                                    // Always start with locked access (no session persistence)
-                                    $hasAccess = false;
                                     $firstTopic = ['Course Introduction', 'Getting Started', 'Basic Concepts'];
                                 @endphp
                                 
@@ -111,6 +109,7 @@
                                                 <form id="verifyTransactionForm">
                                                     @csrf
                                                     <input type="hidden" name="course_name" value="{{ $course->title }}">
+                                                    <input type="hidden" name="course_id" value="{{ $course->id }}">
                                                     <div class="form-group">
                                                         <label for="trxn_id">Transaction ID:</label>
                                                         <input type="text" id="trxn_id" name="trxn_id" required placeholder="Enter your transaction ID">

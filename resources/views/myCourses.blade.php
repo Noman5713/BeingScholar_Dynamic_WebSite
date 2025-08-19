@@ -13,8 +13,16 @@
         </div>
         <div class="user-profile">
             <span class="user-name">{{ Auth::user()->name ?? 'Student' }}</span>
-            <div class="avatar">
-                <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" alt="User Avatar" />
+            <div class="profile-dropdown" style="position: relative; display: inline-block;">
+                <div class="avatar" onclick="toggleDropdown()" style="cursor: pointer;">
+                    <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" alt="User Avatar" />
+                </div>
+                <div id="profileDropdown" class="dropdown-content" style="display: none; position: absolute; right: 0; top: 100%; background-color: white; min-width: 120px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 5px;">
+                    <form action="{{ route('student.logout') }}" method="POST" style="margin: 0;">
+                        @csrf
+                        <button type="submit" style="background: none; border: none; color: #333; text-decoration: none; cursor: pointer; width: 100%; text-align: left; padding: 12px 16px; display: block; font-size: 14px;">Logout</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -51,5 +59,20 @@
     </div>
 @endsection
 @section('scripts')
-    <!-- Place any page-specific scripts here -->
+    <script>
+        function toggleDropdown() {
+            const dropdown = document.getElementById('profileDropdown');
+            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Close dropdown when clicking outside
+        window.onclick = function(event) {
+            if (!event.target.matches('.avatar') && !event.target.matches('.avatar img')) {
+                const dropdown = document.getElementById('profileDropdown');
+                if (dropdown.style.display === 'block') {
+                    dropdown.style.display = 'none';
+                }
+            }
+        }
+    </script>
 @endsection

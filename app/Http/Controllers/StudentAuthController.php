@@ -114,7 +114,7 @@ class StudentAuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect()->route('student.login.form')->with('status', 'You have been logged out successfully.');
+        return redirect('/')->with('status', 'You have been logged out successfully.');
     }
 
     public function showVerifyOtpForm()

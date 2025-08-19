@@ -23,12 +23,12 @@
         <div class="teachers-grid">
             <!-- Teacher 1 -->
             <div class="teacher-card" data-category="programming">
-                <img src="{{ asset('images/teachers/teacher1.jpg') }}" alt="John Doe" class="teacher-image">
+                <img src="{{ asset('images/rezaur.png') }}" alt="John Doe" class="teacher-image">
                 <div class="teacher-info">
-                    <h3 class="teacher-name">John Doe</h3>
+                    <h3 class="teacher-name">Md. Rezaur Rahman</h3>
                     <h4 class="teacher-position">Senior Software Engineer</h4>
-                    <p class="teacher-organization">TechGiant Inc.</p>
-                    <p class="teacher-bio">John is a seasoned software engineer with over 10 years of experience in full-stack development. He specializes in Python, JavaScript, and cloud technologies.</p>
+                    <p class="teacher-organization">Enosis.</p>
+                    <p class="teacher-bio">Md. Rezaur Rahman is a seasoned software engineer with over 5 years of experience in full-stack development. He specializes in Python, JavaScript, and cloud technologies.</p>
                     <div class="teacher-social">
                         <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
@@ -39,12 +39,12 @@
 
             <!-- Teacher 2 -->
             <div class="teacher-card" data-category="data-science">
-                <img src="{{ asset('images/teachers/teacher2.jpg') }}" alt="Jane Smith" class="teacher-image">
+                <img src="{{ asset('images/zahidSir.jpg') }}" alt="Jane Smith" class="teacher-image">
                 <div class="teacher-info">
-                    <h3 class="teacher-name">Jane Smith</h3>
+                    <h3 class="teacher-name">Md. Zahid  Hasan</h3>
                     <h4 class="teacher-position">Data Science Lead</h4>
-                    <p class="teacher-organization">DataWorks Analytics</p>
-                    <p class="teacher-bio">Jane leads data science initiatives with expertise in machine learning, predictive modeling, and data visualization. She has worked on projects across finance and healthcare.</p>
+                    <p class="teacher-organization">Daffodil Intenational University</p>
+                    <p class="teacher-bio">Md. Zahid Hasan data science initiatives with expertise in machine learning, predictive modeling, and data visualization.He has worked on many projects.</p>
                     <div class="teacher-social">
                         <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
@@ -55,12 +55,12 @@
 
             <!-- Teacher 3 -->
             <div class="teacher-card" data-category="programming">
-                <img src="{{ asset('images/teachers/teacher3.jpg') }}" alt="Ahmed Khan" class="teacher-image">
+                <img src="{{ asset('images/nooriSir.jpg') }}" alt="Ahmed Khan" class="teacher-image">
                 <div class="teacher-info">
-                    <h3 class="teacher-name">Ahmed Khan</h3>
-                    <h4 class="teacher-position">Full Stack Developer</h4>
-                    <p class="teacher-organization">InnovaTech Solutions</p>
-                    <p class="teacher-bio">Ahmed specializes in modern web development frameworks and mobile app development. He has created numerous successful applications and mentored junior developers.</p>
+                    <h3 class="teacher-name">Dr. Sheak Rashed Haider Noori</h3>
+                    <h4 class="teacher-position">Proffesor and Head</h4>
+                    <p class="teacher-organization">Daffodil Intenational University</p>
+                    <p class="teacher-bio">Sheak Rashed Haider Noori specializes in modern web development frameworks and mobile app development. He has created numerous successful applications and mentored junior developers.</p>
                     <div class="teacher-social">
                         <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
@@ -71,12 +71,12 @@
 
             <!-- Teacher 4 -->
             <div class="teacher-card" data-category="design">
-                <img src="{{ asset('images/teachers/teacher4.jpg') }}" alt="Sophia Chen" class="teacher-image">
+                <img src="{{ asset('images/zionsir.jpg') }}" alt="Sophia Chen" class="teacher-image">
                 <div class="teacher-info">
-                    <h3 class="teacher-name">Sophia Chen</h3>
-                    <h4 class="teacher-position">UX/UI Design Lead</h4>
-                    <p class="teacher-organization">Creative Design Studio</p>
-                    <p class="teacher-bio">Sophia has transformed user experiences for Fortune 500 companies. Her design philosophy combines aesthetics with functionality to create intuitive interfaces.</p>
+                    <h3 class="teacher-name">Zion Mezba</h3>
+                    <h4 class="teacher-position">Lecturer</h4>
+                    <p class="teacher-organization">Daffodil International University</p>
+                    <p class="teacher-bio">Zion Mezba specializes in modern web development frameworks and mobile app development. He has created numerous successful applications.</p>
                     <div class="teacher-social">
                         <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
@@ -87,12 +87,12 @@
 
             <!-- Teacher 5 -->
             <div class="teacher-card" data-category="business">
-                <img src="{{ asset('images/teachers/teacher5.jpg') }}" alt="Michael Johnson" class="teacher-image">
+                <img src="{{ asset('images/dipuSir.jpg') }}" alt="Michael Johnson" class="teacher-image">
                 <div class="teacher-info">
-                    <h3 class="teacher-name">Michael Johnson</h3>
-                    <h4 class="teacher-position">Digital Marketing Strategist</h4>
-                    <p class="teacher-organization">Growth Hackers Inc.</p>
-                    <p class="teacher-bio">Michael has helped startups and established businesses grow their online presence through strategic digital marketing campaigns and SEO optimization.</p>
+                    <h3 class="teacher-name">Md. Hasanuzzaman Dipu</h3>
+                    <h4 class="teacher-position">Assistant Professor</h4>
+                    <p class="teacher-organization">Daffodil International University</p>
+                    <p class="teacher-bio">Md. Hasanuzzaman Dipu specializes in Audio Engineering for AR/VR Gaming.</p>
                     <div class="teacher-social">
                         <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
@@ -103,12 +103,12 @@
 
             <!-- Teacher 6 -->
             <div class="teacher-card" data-category="data-science">
-                <img src="{{ asset('images/teachers/teacher6.jpg') }}" alt="Priya Patel" class="teacher-image">
+                <img src="{{ asset('images/fizarSir.jpg') }}" alt="Priya Patel" class="teacher-image">
                 <div class="teacher-info">
-                    <h3 class="teacher-name">Priya Patel</h3>
-                    <h4 class="teacher-position">AI Research Scientist</h4>
-                    <p class="teacher-organization">Future AI Labs</p>
-                    <p class="teacher-bio">Priya conducts cutting-edge research in artificial intelligence and deep learning. She has published numerous papers in leading journals and conferences.</p>
+                    <h3 class="teacher-name">Dr. Fizar Ahamed</h3>
+                    <h4 class="teacher-position">Associate Professor</h4>
+                    <p class="teacher-organization">Daffodil Intenational University</p>
+                    <p class="teacher-bio">Fizar Ahamed specializes in IOT and work on many successull project</p>
                     <div class="teacher-social">
                         <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-icon"><i class="fab fa-github"></i></a>

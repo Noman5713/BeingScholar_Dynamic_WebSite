@@ -113,6 +113,19 @@ body {
     overflow-y: auto;
 }
 
+.module-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2b6cb0;
+    margin: 24px 0 12px 0;
+    padding: 8px 0;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.module-header:first-child {
+    margin-top: 0;
+}
+
 .lesson-card {
     background: #f3f3f3;
     border-radius: 12px;
@@ -120,6 +133,34 @@ body {
     margin-bottom: 18px;
     color: #222;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.lesson-card:hover {
+    background: #e8f2ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(43, 108, 176, 0.15);
+}
+
+.lesson-card.active {
+    background: #2b6cb0;
+    color: white;
+    box-shadow: 0 4px 16px rgba(43, 108, 176, 0.3);
+}
+
+.lesson-card.active .lesson-card-title {
+    color: white;
+}
+
+.lesson-card.active .lesson-card-details {
+    color: #e2e8f0;
+}
+
+.lesson-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
 
 .lesson-card-title {
@@ -138,6 +179,47 @@ body {
 .lesson-card-meta {
     font-size: 0.85rem;
     color: #888;
+}
+
+.pdf-viewer,
+.no-content {
+    padding: 40px;
+    text-align: center;
+    background: #f8f9fa;
+    border-radius: 12px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pdf-viewer h3,
+.no-content h3 {
+    color: #2b6cb0;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+}
+
+.pdf-viewer p,
+.no-content p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.pdf-link {
+    background: #2b6cb0;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.pdf-link:hover {
+    background: #1e4a8c;
 }
 
 @media (max-width: 900px) {

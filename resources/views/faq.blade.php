@@ -27,7 +27,7 @@
                     Help Center
                 </div>
                 <h1 class="faq-title">Frequently Asked Questions</h1>
-                <p class="faq-subtitle">Find answers to the most common questions about our courses, certifications, and services. Can't find what you're looking for? <a href="#contact" class="contact-link">Contact our support team</a>.</p>
+                <p class="faq-subtitle">Find answers to the most common questions about our courses, certifications, and services. Can't find what you're looking for? <a href="{{ url('/contact') }}" class="contact-link">Contact our support team</a>.</p>
             </div>
 
             <!-- Search functionality -->
@@ -365,7 +365,7 @@
                     <h3>Still need help?</h3>
                     <p>Can't find the answer you're looking for? Our support team is here to help.</p>
                     <div class="help-actions">
-                        <a href="#contact" class="help-btn primary">Contact Support</a>
+                        <a href="{{ url('/contact') }}" class="help-btn primary">Contact Support</a>
                         <a href="#chat" class="help-btn secondary">Live Chat</a>
                     </div>
                 </div>

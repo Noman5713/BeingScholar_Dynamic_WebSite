@@ -1,43 +1,103 @@
-* {
-    margin: 0;
-    padding: 0;
+/* Complete reset and isolation for student dashboard */
+.student-dashboard-page {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background-color: #f5f5f5 !important;
+    z-index: 9999 !important;
+    overflow: auto;
+    padding-top: 80px;
+}
+
+.student-dashboard-page * {
     box-sizing: border-box;
 }
 
+/* Student Dashboard specific overrides - direct targeting since this CSS only loads on dashboard */
+.navbar {
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 10000 !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+/* Force hide ONLY the hamburger menu, keep navbar visible */
+.menu-toggle,
+#mobile-menu {
+    display: none !important;
+}
+
+.nav-links.show {
+    display: none !important;
+}
+
+/* Override the layout.css media query that shows the hamburger */
+@media (max-width: 992px) {
+    .menu-toggle {
+        display: none !important;
+    }
+
+    /* Ensure navbar stays visible on mobile */
+    .navbar {
+        display: block !important;
+        visibility: visible !important;
+    }
+}
+
+/* Override any conflicting styles from other CSS files */
 body {
-    background-color: #f5f5f5;
+    background-color: #f5f5f5 !important;
     min-height: 100vh;
     color: #333;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px !important;
 }
 
-.container {
-    display: flex;
-    min-height: 100vh;
+.student-dashboard-page .container {
+    display: flex !important;
+    min-height: calc(100vh - 80px);
+    margin-top: 0;
+    position: relative;
+    z-index: 1;
+    width: 100%;
 }
 
-.sidebar {
+.student-dashboard-page .sidebar {
     width: 256px;
     background-color: #ffffff;
     padding: 24px;
     position: fixed;
-    height: 100vh;
-    z-index: 1000;
+    top: 80px;
+    left: 0;
+    height: calc(100vh - 80px);
+    z-index: 1500;
     transition: transform 0.3s ease;
+    pointer-events: auto;
 }
 
-.sidebar.mobile-hidden {
+.student-dashboard-page .sidebar.mobile-hidden {
     transform: translateX(-100%);
 }
 
-.sidebar h2 {
+.student-dashboard-page .sidebar * {
+    pointer-events: auto;
+}
+
+.student-dashboard-page .sidebar h2 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 32px;
     color: #1f2937;
+    pointer-events: auto;
 }
 
-.hamburger-menu {
-    display: none;
+.student-dashboard-page .hamburger-menu {
+    display: none !important;
     background: none;
     border: none;
     font-size: 24px;
@@ -47,15 +107,15 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.hamburger{
+.student-dashboard-page .hamburger {
     width: 30px;
 }
 
-.hamburger-menu:hover {
+.student-dashboard-page .hamburger-menu:hover {
     background-color: #f3f4f6;
 }
 
-.hamburger-menu span {
+.student-dashboard-page .hamburger-menu span {
     display: block;
     width: 25px;
     height: 3px;
@@ -64,7 +124,7 @@ body {
     transition: 0.3s;
 }
 
-.mobile-overlay {
+.student-dashboard-page .mobile-overlay {
     display: none;
     position: fixed;
     top: 0;
@@ -72,45 +132,63 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
+    z-index: 199;
 }
 
-.mobile-overlay.show {
+.student-dashboard-page .mobile-overlay.show {
     display: block;
 }
 
-.menu {
+.student-dashboard-page .menu {
     list-style: none;
+    position: relative;
+    z-index: 2000;
 }
 
-.menu li {
+.student-dashboard-page .menu li {
     margin-bottom: 8px;
 }
 
-.menu a {
+.student-dashboard-page .menu a {
     display: block;
     padding: 12px 16px;
     text-decoration: none;
     color: #6b7280;
     border-radius: 8px;
     transition: all 0.3s ease;
+    position: relative;
+    z-index: 2001;
+    pointer-events: auto;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 }
 
-.menu a:hover {
+.student-dashboard-page .menu a:hover {
     background-color: #f3f4f6;
     color: #1f2937;
 }
 
-.menu a.active {
+.student-dashboard-page .menu a:active {
+    background-color: #e5e7eb;
+}
+
+.student-dashboard-page .menu a.active {
     font-weight: 600;
     color: #1f2937;
     background-color: #e5e7eb;
 }
 
-.main-content {
+.student-dashboard-page .main-content {
     flex: 1;
     margin-left: 256px;
     padding: 24px;
+    margin-top: 0;
+    position: relative;
+    z-index: 50;
+    background-color: #f5f5f5;
+    min-height: calc(100vh - 80px);
+    width: calc(100% - 256px);
 }
 
 .header {
@@ -167,14 +245,16 @@ body {
     object-fit: cover;
 }
 
-.overview-section {
+.student-dashboard-page .overview-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px;
     margin-bottom: 40px;
+    visibility: visible;
+    opacity: 1;
 }
 
-.card {
+.student-dashboard-page .card {
     background: linear-gradient(to right, blue, cornflowerblue);
     color: white;
     padding: 24px;
@@ -183,27 +263,29 @@ body {
     transition: 0.3s;
 }
 
-.card:hover {
+.student-dashboard-page .card:hover {
     transform: scale(1.05);
 }
 
-.card.assignment {
+.student-dashboard-page .card.assignment {
     background: linear-gradient(to right, deepskyblue, cyan);
 }
 
-.card h2 {
+.student-dashboard-page .card h2 {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 12px;
 }
 
-.card .number {
+.student-dashboard-page .card .number {
     font-size: 36px;
     font-weight: bold;
 }
 
-.courses-section {
+.student-dashboard-page .courses-section {
     margin-bottom: 40px;
+    visibility: visible;
+    opacity: 1;
 }
 
 .courses-section h2 {
@@ -348,7 +430,7 @@ body {
     display: block;
 }
 
-#mobileOverlay {
+.student-dashboard-page #mobileOverlay {
     display: none;
     position: fixed;
     top: 0;
@@ -356,60 +438,68 @@ body {
     width: 100vw;
     height: 100vh;
     background: transparent;
-    z-index: 2000;
+    z-index: 1000;
+    pointer-events: none;
 }
 
-#mobileOverlay.show {
+.student-dashboard-page #mobileOverlay.show {
     display: block;
+    pointer-events: none;
 }
 
 
 @media (max-width: 768px) {
-    .hamburger-menu {
-        display: block;
+    .student-dashboard-page .hamburger-menu {
+        display: block !important;
     }
 
-    .sidebar {
+    .student-dashboard-page body {
+        padding-top: 80px;
+    }
+
+    .student-dashboard-page .sidebar {
         transform: translateX(-100%);
+        top: 80px;
     }
 
-    .sidebar.show {
+    .student-dashboard-page .sidebar.show {
         transform: translateX(0);
     }
 
-    .mobile-overlay.show {
+    .student-dashboard-page .mobile-overlay.show {
         display: block;
     }
 
-    .main-content {
+    .student-dashboard-page .main-content {
         margin-left: 0;
         padding: 16px;
+        width: 100%;
     }
 
-    .header {
+    .student-dashboard-page .header {
         flex-direction: row;
         gap: 16px;
         text-align: left;
     }
 
-    .header-left {
+    .student-dashboard-page .header-left {
         flex: 1;
     }
 
-    .user-info {
+    .student-dashboard-page .user-info {
         gap: 12px;
     }
 
-    .user-info h2 {
+    .student-dashboard-page .user-info h2 {
         font-size: 18px;
     }
 
-    .avatar {
+    .student-dashboard-page .avatar {
         width: 48px;
         height: 48px;
     }
 
-    .overview-section {
+    .student-dashboard-page .overview-section {
         grid-template-columns: 1fr;
     }
 }

@@ -24,7 +24,52 @@
                 <li><a href="/success">Success & Reviews</a></li>
                 <li><a href="/contact" class="{{ request()->is('contact') ? 'active' : '' }}">Contact</a></li>
             </ul>
-            <div class="login-btn"><a href="/login">Login/Register</a></div>
+            
+            @auth
+                @if(Auth::user()->isStudent())
+                    <div class="user-profile-nav">
+                        <div class="user-dropdown">
+                            <button class="user-profile-btn" id="userProfileBtn">
+                                <span class="user-name">{{ Auth::user()->name }}</span>
+                                <div class="user-avatar">
+                                    <img src="https://img.daisyui.com/images/profile/demo/yellingcat@192.webp" alt="User Avatar" />
+                                </div>
+                                <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8">
+                                    <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" fill="none"/>
+                                </svg>
+                            </button>
+                            <div class="user-dropdown-menu" id="userDropdownMenu">
+                                <a href="{{ route('student.dashboard') }}" class="dropdown-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                                    </svg>
+                                    Dashboard
+                                </a>
+                                <a href="{{ route('student.mycourses') }}" class="dropdown-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                                    </svg>
+                                    My Courses
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <form action="{{ route('student.logout') }}" method="POST" class="logout-form">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item logout-btn">
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.59L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+                                        </svg>
+                                        Logout
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                @else
+                    <div class="login-btn"><a href="/login">Login/Register</a></div>
+                @endif
+            @else
+                <div class="login-btn"><a href="/login">Login/Register</a></div>
+            @endauth
             <div class="menu-toggle" id="mobile-menu">
                 <span></span><span></span><span></span>
             </div>
@@ -87,6 +132,37 @@
                 menuToggle.addEventListener('click', function() {
                     navLinks.classList.toggle('show');
                     menuToggle.classList.toggle('active');
+                });
+            }
+
+            // User profile dropdown
+            const userProfileBtn = document.getElementById('userProfileBtn');
+            const userDropdownMenu = document.getElementById('userDropdownMenu');
+            
+            if (userProfileBtn && userDropdownMenu) {
+                userProfileBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Toggle dropdown
+                    userDropdownMenu.classList.toggle('show');
+                    userProfileBtn.classList.toggle('active');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!userProfileBtn.contains(e.target) && !userDropdownMenu.contains(e.target)) {
+                        userDropdownMenu.classList.remove('show');
+                        userProfileBtn.classList.remove('active');
+                    }
+                });
+
+                // Close dropdown when pressing Escape
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape') {
+                        userDropdownMenu.classList.remove('show');
+                        userProfileBtn.classList.remove('active');
+                    }
                 });
             }
         });

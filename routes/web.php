@@ -19,10 +19,6 @@ Route::get('/transaction-status/{trxn_id}', [TransactionController::class, 'getT
 
 Route::get('/enroll/{id}', [App\Http\Controllers\CourseController::class, 'enroll']);
 
-Route::get('/mycourses', function () {
-    return view('myCourses');
-});
-
 Route::get('/about', function () {
     return view('about');
 });

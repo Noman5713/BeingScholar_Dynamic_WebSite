@@ -104,7 +104,7 @@ class StudentAuthController extends Controller
             }
             Auth::login($user);
             $request->session()->regenerate();
-            return redirect()->route('student.dashboard')->with('status', 'Welcome back! You have successfully logged in.');
+            return redirect()->intended(route('student.dashboard'))->with('status', 'Welcome back! You have successfully logged in.');
         }
         return back()->withErrors(['email' => 'Invalid credentials or not a student account.']);
     }

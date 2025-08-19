@@ -27,7 +27,7 @@ class AdminController extends Controller
 
     public function manageCourses()
     {
-        $courses = Course::latest()->paginate(10);
+        $courses = Course::withTrashed()->latest()->paginate(10);
         return view('admin.manage-courses', compact('courses'));
     }
 
@@ -91,6 +91,58 @@ class AdminController extends Controller
             }
             
             return redirect()->route('admin.courses')->with('error', 'Failed to delete course: ' . $e->getMessage());
+        }
+    }
+
+    public function restoreCourse(Request $request, $courseId)
+    {
+        try {
+            $course = Course::withTrashed()->findOrFail($courseId);
+            $course->restore();
+            
+            if (request()->expectsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Course restored successfully!'
+                ]);
+            }
+            
+            return redirect()->route('admin.courses')->with('success', 'Course restored successfully!');
+        } catch (\Exception $e) {
+            if (request()->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Failed to restore course: ' . $e->getMessage()
+                ], 500);
+            }
+            
+            return redirect()->route('admin.courses')->with('error', 'Failed to restore course: ' . $e->getMessage());
+        }
+    }
+
+    public function forceDeleteCourse(Request $request, $courseId)
+    {
+        try {
+            $course = Course::withTrashed()->findOrFail($courseId);
+            $course->forceDelete();
+            
+            if (request()->expectsJson()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Course permanently deleted successfully!'
+                ]);
+            }
+            
+            return redirect()->route('admin.courses')->with('success', 'Course permanently deleted successfully!');
+        } catch (\Exception $e) {
+            if (request()->expectsJson()) {
+                return response()->json([
+                    'success' => false,
+                    'message' => 'Failed to permanently delete course: ' . $e->getMessage()
+                ], 500);
+            }
+            
+            return redirect()->route('admin.courses')->with('error', 'Failed to permanently delete course: ' . $e->getMessage());
         }
     }
 

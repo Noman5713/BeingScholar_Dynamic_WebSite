@@ -43,6 +43,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/courses/{course}/edit', [App\Http\Controllers\AdminController::class, 'editCourse'])->name('admin.courses.edit');
         Route::put('/courses/{course}', [App\Http\Controllers\AdminController::class, 'updateCourse'])->name('admin.courses.update');
         Route::delete('/courses/{course}', [App\Http\Controllers\AdminController::class, 'deleteCourse'])->name('admin.courses.delete');
+        Route::put('/courses/{courseId}/restore', [App\Http\Controllers\AdminController::class, 'restoreCourse'])->name('admin.courses.restore');
+        Route::delete('/courses/{courseId}/force-delete', [App\Http\Controllers\AdminController::class, 'forceDeleteCourse'])->name('admin.courses.force-delete');
 
         // User Management Routes
         Route::get('/users', [App\Http\Controllers\AdminController::class, 'manageUsers'])->name('admin.users');

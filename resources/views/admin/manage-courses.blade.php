@@ -397,6 +397,29 @@
             color: #fff;
         }
         
+        .btn-restore {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+        .btn-restore:hover {
+            background: #2e7d32;
+            color: #fff;
+        }
+        
+        .deleted-course {
+            opacity: 0.7;
+            border: 2px solid #ffcdd2;
+            background: #fff5f5;
+        }
+        
+        .deleted-course .course-title {
+            color: #666;
+        }
+        
+        .deleted-course .course-description {
+            color: #999;
+        }
+        
         @media (max-width: 1024px) {
             .sidebar { width: 220px; }
             .courses-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
@@ -491,7 +514,7 @@
                     </div>
                     <div class="courses-grid">
                         @foreach($courses as $course)
-                        <div class="course-card">
+                        <div class="course-card @if($course->trashed()) deleted-course @endif">
                             <div class="course-image-wrapper">
                                 <img src="{{ asset($course->banner_image ?? 'images/Course_Card_Banner/a.png') }}" alt="{{ $course->title }}" class="course-image">
                                 <span class="course-badge badge-{{ $course->status }}">{{ ucfirst($course->status) }}</span>
@@ -504,15 +527,18 @@
                                     <span class="course-students">👥 {{ $course->max_students ?? 0 }} students</span>
                                 </div>
                                 <div class="course-actions">
-                                    <button class="btn-action btn-edit" onclick="editCourse({{ $course->id }})">Edit</button>
-                                    @if($course->status === 'active')
-                                        <button class="btn-action btn-archive" onclick="archiveCourse({{ $course->id }})">Archive</button>
-                                    @elseif($course->status === 'draft')
-                                        <button class="btn-action btn-archive" onclick="publishCourse({{ $course->id }})">Publish</button>
+                                    @if($course->trashed())
+                                        <button class="btn-action btn-restore" onclick="restoreCourse({{ $course->id }})">Restore</button>
+                                        <button class="btn-action btn-delete" onclick="forceDeleteCourse({{ $course->id }})">Force Delete</button>
                                     @else
-                                        <button class="btn-action btn-archive" onclick="restoreCourse({{ $course->id }})">Restore</button>
+                                        <button class="btn-action btn-edit" onclick="editCourse({{ $course->id }})">Edit</button>
+                                        @if($course->status === 'active')
+                                            <button class="btn-action btn-archive" onclick="archiveCourse({{ $course->id }})">Archive</button>
+                                        @elseif($course->status === 'draft')
+                                            <button class="btn-action btn-archive" onclick="publishCourse({{ $course->id }})">Publish</button>
+                                        @endif
+                                        <button class="btn-action btn-delete" onclick="deleteCourse({{ $course->id }})">Delete</button>
                                     @endif
-                                    <button class="btn-action btn-delete" onclick="deleteCourse({{ $course->id }})">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -574,19 +600,46 @@
 
         function restoreCourse(courseId) {
             if (confirm('Restore this course?')) {
-                fetch('/admin/courses/' + courseId, {
+                fetch('/admin/courses/' + courseId + '/restore', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                    },
-                    body: JSON.stringify({
-                        status: 'active'
-                    })
+                    }
                 }).then(response => {
                     if (response.ok) {
                         location.reload();
+                    } else {
+                        response.json().then(data => {
+                            alert('Error: ' + (data.message || 'Failed to restore course'));
+                        });
                     }
+                }).catch(error => {
+                    console.error('Error:', error);
+                    alert('Error restoring course');
+                });
+            }
+        }
+
+        function forceDeleteCourse(courseId) {
+            if (confirm('Are you sure you want to permanently delete this course? This action cannot be undone.')) {
+                fetch('/admin/courses/' + courseId + '/force-delete', {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        response.json().then(data => {
+                            alert('Error: ' + (data.message || 'Failed to permanently delete course'));
+                        });
+                    }
+                }).catch(error => {
+                    console.error('Error:', error);
+                    alert('Error permanently deleting course');
                 });
             }
         }

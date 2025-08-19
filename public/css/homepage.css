@@ -1011,4 +1011,21 @@ body {
   }
 }
 
+/* Contact Button */
+.btn-contact {
+  display: inline-block;
+  background: #2b6cb0;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  border-radius: 24px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin: 1rem 0;
+}
+
+.btn-contact:hover {
+  background: #225080;
+}
+
 
